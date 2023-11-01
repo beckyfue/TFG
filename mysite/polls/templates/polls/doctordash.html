@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+
+<h2>Welcome to The DOCTOR Dashboard</h2>
+
+{% for message in success_messages %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+<!-- Other dashboard content here -->
+
+</body>
+</html>

@@ -2,6 +2,8 @@ import datetime
 from django.db import models
 from django.utils import timezone
 from django.contrib import admin
+from django.contrib.auth.models import AbstractUser
+from django.contrib.auth import get_user_model
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
@@ -19,11 +21,6 @@ class Question(models.Model):
         now = timezone.now()
         return now - datetime.timedelta(days=1) <= self.pub_date <= now
 
-
-
-
-
-
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
@@ -31,6 +28,16 @@ class Choice(models.Model):
     def __str__(self):
         return self.choice_text
     
+class CustomUser(AbstractUser):
+    USER_TYPES = (
+        ('patient', 'Patient'),
+        ('admin', 'Admin'),
+        ('doctor', 'Doctor'),
+    )
+    user_type = models.CharField(max_length=10, choices=USER_TYPES, default="patient")
+
+    def __str__(self):
+        return self.username
 
 
 
