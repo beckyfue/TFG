@@ -9,10 +9,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .forms import CustomRegistrationForm
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
+    print(request.user.user_type)
     latest_question_list = Question.objects.order_by("-pub_date")[:5]
 
     context = {"latest_question_list": latest_question_list}
@@ -50,26 +51,39 @@ def vote(request, question_id):
         # user hits the Back button.
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
 
+# views.py
+from django.contrib.auth import login
 
 def register(request):
     if request.method == 'POST':
         form = CustomRegistrationForm(request.POST)
-        print(form.is_valid())
         if form.is_valid():
             user = form.save()
-            user_type = form.cleaned_data['user_type']
             login(request, user)
-            if user_type == 'patient':
-                return render(request, 'polls/patientdash.html')
-            elif user_type == 'doctor':
-                return render(request, 'polls/doctordash.html')
-            if user_type == 'admin':
-                return render(request, 'polls/admindash.html')
-        
+            return redirect('polls:main') 
     else:
         form = CustomRegistrationForm()
     return render(request, 'registration/register.html', {'form': form})
 
 
+def custom_login(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('polls:main')  # Redirect to the main dashboard or another appropriate view
+        else:
+            messages.error(request, 'Invalid username or password', extra_tags='alert alert-danger text-center')
+            return render(request, 'polls/login.html')
+    else:
+        # If it's a GET request, simply render the login form
+        return render(request, 'polls/login.html')
+
 
    
+
+@login_required
+def main(request):
+    return render(request, 'polls/doctordash.html')

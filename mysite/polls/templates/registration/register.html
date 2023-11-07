@@ -5,44 +5,36 @@
 </head>
 <body>
 
-<h2>User Registration</h2>
+<div class="container">
+    <h2>User Registration</h2>
 
-<form method="post">
-    {% csrf_token %}
+    <form method="post">
+        {% csrf_token %}
+        <!-- Display username field -->
+        <label for="id_username">Username:</label>
+        <input type="text" id="id_username" name="username">
+        {{ form.username.errors }}
 
-    <!-- Display username field -->
-    <label for="id_username">Username:</label>
-    <input type="text" id="id_username" name="username">
-    {{ form.username.errors }}
+        <br>
 
-    <br>
+        <!-- Display password fields -->
+        <label for="id_password1">Password:</label>
+        <input type="password" id="id_password1" name="password1">
+        {{ form.password1.errors }}
 
-    <!-- Display password fields -->
-    <label for="id_password1">Password:</label>
-    <input type="password" id="id_password1" name="password1">
-    {{ form.password1.errors }}
+        <br>
 
-    <br>
+        <label for="id_password2">Confirm Password:</label>
+        <input type="password" id="id_password2" name="password2">
+        {{ form.password2.errors }}
 
-    <label for="id_password2">Confirm Password:</label>
-    <input type="password" id="id_password2" name="password2">
-    {{ form.password2.errors }}
+        <br>
 
-    <br>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
 
-    <!-- Display user type field -->
-    <label for="id_user_type">User Type:</label>
-    <select id="id_user_type" name="user_type">
-        {% for value, label in form.user_type.field.choices %}
-            <option value="{{ value }}">{{ label }}</option>
-        {% endfor %}
-    </select>
-    {{ form.user_type.errors }}
-
-    <br>
-
-    <button type="submit">Register</button>
-</form>
+    <p>Already have an account? <a href="{% url 'polls:custom_login' %}" class="btn btn-secondary">Log In</a></p>
+</div>
 
 </body>
 </html>
