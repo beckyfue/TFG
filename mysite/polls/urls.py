@@ -1,5 +1,5 @@
 from django.urls import path
-from.import views
+from . import views
 
 app_name = "polls"
 urlpatterns = [
@@ -10,4 +10,6 @@ urlpatterns = [
     path('login/', views.custom_login, name='custom_login'), 
     path('register/', views.register, name='register'),
     path('main/', views.main, name='main'), 
+    path('create_patient/', views.create_patient, name='create_patient'),
+
 ]

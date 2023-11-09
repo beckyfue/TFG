@@ -35,9 +35,11 @@ class CustomUser(AbstractUser):
         ('doctor', 'Doctor'),
     )
     user_type = models.CharField(max_length=10, choices=USER_TYPES, default="patient")
+    assigned_doctor = models.ForeignKey(blank=True, null=True, to='self', on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.username
+
 
 
 
