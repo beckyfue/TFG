@@ -6,10 +6,12 @@
 <body>
     <div class="container">
         <h2>Login</h2>
-        {% if authenticate == False %}
-            <div class="alert alert-danger text-center">
-                Invalid username or password
-            </div>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger text-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
         {% endif %}
         <form method="post">
             {% csrf_token %}
@@ -23,6 +25,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
+        <p>Don't have an account? <a href="{% url 'polls:register' %}">Register here</a></p>
     </div>
 </body>
 </html>

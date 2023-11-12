@@ -12,6 +12,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import PatientCreationForm
 import json
+from django.contrib.auth import logout as auth_logout
+
 
 
 def index(request):
@@ -67,7 +69,7 @@ def register(request):
     else:
         form = CustomRegistrationForm()
     print(form.errors)
-    return render(request, 'registration/register2.html', {'form': form, "form_errors": json.loads(form.errors.as_json())})
+    return render(request, 'registration/register.html', {'form': form, "form_errors": json.loads(form.errors.as_json())})
 
 
 def custom_login(request):
@@ -86,12 +88,12 @@ def custom_login(request):
 
  
 
-@login_required
+@login_required(login_url='polls:custom_login')
 def main(request):
     return render(request, 'polls/doctordash.html')
 
 
-@login_required
+@login_required(login_url='polls:custom_login')
 def create_patient(request):
     if request.user.user_type == "doctor":
         if request.method == 'POST':
@@ -114,3 +116,11 @@ def create_patient(request):
     else:
         return redirect('/')
 
+
+
+@login_required(login_url='polls:custom_login')
+def user_logout(request):
+    if request.user.is_authenticated:
+        auth_logout(request)
+        messages.success(request, 'Correct Logout', extra_tags='alert alert-info text-center')
+    return render(request, 'polls/login.html')

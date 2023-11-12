@@ -10,24 +10,38 @@
 
     <form method="post">
         {% csrf_token %}
+
+        {% if form.errors %}
+            <div class="alert alert-danger text-center">
+                Please correct the errors below.
+            </div>
+        {% endif %}
+
         <div class="form-group">
-            <label for="id_username">Username:</label>
-            <input type="text" id="id_username" name="username" required>
+            <label for="{{ form.username.id_for_label }}">Username:</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="text-danger">{{ form.username.errors }}</div>
+            {% endif %}
         </div>
 
         <div class="form-group">
-            <label for="id_password1">Password:</label>
-            <input type="password" id="id_password1" name="password1" required>
+            <label for="{{ form.password1.id_for_label }}">Password:</label>
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+                <div class="text-danger">{{ form.password1.errors }}</div>
+            {% endif %}
         </div>
 
         <div class="form-group">
-            <label for="id_password2">Confirm Password:</label>
-            <input type="password" id="id_password2" name="password2" required>
+            <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+                <div class="text-danger">{{ form.password2.errors }}</div>
+            {% endif %}
         </div>
-
 
         <input type="hidden" name="assigned_doctor" value="{{ user.id }}">
-        <!-- This hidden input field sets the assigned_doctor to the current user (doctor) -->
 
         <button type="submit" class="btn btn-primary">Create Patient</button>
     </form>
