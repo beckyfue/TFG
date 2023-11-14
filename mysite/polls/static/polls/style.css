@@ -4,4 +4,5 @@ li a {
 
 body {
     background: white url("images/MINDMANSION.png") no-repeat;
+    background-size: 100% 100%;
 }

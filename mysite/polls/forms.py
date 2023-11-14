@@ -2,10 +2,6 @@ from django import forms
 from .models import CustomUser
 from django.contrib.auth.forms import UserCreationForm
 
-from django import forms
-from .models import CustomUser
-from django.contrib.auth.forms import UserCreationForm
-
 class CustomRegistrationForm(UserCreationForm):
     class Meta:
         model = CustomUser
