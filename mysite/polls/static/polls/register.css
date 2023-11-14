@@ -38,22 +38,6 @@
     position: relative;
 }
 
-.login-sec .copy-text {
-    position: absolute;
-    width: 80%;
-    bottom: 20px;
-    font-size: 13px;
-    text-align: center;
-}
-
-.login-sec .copy-text i {
-    color: #FEB58A;
-}
-
-.login-sec .copy-text a {
-    color: #E36262;
-}
-
 .login-sec h2 {
     margin-bottom: 30px;
     font-weight: 800;
@@ -77,30 +61,4 @@
     background: #DE6262;
     color: #fff;
     font-weight: 600;
-}
-
-.banner-text {
-    width: 70%;
-    position: absolute;
-    bottom: 40px;
-    padding-left: 20px;
-}
-
-.banner-text h2 {
-    color: #fff;
-    font-weight: 600;
-}
-
-.banner-text h2:after {
-    content: " ";
-    width: 100px;
-    height: 5px;
-    background: #FFF;
-    display: block;
-    margin-top: 20px;
-    border-radius: 3px;
-}
-
-.banner-text p {
-    color: #fff;
 }
