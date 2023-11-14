@@ -6,7 +6,6 @@ from django.http import Http404
 from django.urls import reverse
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
 from .forms import CustomRegistrationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -123,4 +122,4 @@ def user_logout(request):
     if request.user.is_authenticated:
         auth_logout(request)
         messages.success(request, 'Correct Logout', extra_tags='alert alert-info text-center')
-    return render(request, 'polls/login.html')
+    return redirect('polls:custom_login')
