@@ -1,4 +1,5 @@
-@import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+/* custom.css */
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
 .login-block {
     background: #DE6262;
@@ -10,11 +11,10 @@
 }
 
 .banner-sec {
-    background: url("images/MINDMANSIONRECT.png") no-repeat;
-    background-size: contain;
-    background-position: center;
+    background: url("images/MINDMANSIONRECT.png") no-repeat left bottom;
+    background-size: cover;
     min-height: 500px;
-    border-radius: 10px 0 0 10px; /* Adjust border-radius to match the new layout */
+    border-radius: 0 10px 10px 0;
     padding: 0;
 }
 
@@ -36,7 +36,6 @@
 .login-sec {
     padding: 50px 30px;
     position: relative;
-    border-radius: 0 10px 10px 0; /* Adjust border-radius to match the new layout */
 }
 
 .login-sec .copy-text {

@@ -1,40 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
+    <!-- Bootstrap CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- Your custom CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/register.css' %}">
 </head>
 <body>
+    <section class="login-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 banner-sec">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <!-- ... (carousel content, you can keep it as it is) ... -->
+                    </div>
+                </div>
+                <div class="col-md-4 login-sec">
+                    <h2 class="text-center">User Registration</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_username">Username:</label>
+                            <input type="text" class="form-control" id="id_username" name="username">
+                            {{ form.username.errors }}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_password1">Password:</label>
+                            <input type="password" class="form-control" id="id_password1" name="password1">
+                            {{ form.password1.errors }}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_password2">Confirm Password:</label>
+                            <input type="password" class="form-control" id="id_password2" name="password2">
+                            {{ form.password2.errors }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                    <p>Already have an account? <a href="{% url 'polls:custom_login' %}" class="btn btn-secondary">Log In</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="container">
-    <h2>User Registration</h2>
-
-    <form method="post">
-        {% csrf_token %}
-        <!-- Display username field -->
-        <label for="id_username">Username:</label>
-        <input type="text" id="id_username" name="username">
-        {{ form.username.errors }}
-
-        <br>
-
-        <!-- Display password fields -->
-        <label for="id_password1">Password:</label>
-        <input type="password" id="id_password1" name="password1">
-        {{ form.password1.errors }}
-
-        <br>
-
-        <label for="id_password2">Confirm Password:</label>
-        <input type="password" id="id_password2" name="password2">
-        {{ form.password2.errors }}
-
-        <br>
-
-        <button type="submit" class="btn btn-primary">Register</button>
-    </form>
-
-    <p>Already have an account? <a href="{% url 'polls:custom_login' %}" class="btn btn-secondary">Log In</a></p>
-</div>
-
+    <!-- Bootstrap JS and jQuery -->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
