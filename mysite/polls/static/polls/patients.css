@@ -1,0 +1,14 @@
+/* patients.css */
+
+body, html {
+    height: 100%;
+    margin: 0;
+    background: #DE6262;
+    background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
+    background: linear-gradient(to bottom, #FFB88C, #DE6262);
+}
+
+.welcome {
+    color: white;
+}
+

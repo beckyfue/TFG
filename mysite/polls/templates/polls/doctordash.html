@@ -113,6 +113,11 @@
                     <span class="glyphicon glyphicon-user"></span> Create Patient
                 </a>
             </li>
+            <li class="{% if request.path == '/patients/' %}active{% endif %}">
+                <a href="{% url 'polls:patients' %}">
+                    <span class="glyphicon glyphicon-list"></span> Patients
+                </a>
+            </li>
             <li>
                 <a href="{% url 'polls:user_logout' %}" class="btn btn-logout">
                     <span class="glyphicon glyphicon-log-out"></span> Logout

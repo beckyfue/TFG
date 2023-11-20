@@ -1,0 +1,15 @@
+{% extends 'polls/doctordash.html' %}
+
+{% block content %}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/patients.css' %}">
+    <div class="container">
+        <h1 class="welcome text-center">Assigned Patients</h1>
+        <ul>
+            {% for patient in patients %}
+                <li>{{ patient.username }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

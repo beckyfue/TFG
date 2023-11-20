@@ -58,6 +58,8 @@ def vote(request, question_id):
 from django.contrib.auth import login
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect('polls:main')
     if request.method == 'POST':
         form = CustomRegistrationForm(request.POST)
         print(form.errors)
@@ -131,3 +133,14 @@ def user_logout(request):
 @login_required(login_url='polls:custom_login')
 def homepage(request):
     return render(request, 'polls/homepage.html')
+
+
+@login_required(login_url='polls:custom_login')
+def patients(request):
+    if request.user.user_type == "doctor":
+        # Retrieve the list of patients assigned to the doctor
+        patients_assigned_to_doctor = CustomUser.objects.filter(assigned_doctor=request.user)
+
+        return render(request, 'polls/patients.html', {'patients': patients_assigned_to_doctor})
+    else:
+        return redirect('/')
