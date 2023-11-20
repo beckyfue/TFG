@@ -12,5 +12,7 @@ urlpatterns = [
     path('main/', views.main, name='main'), 
     path('create_patient/', views.create_patient, name='create_patient'),
     path('logout/', views.user_logout, name='user_logout'),
+    path('homepage/', views.homepage, name='homepage'),
+
 
 ]

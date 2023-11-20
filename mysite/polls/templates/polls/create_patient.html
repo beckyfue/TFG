@@ -1,65 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create New Patient</title>
-    <!-- Bootstrap CSS -->
+{% extends 'polls/doctordash.html' %}
+
+{% block content %}
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <!-- Your custom CSS -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'polls/create_patient.css' %}">
-</head>
-<body>
 
-<div class="container">
-    <h1 class="welcome text-center">ASSIGN PATIENT TO DOCTOR</h1>
+    <div class="container">
+        <h1 class="welcome text-center">ASSIGN PATIENT TO DOCTOR</h1>
 
-    <div class="card card-container">
-        <h2 class='login_title text-center'>New Patient</h2>
-        <hr>
+        <div class="card card-container">
+            <h2 class='login_title text-center'>New Patient</h2>
+            <hr>
 
-        <form method="post" class="form-signin">
-            {% csrf_token %}
+            <form method="post" class="form-signin">
+                {% csrf_token %}
 
-            {% if form.errors %}
-                <div class="alert alert-danger text-center">
-                    Please correct the errors below.
+                {% if form.errors %}
+                    <div class="alert alert-danger text-center">
+                        Please correct the errors below.
+                    </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <p class="input_title">Username</p>
+                    {{ form.username }}
+                    {% if form.username.errors %}
+                        <div class="text-danger">{{ form.username.errors }}</div>
+                    {% endif %}
                 </div>
-            {% endif %}
 
-            <div class="form-group">
-                <p class="input_title">Username</p>
-                {{ form.username }}
-                {% if form.username.errors %}
-                    <div class="text-danger">{{ form.username.errors }}</div>
-                {% endif %}
-            </div>
+                <div class="form-group">
+                    <p class="input_title">Password</p>
+                    {{ form.password1 }}
+                    {% if form.password1.errors %}
+                        <div class="text-danger">{{ form.password1.errors }}</div>
+                    {% endif %}
+                </div>
 
-            <div class="form-group">
-                <p class="input_title">Password</p>
-                {{ form.password1 }}
-                {% if form.password1.errors %}
-                    <div class="text-danger">{{ form.password1.errors }}</div>
-                {% endif %}
-            </div>
+                <div class="form-group">
+                    <p class="input_title">Confirm Password</p>
+                    {{ form.password2 }}
+                    {% if form.password2.errors %}
+                        <div class="text-danger">{{ form.password2.errors }}</div>
+                    {% endif %}
+                </div>
 
-            <div class="form-group">
-                <p class="input_title">Confirm Password</p>
-                {{ form.password2 }}
-                {% if form.password2.errors %}
-                    <div class="text-danger">{{ form.password2.errors }}</div>
-                {% endif %}
-            </div>
+                <input type="hidden" name="assigned_doctor" value="{{ user.id }}">
 
-            <input type="hidden" name="assigned_doctor" value="{{ user.id }}">
-
-            <button class="btn btn-lg btn-primary" type="submit">Create Patient</button>
-        </form>
+                <button class="btn btn-lg btn-primary" type="submit">Create Patient</button>
+            </form>
+        </div>
     </div>
-</div>
-
-<!-- Bootstrap JS and jQuery -->
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
-</body>
-</html>
+{% endblock %}

@@ -93,7 +93,7 @@ def custom_login(request):
 
 @login_required(login_url='polls:custom_login')
 def main(request):
-    return render(request, 'polls/doctordash.html')
+    return render(request, 'polls/homepage.html')
 
 
 @login_required(login_url='polls:custom_login')
@@ -127,3 +127,7 @@ def user_logout(request):
         auth_logout(request)
         messages.success(request, 'Correct Logout', extra_tags='alert alert-info text-center')
     return redirect('polls:custom_login')
+
+@login_required(login_url='polls:custom_login')
+def homepage(request):
+    return render(request, 'polls/homepage.html')

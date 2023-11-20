@@ -1,0 +1,40 @@
+{% extends 'polls/doctordash.html' %}
+
+{% block content %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/homepage.css' %}">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <div class="homepage-content">
+        <div class="text-section">
+            <h2>Welcome to The DOCTOR Dashboard</h2>
+            <div id="datetime"></div>
+            {% for message in success_messages %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="image-section">
+            <!-- Add your image source here -->
+            <img src="{% static 'polls/images/homepage.png' %}" alt="Image description">
+        </div>
+    </div>
+
+<script>
+    $(document).ready(function(){
+        function updateDateTime() {
+            var now = new Date();
+            var formattedDateTime = now.toLocaleString();
+            $("#datetime").text(formattedDateTime);
+        }
+
+        // Initial call
+        updateDateTime();
+
+        // Update every second
+        setInterval(updateDateTime, 1000);
+    });
+</script>
+
+{% endblock %}
