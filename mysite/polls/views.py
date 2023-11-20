@@ -72,6 +72,8 @@ def register(request):
 
 
 def custom_login(request):
+    if request.user.is_authenticated:
+        return redirect('polls:main')
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
@@ -87,8 +89,7 @@ def custom_login(request):
             messages.error(request, 'You need to log in first', extra_tags='alert alert-danger text-center')
         
         return render(request, 'polls/login.html')
-
- 
+    
 
 @login_required(login_url='polls:custom_login')
 def main(request):
