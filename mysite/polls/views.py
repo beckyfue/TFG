@@ -83,6 +83,9 @@ def custom_login(request):
             messages.error(request, 'Invalid username or password', extra_tags='alert alert-danger text-center')
             return render(request, 'polls/login.html')
     else:
+        if len(request.META["QUERY_STRING"]) > 0:
+            messages.error(request, 'You need to log in first', extra_tags='alert alert-danger text-center')
+        
         return render(request, 'polls/login.html')
 
  
