@@ -95,7 +95,11 @@ def custom_login(request):
 
 @login_required(login_url='polls:custom_login')
 def main(request):
-    return render(request, 'polls/homepage.html')
+    if request.user.user_type == "doctor":
+        return render(request, 'polls/homepage.html')
+    else:
+        return render(request, 'polls/patientdash.html') 
+        
 
 
 @login_required(login_url='polls:custom_login')
