@@ -114,12 +114,13 @@ def create_patient(request):
                 #Now we can save the patient to the database
                 patient.save()
                 return redirect('polls:main')  
-        else: #Then ir would be a GET
+        else: #Then it would be a GET
             form = PatientCreationForm()
 
         return render(request, 'polls/create_patient.html', {'form': form})
     else:
         return redirect('/')
+
 
 
 
@@ -138,7 +139,6 @@ def homepage(request):
 @login_required(login_url='polls:custom_login')
 def patients(request):
     if request.user.user_type == "doctor":
-        # Retrieve the list of patients assigned to the doctor
         patients_assigned_to_doctor = CustomUser.objects.filter(assigned_doctor=request.user)
 
         return render(request, 'polls/patients.html', {'patients': patients_assigned_to_doctor})

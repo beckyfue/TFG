@@ -5,11 +5,21 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'polls/patients.css' %}">
     <div class="container">
-        <h1 class="welcome text-center">Assigned Patients</h1>
-        <ul>
-            {% for patient in patients %}
-                <li>{{ patient.username }}</li>
-            {% endfor %}
-        </ul>
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="welcome text-center">Assigned Patients</h1>
+                <ul class="patient-list">
+                    {% for patient in patients %}
+                        <li class="patient-item">
+                            <a href="#">{{ patient.username }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-6 image-column">
+                <!-- Add your image here -->
+                <img src="{% static 'polls/images/assignedpatient.png' %}" alt="Image" class="img-responsive">
+            </div>
+        </div>
     </div>
 {% endblock %}
