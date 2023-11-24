@@ -1,0 +1,87 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background: #DE6262;
+    background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
+    background: linear-gradient(to bottom, #FFB88C, #DE6262);
+}
+
+.container {
+    margin-top: 16px;
+}
+
+.welcome {
+    color: white;
+    font-size: 46px;
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 80vh; /* Set fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea,
+form input[type="number"] {
+    width: calc(100% - 20px); /* Adjusted width to account for padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Adjusted height for the pathology details textarea */
+form textarea {
+    height: 100px; /* Adjust as needed */
+}
+
+form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Optional: Add styling for form validation errors */
+form .errorlist {
+    color: #FF0000;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.message-box {
+    background-color: white;
+    padding: 2px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;  /* Center content horizontally */
+    align-items: center;  /* Center content vertically */
+}
+
+.success-message {
+    color: black; /* Change to the desired color */
+    font-weight: bold;
+    text-align: center;
+    background-color: #4CAF50; /* Background color for success messages */
+    padding: 10px; /* Padding for success messages */
+}

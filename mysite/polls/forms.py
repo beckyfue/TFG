@@ -1,6 +1,7 @@
 from django import forms
 from .models import CustomUser
 from django.contrib.auth.forms import UserCreationForm
+from django.core.validators import EmailValidator
 
 class CustomRegistrationForm(UserCreationForm):
     class Meta:
@@ -21,5 +22,16 @@ class PatientCreationForm(UserCreationForm):
         model = CustomUser
         fields = ("username", "password1", "password2")
 
-    
+
+class PatientEditForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['name', 'surname', 'email', 'age', 'pathology_details']
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Add the min_value constraint for the age field
+        self.fields['age'].widget.attrs['min'] = 0
+        self.fields['email'].validators.append(EmailValidator(message='Please enter a valid email address.'))
 

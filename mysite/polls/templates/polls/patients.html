@@ -11,7 +11,7 @@
                 <ul class="patient-list">
                     {% for patient in patients %}
                         <li class="patient-item">
-                            <a href="#">{{ patient.username }}</a>
+                            <a href="{% url 'polls:patient_detail' patient.id %}">{{ patient.username }}</a>
                             <span class="date-added">Added on: {{ patient.date_joined|date:"F d, Y" }}</span>
                         </li>
                     {% endfor %}

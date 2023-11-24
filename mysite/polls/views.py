@@ -134,9 +134,18 @@ def user_logout(request):
         messages.success(request, 'Correct Logout', extra_tags='alert alert-info text-center')
     return redirect('polls:custom_login')
 
-@login_required(login_url='polls:custom_login')
+from django.db.models import Count
+
 def homepage(request):
-    return render(request, 'polls/homepage.html')
+    if request.user.user_type == "doctor":
+        # Assuming you have a related_name set in the assigned_doctor ForeignKey
+        patient_count_over_time = CustomUser.objects.filter(assigned_doctor=request.user
+        ).values('date_joined__date').annotate(patient_count=Count('id')).order_by('date_joined__date')
+
+        return render(request, 'polls/homepage.html', {'patient_count_over_time': patient_count_over_time})
+    else:
+        return redirect('/')
+
 
 
 def patients(request):
@@ -155,3 +164,22 @@ def games(request):
 @login_required(login_url='polls:custom_login')
 def patient_homepage(request):
     return render(request, 'polls/patient_homepage.html')
+
+
+
+from django.shortcuts import render, get_object_or_404
+from .forms import PatientEditForm
+
+
+def patient_detail(request, patient_id):
+    patient = get_object_or_404(CustomUser, id=patient_id)
+
+    if request.method == 'POST':
+        form = PatientEditForm(request.POST, instance=patient)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Changes saved successfully.')
+    else:
+        form = PatientEditForm(instance=patient)
+
+    return render(request, 'polls/patient_detail.html', {'patient': patient, 'form': form})
