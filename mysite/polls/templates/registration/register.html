@@ -6,6 +6,7 @@
     <title>User Registration</title>
     <!-- Bootstrap CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
     <!-- Your custom CSS -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'polls/register.css' %}">
@@ -29,13 +30,29 @@
                             {{ form.username.errors }}
                         </div>
                         <div class="form-group">
-                            <label for="id_password1">Password:</label>
-                            <input type="password" class="form-control" id="id_password1" name="password1">
+                            <div class="password-container">
+                                <label for="id_password1">Password:</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="id_password1" name="password1">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="togglePassword">
+                                            <i class="bi bi-eye-slash"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                             {{ form.password1.errors }}
                         </div>
                         <div class="form-group">
                             <label for="id_password2">Confirm Password:</label>
-                            <input type="password" class="form-control" id="id_password2" name="password2">
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="id_password2" name="password2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="toggleConfirmPassword">
+                                        <i class="bi bi-eye-slash"></i>
+                                    </span>
+                                </div>
+                            </div>
                             {{ form.password2.errors }}
                         </div>
                         <button type="submit" class="btn btn-primary">Register</button>
@@ -49,5 +66,29 @@
     <!-- Bootstrap JS and jQuery -->
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
+        const password = document.querySelector('#id_password1');
+        const confirmPassword = document.querySelector('#id_password2');
+
+        togglePassword.addEventListener('mousedown', togglePasswordVisibility);
+        toggleConfirmPassword.addEventListener('mousedown', togglePasswordVisibility);
+
+        function togglePasswordVisibility(event) {
+            // Prevent the button from submitting the form
+            event.preventDefault();
+
+            const targetPassword = this.id === 'togglePassword' ? password : confirmPassword;
+
+            const type = targetPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            targetPassword.setAttribute('type', type);
+
+            this.querySelector('i').classList.toggle('bi-eye');
+            this.querySelector('i').classList.toggle('bi-eye-slash');
+        }
+    </script>
 </body>
 </html>
+

@@ -117,7 +117,8 @@ def create_patient(request):
                 patient.assigned_doctor = doctor_user
                 #Now we can save the patient to the database
                 patient.save()
-                return redirect('polls:main')  
+                messages.success(request, 'Patient successfully created', extra_tags='alert alert-success text-center')
+                return redirect('polls:create_patient')  
         else: #Then it would be a GET
             form = PatientCreationForm()
 

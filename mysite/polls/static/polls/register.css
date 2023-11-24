@@ -1,6 +1,19 @@
 /* custom.css */
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
+.password-container {
+    position: relative;
+}
+
+.input-group-append {
+    position: absolute;
+    right: 10px; /* Adjust this value to control the icon's position */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+
 .login-block {
     background: #DE6262;
     background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);

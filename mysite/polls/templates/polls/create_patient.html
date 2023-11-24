@@ -1,7 +1,9 @@
 {% extends 'polls/doctordash.html' %}
 
 {% block content %}
+    <!-- Include Bootstrap CSS here -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
     {% load static %}
     <link rel="stylesheet" href="{% static 'polls/create_patient.css' %}">
 
@@ -11,6 +13,14 @@
         <div class="card card-container">
             <h2 class='login_title text-center'>New Patient</h2>
             <hr>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {{ message.tags }} text-center">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
 
             <form method="post" class="form-signin">
                 {% csrf_token %}
@@ -29,17 +39,27 @@
                     {% endif %}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group password-container">
                     <p class="input_title">Password</p>
-                    {{ form.password1 }}
+                    <div class="input-group">
+                        {{ form.password1 }}
+                        <div class="input-group-addon" style="cursor: pointer;" onclick="togglePasswordVisibility('id_password1')">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </div>
+                    </div>
                     {% if form.password1.errors %}
                         <div class="text-danger">{{ form.password1.errors }}</div>
                     {% endif %}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group password-container">
                     <p class="input_title">Confirm Password</p>
-                    {{ form.password2 }}
+                    <div class="input-group">
+                        {{ form.password2 }}
+                        <div class="input-group-addon" style="cursor: pointer;" onclick="togglePasswordVisibility('id_password2')">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </div>
+                    </div>
                     {% if form.password2.errors %}
                         <div class="text-danger">{{ form.password2.errors }}</div>
                     {% endif %}
@@ -51,4 +71,21 @@
             </form>
         </div>
     </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <script>
+        function togglePasswordVisibility(passwordId) {
+            const password = document.querySelector(`#${passwordId}`);
+            const eyeIcon = document.querySelector(`#toggle${passwordId.replace('id_', '')}`);
+
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+
+            eyeIcon.classList.toggle('glyphicon-eye-open');
+            eyeIcon.classList.toggle('glyphicon-eye-close');
+        }
+    </script>
 {% endblock %}
