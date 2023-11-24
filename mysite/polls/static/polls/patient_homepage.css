@@ -1,0 +1,44 @@
+body, html {
+    height: 100%;
+    background: #DE6262;
+    background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
+    background: linear-gradient(to bottom, #FFB88C, #DE6262);
+}
+
+.homepage-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start (left) of the container */
+    padding: 20px; /* Add padding to the container for spacing */
+}
+
+.text-section {
+    text-align: center;
+    color: white; /* Set text color to white */
+}
+
+.text-section h2 {
+    font-size: 36px; /* Set font size */
+    margin-bottom: 20px; /* Adjust margin */
+}
+
+.text-section .alert {
+    background-color: #4CAF50; /* Green background for success messages */
+    color: white; /* White text for success messages */
+}
+
+#datetime {
+    font-size: 24px; /* Set font size for the datetime */
+    color: white; /* Set text color to white */
+}
+
+.image-section {
+    margin-top: 80px;
+    margin-left: auto; /* Auto left margin for centering */
+    margin-right: auto; /* Adjust the margin */
+}
+
+.image-section img {
+    width: 350px; /* Set an absolute width  */
+    max-width: 100%; /* Ensure responsiveness */
+}

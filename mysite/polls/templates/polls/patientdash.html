@@ -1,19 +1,148 @@
+<!-- patientdashboard.html -->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <style>
+        /* Copy the styling from the doctor dashboard */
+        #wrapper {
+            display: flex;
+            height: 100vh;
+        }
+
+        #sidebar {
+            min-width: 250px;
+            max-width: 250px;
+            background: #7386D5;
+            color: #fff;
+            transition: all 0.3s;
+            height: 100%;
+            position: relative;
+        }
+
+        #sidebar a,
+        #sidebar a:hover,
+        #sidebar a:focus {
+            color: inherit;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 1.1em;
+            color: #fff;
+        }
+
+        #sidebar.active {
+            margin-left: -250px;
+        }
+
+        #sidebar .sidebar-header {
+            padding: 20px;
+            background: #6d7fcc;
+        }
+
+        #sidebar ul.components {
+            padding: 20px 0;
+            border-bottom: 1px solid #47748b;
+        }
+
+        #sidebar ul li a:hover,
+        #sidebar ul li.active > a,
+        a[aria-expanded="true"] {
+            background: #5d6fb3; /* Darker color when pressed */
+        }
+
+        #sidebar ul li a span {
+            margin-right: 10px;
+        }
+
+        #sidebar a.btn-logout,
+        #sidebar a.btn-logout:hover,
+        #sidebar a.btn-logout:focus {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            font-size: 1.1em;
+            background: #dc3545; /* background color */
+            border: 1px solid #dc3545; /* border color */
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #content {
+            padding: 20px;
+            min-height: 100vh;
+            transition: all 0.3s;
+            margin-left: 250px;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #content .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Welcome to The PATIENT Dashboard</h2>
+<div id="wrapper" class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+        </div>
+        <ul class="list-unstyled components">
+            <li class="{% if request.path == '/patient_homepage/' %}active{% endif %}">
+                <a href="{% url 'polls:patient_homepage' %}">
+                    <span class="glyphicon glyphicon-home"></span> Home
+                </a>
+            </li>
+            <li class="{% if request.path == '/games/' %}active{% endif %}">
+                <a href="{% url 'polls:games' %}">
+                    <span class="glyphicon glyphicon-flash"></span> Games
+                </a>
+            </li>
+            <!-- Add other patient-specific buttons as needed -->
+            <!-- Add the logout button inside the same container -->
+            <li>
+                <a href="{% url 'polls:user_logout' %}" class="btn btn-logout">
+                    <span class="glyphicon glyphicon-log-out"></span> Logout
+                </a>
+            </li>
+        </ul>
+    </nav>
 
-{% for message in success_messages %}
-    <div class="alert alert-success">
-        {{ message }}
+    <!-- Page Content Holder -->
+    <div id="content">
+        <!-- Content block for patient dashboard -->
+        {% block content %}
+        {% endblock %}
     </div>
-{% endfor %}
 
-<!-- Other dashboard content here -->
+    <!-- scripts  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4SY1u5M12CJo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIpNKtiTPSdeYvKrw/RR5P/QFz6M5chvv4L4u7mC7VbJKT/61dRU8uo" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $("#sidebarCollapse").on("click", function() {
+                $("#sidebar").toggleClass("active");
+                $(this).toggleClass("active");
+            });
+        });
+    </script>
+
+</div>
 
 </body>
 </html>

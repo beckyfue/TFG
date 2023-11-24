@@ -22,3 +22,4 @@ class PatientCreationForm(UserCreationForm):
         fields = ("username", "password1", "password2")  
 
     
+

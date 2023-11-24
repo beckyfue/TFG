@@ -93,12 +93,13 @@ def custom_login(request):
         return render(request, 'polls/login.html')
     
 
+
 @login_required(login_url='polls:custom_login')
 def main(request):
     if request.user.user_type == "doctor":
         return render(request, 'polls/homepage.html')
     else:
-        return render(request, 'polls/patientdash.html') 
+        return render(request, 'polls/patient_homepage.html') 
         
 
 
@@ -149,3 +150,12 @@ def patients(request):
         return render(request, 'polls/patients.html', {'patients': patients_assigned_to_doctor})
     else:
         return redirect('/')
+    
+@login_required(login_url='polls:custom_login')
+def games(request):
+    # Add any context data or logic needed for the games page
+    return render(request, 'polls/games.html')
+
+@login_required(login_url='polls:custom_login')
+def patient_homepage(request):
+    return render(request, 'polls/patient_homepage.html')
