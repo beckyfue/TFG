@@ -19,7 +19,7 @@ class PatientCreationForm(UserCreationForm):
     class Meta:
         #Specify model and fields to include in our form
         model = CustomUser
-        fields = ("username", "password1", "password2")  
+        fields = ("username", "password1", "password2")
 
     
 

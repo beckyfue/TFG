@@ -12,6 +12,7 @@
                     {% for patient in patients %}
                         <li class="patient-item">
                             <a href="#">{{ patient.username }}</a>
+                            <span class="date-added">Added on: {{ patient.date_joined|date:"F d, Y" }}</span>
                         </li>
                     {% endfor %}
                 </ul>

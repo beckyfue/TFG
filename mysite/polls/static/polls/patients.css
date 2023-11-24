@@ -12,7 +12,7 @@ body, html {
 
 .welcome {
     color: white;
-    font-size: 46px; /* Adjust the font size */
+    font-size: 46px;
     margin-bottom: 20px;
 }
 
@@ -38,7 +38,14 @@ body, html {
     text-decoration: none;
     color: #333;
     font-weight: bold;
-    font-size: 15px; /* Adjust the font size  */
+    font-size: 15px;
+}
+
+/* Added date styling */
+.date-added {
+    display: block;
+    font-size: 14px;
+    color: #888;
 }
 
 .image-column {
@@ -46,6 +53,6 @@ body, html {
 }
 
 .image-column img {
-    height: 90vh; /* Full height of the viewport */
+    height: 90vh;
     width: auto;
 }

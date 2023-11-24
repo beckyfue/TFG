@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import PatientCreationForm
 import json
 from django.contrib.auth import logout as auth_logout
+from django.utils import timezone
 
 
 
@@ -108,24 +109,20 @@ def create_patient(request):
     if request.user.user_type == "doctor":
         if request.method == 'POST':
             form = PatientCreationForm(request.POST)
-            #Check that the form that has been filled out is valid
             if form.is_valid():
-                #If form is valid, we create a patient object without saving it in the database
                 patient = form.save(commit=False)
                 patient.user_type = 'patient'
-                #Set the assigned doctor as the one that is currently signed in
-                doctor_user = CustomUser.objects.get(id=request.user.id)
-                patient.assigned_doctor = doctor_user
-                #Now we can save the patient to the database
+                patient.assigned_doctor = request.user
                 patient.save()
                 messages.success(request, 'Patient successfully created', extra_tags='alert alert-success text-center')
                 return redirect('polls:create_patient')  
-        else: #Then it would be a GET
+        else:
             form = PatientCreationForm()
 
         return render(request, 'polls/create_patient.html', {'form': form})
     else:
         return redirect('/')
+
 
 
 
@@ -142,7 +139,6 @@ def homepage(request):
     return render(request, 'polls/homepage.html')
 
 
-@login_required(login_url='polls:custom_login')
 def patients(request):
     if request.user.user_type == "doctor":
         patients_assigned_to_doctor = CustomUser.objects.filter(assigned_doctor=request.user)

@@ -36,6 +36,7 @@ class CustomUser(AbstractUser):
     )
     user_type = models.CharField(max_length=10, choices=USER_TYPES, default="patient")
     assigned_doctor = models.ForeignKey(blank=True, null=True, to='self', on_delete=models.CASCADE, default=None)
+    date_joined = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.username
