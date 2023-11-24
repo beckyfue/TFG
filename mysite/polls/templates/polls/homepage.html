@@ -14,6 +14,8 @@
                     {{ message }}
                 </div>
             {% endfor %}
+            <!-- Display the number of patients here -->
+            <div id="num-patients">Number of Patients: {{ num_patients }}</div>
         </div>
         <div class="image-section">
             <!-- Image -->
@@ -21,21 +23,20 @@
         </div>
     </div>
 
-<script>
-    $(document).ready(function(){
-        function updateDateTime() {
-            var now = new Date();
-            var formattedDateTime = now.toLocaleString();
-            $("#datetime").text(formattedDateTime);
-        }
+    <script>
+        $(document).ready(function(){
+            function updateDateTime() {
+                var now = new Date();
+                var formattedDateTime = now.toLocaleString();
+                $("#datetime").text(formattedDateTime);
+            }
 
-        // Initial call
-        updateDateTime();
+            // Initial calls
+            updateDateTime();
 
-        // Update every second
-        setInterval(updateDateTime, 1000);
-    });
-    
-</script>
+            // Update every second
+            setInterval(updateDateTime, 1000);
+        });
+    </script>
 
 {% endblock %}

@@ -139,12 +139,18 @@ from django.db.models import Count
 def homepage(request):
     if request.user.user_type == "doctor":
         # Assuming you have a related_name set in the assigned_doctor ForeignKey
-        patient_count_over_time = CustomUser.objects.filter(assigned_doctor=request.user
-        ).values('date_joined__date').annotate(patient_count=Count('id')).order_by('date_joined__date')
+        patients_assigned_to_doctor = CustomUser.objects.filter(assigned_doctor=request.user)
+        patient_count_over_time = patients_assigned_to_doctor.values('date_joined__date').annotate(patient_count=Count('id')).order_by('date_joined__date')
 
-        return render(request, 'polls/homepage.html', {'patient_count_over_time': patient_count_over_time})
+        # Count of total patients assigned to the doctor
+        num_patients = patients_assigned_to_doctor.count()
+
+        return render(request, 'polls/homepage.html', {'patient_count_over_time': patient_count_over_time, 'num_patients': num_patients})
     else:
         return redirect('/')
+
+
+
 
 
 
@@ -155,6 +161,11 @@ def patients(request):
         return render(request, 'polls/patients.html', {'patients': patients_assigned_to_doctor})
     else:
         return redirect('/')
+    
+
+
+
+
     
 @login_required(login_url='polls:custom_login')
 def games(request):

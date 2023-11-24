@@ -8,37 +8,43 @@ body, html {
 .homepage-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the start (left) of the container */
-    padding: 20px; /* Add padding to the container for spacing */
+    align-items: flex-start;
+    padding: 20px;
 }
 
 .text-section {
     text-align: center;
-    color: white; /* Set text color to white */
+    color: white;
 }
 
 .text-section h2 {
-    font-size: 36px; /* Set font size */
-    margin-bottom: 20px; /* Adjust margin */
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
 .text-section .alert {
-    background-color: #4CAF50; /* Green background for success messages */
-    color: white; /* White text for success messages */
+    background-color: #4CAF50;
+    color: white;
 }
 
 #datetime {
-    font-size: 24px; /* Set font size for the datetime */
-    color: white; /* Set text color to white */
+    font-size: 24px;
+    color: white;
+}
+
+#num-patients {
+    font-size: 18px;
+    color: white;
+    margin-top: 10px;
 }
 
 .image-section {
     margin-top: 80px;
-    margin-left: auto; /* Auto left margin for centering */
-    margin-right: auto; /* Adjust the margin */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .image-section img {
-    width: 350px; /* Set an absolute width  */
-    max-width: 100%; /* Ensure responsiveness */
+    width: 350px;
+    max-width: 100%;
 }
