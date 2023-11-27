@@ -7,12 +7,13 @@
 
 .input-group-append {
     position: absolute;
-    right: 10px; /* Adjust this value to control the icon's position */
+    right: 1px; /* Adjust this value to control the icon's position */
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+    margin: 0;
+    padding: 0;
 }
-
 
 .login-block {
     background: #DE6262;

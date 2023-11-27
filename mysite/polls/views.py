@@ -98,7 +98,9 @@ def custom_login(request):
 @login_required(login_url='polls:custom_login')
 def main(request):
     if request.user.user_type == "doctor":
-        return render(request, 'polls/homepage.html')
+        patients_assigned_to_doctor = CustomUser.objects.filter(assigned_doctor=request.user)
+        num_patients = patients_assigned_to_doctor.count()
+        return render(request, 'polls/homepage.html', {'num_patients': num_patients})
     else:
         return render(request, 'polls/patient_homepage.html') 
         
@@ -138,7 +140,7 @@ from django.db.models import Count
 
 def homepage(request):
     if request.user.user_type == "doctor":
-        # Assuming you have a related_name set in the assigned_doctor ForeignKey
+        
         patients_assigned_to_doctor = CustomUser.objects.filter(assigned_doctor=request.user)
         patient_count_over_time = patients_assigned_to_doctor.values('date_joined__date').annotate(patient_count=Count('id')).order_by('date_joined__date')
 
