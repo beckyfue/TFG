@@ -39,12 +39,12 @@ body, html {
 }
 
 .image-section {
-    margin-top: 80px;
+	margin-top:0px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .image-section img {
-    width: 350px;
+    width: 250px;
     max-width: 100%;
 }

@@ -13,6 +13,13 @@ from .forms import PatientCreationForm
 import json
 from django.contrib.auth import logout as auth_logout
 from django.utils import timezone
+import pandas as pd
+import dash
+from dash import dcc, html
+import plotly.express as px
+
+from django_plotly_dash import DjangoDash
+
 
 
 
@@ -99,8 +106,9 @@ def custom_login(request):
 def main(request):
     if request.user.user_type == "doctor":
         patients_assigned_to_doctor = CustomUser.objects.filter(assigned_doctor=request.user)
-        num_patients = patients_assigned_to_doctor.count()
-        return render(request, 'polls/homepage.html', {'num_patients': num_patients})
+        for p in patients_assigned_to_doctor:
+            print(p.date_joined, type(p.date_joined))
+        return render(request, 'polls/homepage.html')
     else:
         return render(request, 'polls/patient_homepage.html') 
         
@@ -143,7 +151,18 @@ def homepage(request):
         
         patients_assigned_to_doctor = CustomUser.objects.filter(assigned_doctor=request.user)
         patient_count_over_time = patients_assigned_to_doctor.values('date_joined__date').annotate(patient_count=Count('id')).order_by('date_joined__date')
+        df = pd.DataFrame(list(patient_count_over_time))
+        df['date'] = pd.to_datetime(df['date_joined__date'])
 
+        app = DjangoDash('SimpleExample')
+        # Create layout for Dash app
+        app.layout = html.Div([
+            dcc.Graph(
+                id='line-graph',
+                figure=px.line(df, x='date', y='patient_count', title='Count over Time')
+            )
+        ])
+        
         # Count of total patients assigned to the doctor
         num_patients = patients_assigned_to_doctor.count()
 
