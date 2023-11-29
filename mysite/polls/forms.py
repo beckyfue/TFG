@@ -31,7 +31,6 @@ class PatientEditForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Add the min_value constraint for the age field
         self.fields['age'].widget.attrs['min'] = 0
         self.fields['email'].validators.append(EmailValidator(message='Please enter a valid email address.'))
 

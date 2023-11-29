@@ -108,10 +108,10 @@ def main(request):
         patients_assigned_to_doctor = CustomUser.objects.filter(assigned_doctor=request.user)
         for p in patients_assigned_to_doctor:
             print(p.date_joined, type(p.date_joined))
-        return render(request, 'polls/homepage.html')
+        return redirect('polls:homepage')
     else:
-        return render(request, 'polls/patient_homepage.html') 
-        
+        return redirect('polls:patient_homepage')
+         
 
 
 @login_required(login_url='polls:custom_login')

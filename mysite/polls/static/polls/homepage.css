@@ -8,7 +8,8 @@ body, html {
 .homepage-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    height: 100%;
     padding: 20px;
 }
 
@@ -38,13 +39,15 @@ body, html {
     margin-top: 10px;
 }
 
+#container_iframe div {
+    height: 500px !important;
+}
+
 .image-section {
-	margin-top:0px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 30px;
 }
 
 .image-section img {
-    width: 250px;
+    width: 80%; /* Use 100% width for responsive images */
     max-width: 100%;
 }

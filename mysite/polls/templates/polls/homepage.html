@@ -17,18 +17,24 @@
             {% endfor %}
             <!-- Display the number of patients here -->
             <div id="num-patients">Number of Patients: {{ num_patients }}</div>
-					
-			</div>
-    </div>
+        </div>
 		
-	<div id="container_iframe">
-		{%plotly_app name="SimpleExample"%}
-	</div>
-	<div class="image-section">
-	<!-- Image -->
-		<img src="{% static 'polls/images/homepage.png' %}" alt="Image description">
-	</div>
-
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="container_iframe">
+                        {%plotly_app name="SimpleExample"%}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="image-section">
+                        <!-- Image -->
+                        <img src="{% static 'polls/images/homepage.png' %}" alt="Image description">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         $(document).ready(function(){
@@ -47,10 +53,12 @@
     </script>
 
 <style>
-    #container_iframe div{
-        height: 500px!important  ;
+    #container_iframe div {
+        height: 500px !important;
     }
-	
 
+    .image-section {
+        margin-top: 20px;
+    }
 </style>
 {% endblock %}
