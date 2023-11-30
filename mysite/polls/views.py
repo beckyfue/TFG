@@ -81,6 +81,7 @@ def register(request):
     return render(request, 'registration/register.html', {'form': form, "form_errors": json.loads(form.errors.as_json())})
 
 
+
 def custom_login(request):
     if request.user.is_authenticated:
         return redirect('polls:main')
@@ -148,31 +149,31 @@ from django.db.models import Count
 
 def homepage(request):
     if request.user.user_type == "doctor":
-        
         patients_assigned_to_doctor = CustomUser.objects.filter(assigned_doctor=request.user)
         patient_count_over_time = patients_assigned_to_doctor.values('date_joined__date').annotate(patient_count=Count('id')).order_by('date_joined__date')
-        df = pd.DataFrame(list(patient_count_over_time))
-        df['date'] = pd.to_datetime(df['date_joined__date'])
-
-        app = DjangoDash('SimpleExample')
-        # Create layout for Dash app
-        app.layout = html.Div([
-            dcc.Graph(
-                id='line-graph',
-                figure=px.line(df, x='date', y='patient_count', title='Count over Time')
-            )
-        ])
         
         # Count of total patients assigned to the doctor
         num_patients = patients_assigned_to_doctor.count()
 
-        return render(request, 'polls/homepage.html', {'patient_count_over_time': patient_count_over_time, 'num_patients': num_patients})
+        if num_patients == 0:
+            has_patients = False
+        else:
+            has_patients = True
+            df = pd.DataFrame(list(patient_count_over_time))
+            df['date'] = pd.to_datetime(df['date_joined__date'])
+            app = DjangoDash('SimpleExample')
+            # Create layout for Dash app
+            app.layout = html.Div([
+                dcc.Graph(
+                    id='line-graph',
+                    figure=px.line(df, x='date', y='patient_count', title='Count over Time')
+                )
+            ])
+
+        return render(request, 'polls/homepage.html', {'has_patients': has_patients, 'num_patients': num_patients})
     else:
         return redirect('/')
-
-
-
-
+    
 
 
 def patients(request):
@@ -182,10 +183,6 @@ def patients(request):
         return render(request, 'polls/patients.html', {'patients': patients_assigned_to_doctor})
     else:
         return redirect('/')
-    
-
-
-
 
     
 @login_required(login_url='polls:custom_login')
@@ -215,3 +212,4 @@ def patient_detail(request, patient_id):
         form = PatientEditForm(instance=patient)
 
     return render(request, 'polls/patient_detail.html', {'patient': patient, 'form': form})
+
