@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script>
+      AFRAME.registerComponent('raycaster-c', {
+        init: function () {
+          this.camera = document.querySelector('[camera]');
+          this.walls = document.querySelectorAll('.wall');
+    
+          this.raycaster = new THREE.Raycaster();
+          this.direction = new THREE.Vector3();
+    
+        },
+    
+        tick: function () {
+          console.log("Hi")
+          this.camera.object3D.getWorldDirection(this.direction);
+          this.raycaster.set(this.camera.object3D.position, this.direction);
+    
+          for (let wall of this.walls) {
+            const intersects = this.raycaster.intersectObject(wall.object3D, true);
+            if (intersects.length > 0) {
+              console.log('Camera is directed towards a wall!');
+              // You can perform actions here when the camera is directed towards a wall.
+              break;
+            }
+          }
+        }
+      });
+      </script>
+  </head>
+  <body>
+    <a-scene>
+      <a-entity camera wasd-controls look-controls position="0 1.6 0" raycaster-c></a-entity>
+      <a-box class="wall" position="-2 1 0" scale="0.1 2 4" color="red"></a-box>
+      <a-box class="wall" position="2 1 0" scale="0.1 2 4" color="green"></a-box>
+      <a-box class="wall" position="0 1 2" scale="4 2 0.1" color="blue"></a-box>
+      <a-box class="wall" position="0 1 -2" scale="4 2 0.1" color="yellow"></a-box>
+    </a-scene>
+  </body>
+
+
+</html>
