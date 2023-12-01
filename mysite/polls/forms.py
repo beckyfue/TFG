@@ -3,14 +3,19 @@ from .models import CustomUser
 from django.contrib.auth.forms import UserCreationForm
 from django.core.validators import EmailValidator
 
+
+    
 class CustomRegistrationForm(UserCreationForm):
+    email = forms.EmailField()
+
     class Meta:
         model = CustomUser
-        fields = ("username", "password1", "password2")
+        fields = ("username", "email", "password1", "password2")
         
     def save(self, commit=True):
         user = super().save(commit=False)
         user.user_type = 'doctor'
+        user.email = self.cleaned_data["email"]
         if commit:
             user.save()
         return user
@@ -31,7 +36,6 @@ class PatientEditForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Add the min_value constraint for the age field
         self.fields['age'].widget.attrs['min'] = 0
         self.fields['email'].validators.append(EmailValidator(message='Please enter a valid email address.'))
 

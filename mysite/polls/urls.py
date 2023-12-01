@@ -1,7 +1,9 @@
 from django.urls import path
 from . import views
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
 app_name = "polls"
+
 urlpatterns = [
     path("", views.index, name="index"),
     path("<int:question_id>/", views.detail, name="detail"),
@@ -17,6 +19,11 @@ urlpatterns = [
     path('games/', views.games, name='games'),
     path('patient_homepage/', views.patient_homepage, name='patient_homepage'),
     path('patient_detail/<int:patient_id>/', views.patient_detail, name='patient_detail'),
+
+    path('password_reset/', PasswordResetView.as_view(), name='password_reset'),
+    path('password_reset/done/', PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset/done/', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 
 
 
