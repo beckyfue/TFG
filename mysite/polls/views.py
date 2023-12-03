@@ -17,6 +17,8 @@ import pandas as pd
 import dash
 from dash import dcc, html
 import plotly.express as px
+from datetime import datetime
+from datetime import timedelta
 
 from django_plotly_dash import DjangoDash
 
@@ -112,7 +114,8 @@ def main(request):
         return redirect('polls:homepage')
     else:
         return redirect('polls:patient_homepage')
-         
+
+
 
 
 @login_required(login_url='polls:custom_login')
@@ -155,39 +158,59 @@ def homepage(request):
         # Count of total patients assigned to the doctor
         num_patients = patients_assigned_to_doctor.count()
 
-        if num_patients == 0:
-            has_patients = False
-        else:
-            has_patients = True
+        has_patients = True
+        if num_patients > 0:
             df = pd.DataFrame(list(patient_count_over_time))
-            df['date'] = pd.to_datetime(df['date_joined__date'])
-            app = DjangoDash('SimpleExample')
-            # Create layout for Dash app
-            app.layout = html.Div([
-                dcc.Graph(
-                    id='line-graph',
-                    figure=px.line(df, x='date', y='patient_count', title='Count over Time')
-                )
-            ])
+        else:
+            df = pd.DataFrame([
+                {"date_joined__date": datetime.today().strftime('%Y-%m-%d').split(" ")[0], "patient_count": 0},
+                {"date_joined__date": (datetime.today() - timedelta(days = 1)).strftime('%Y-%m-%d').split(" ")[0], "patient_count": 0}
+                ])
+       
+        df['date'] = pd.to_datetime(df['date_joined__date'])
+        print(df.head())
+        app = DjangoDash('SimpleExample')
+        # Create layout for Dash app
+        app.layout = html.Div([
+            dcc.Graph(
+                id='line-graph',
+                figure=px.line(df, x='date', y='patient_count', title='Count over Time')
+            )
+        ])
 
         return render(request, 'polls/homepage.html', {'has_patients': has_patients, 'num_patients': num_patients})
     else:
         return redirect('/')
     
-
+   
 
 def patients(request):
     if request.user.user_type == "doctor":
         patients_assigned_to_doctor = CustomUser.objects.filter(assigned_doctor=request.user)
 
-        return render(request, 'polls/patients.html', {'patients': patients_assigned_to_doctor})
+        # Count of total patients assigned to the doctor
+        num_patients = patients_assigned_to_doctor.count()
+
+        return render(request,'polls/patients.html',{'patients': patients_assigned_to_doctor, 'num_patients': num_patients})
     else:
         return redirect('/')
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 @login_required(login_url='polls:custom_login')
 def games(request):
-    # Add any context data or logic needed for the games page
     return render(request, 'polls/games.html')
 
 @login_required(login_url='polls:custom_login')
@@ -212,4 +235,5 @@ def patient_detail(request, patient_id):
         form = PatientEditForm(instance=patient)
 
     return render(request, 'polls/patient_detail.html', {'patient': patient, 'form': form})
+
 
