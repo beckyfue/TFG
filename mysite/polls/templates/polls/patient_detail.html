@@ -1,38 +1,46 @@
-<!-- polls/patient_detail.html -->
 {% extends 'polls/doctordash.html' %}
 
 {% block content %}
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-{% load static %}
-<link rel="stylesheet" href="{% static 'polls/patient_detail.css' %}">
-<div class="container">
-    {% if messages %}
-        <div class="message-box">
-            <ul class="messages">
-                {% for message in messages %}
-                    <div class="alert {{ message.tags }} text-center success-message">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
-    <h1 class="welcome text-center">Patient Details</h1>
-    <form method="post">
-        {% csrf_token %}
-        <label for="{{ form.name.id_for_label }}">Name:</label>
-        {{ form.name }}
-        <label for="{{ form.surname.id_for_label }}">Surname:</label>
-        {{ form.surname }}
-        <label for="{{ form.email.id_for_label }}">Email:</label>
-        {{ form.email }}
-        <!-- Add labels for other fields as needed -->
-        <label for="{{ form.age.id_for_label }}">Age:</label>
-        {{ form.age }}
-        <label for="{{ form.pathology_details.id_for_label }}">Pathology Details:</label>
-        {{ form.pathology_details }}
-        <input type="submit" value="Save Changes">
-    </form>
-</div>
-{% endblock %}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/patient_detail.css' %}">
+    <div class="container">
+        {% if messages %}
+            <div class="message-box">
+                <ul class="messages">
+                    {% for message in messages %}
+                        <div class="alert {{ message.tags }} text-center success-message">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <h1 class="welcome text-center">Patient Details</h1>
 
+      
+        <div class="delete-button-container">
+            <a href="{% url 'polls:delete_patient' patient_id=patient.id %}" class="delete-button">Delete Patient</a>
+        </div>
+
+
+
+
+
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="{{ form.name.id_for_label }}">Name:</label>
+            {{ form.name }}
+            <label for="{{ form.surname.id_for_label }}">Surname:</label>
+            {{ form.surname }}
+            <label for="{{ form.email.id_for_label }}">Email:</label>
+            {{ form.email }}
+            <label for="{{ form.age.id_for_label }}">Age:</label>
+            {{ form.age }}
+            <label for="{{ form.pathology_details.id_for_label }}">Pathology Details:</label>
+            {{ form.pathology_details }}
+            <input type="submit" value="Save Changes">
+        </form>
+    </div>
+{% endblock %}

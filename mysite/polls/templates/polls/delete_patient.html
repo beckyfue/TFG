@@ -1,0 +1,14 @@
+<!-- polls/delete_patient.html -->
+{% extends 'polls/doctordash.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="welcome text-center">Confirm Deletion</h1>
+        <p>Are you sure you want to delete {{ patient.username }}?</p>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="Yes, Delete" class="delete-button">
+            <a href="{% url 'polls:patient_detail' patient.id %}" class="cancel-button">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

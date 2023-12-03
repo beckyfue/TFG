@@ -237,3 +237,13 @@ def patient_detail(request, patient_id):
     return render(request, 'polls/patient_detail.html', {'patient': patient, 'form': form})
 
 
+def delete_patient(request, patient_id):
+    patient = get_object_or_404(CustomUser, id=patient_id)
+
+    if request.method == 'POST':
+        # Confirm deletion
+        patient.delete()
+        messages.success(request, 'Patient deleted successfully.')
+        return redirect('polls:patients')  # Redirect to the list of patients
+
+    return render(request, 'polls/delete_patient.html', {'patient': patient})
