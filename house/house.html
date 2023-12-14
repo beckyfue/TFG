@@ -11,10 +11,11 @@
     <script src="./src/camera-components.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
     <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+    
 
   </head>
   <body>
-    <a-scene timedelta="1000">
+    <a-scene timedelta="1000" renderer="colorManagement: true;">
 
       <a-assets>
                 
@@ -24,6 +25,13 @@
         <img crossorigin="anonymous" id="kitchen-wall" src="./imgs/kitchen_wall.webp">
         <img crossorigin="anonymous" id="bathroom-floor" src="./imgs/bathroom_floor.webp">
         <img crossorigin="anonymous" id="bathroom-wall" src="./imgs/bathroom_wall.webp">
+
+        <a-asset-item id="table" src="./imgs/table.glb"></a-asset-item>
+        <a-asset-item id="sofa" src="./imgs/sofa.glb"></a-asset-item>
+        <a-asset-item id="blue_pillow" src="./imgs/blue_pillow.glb"></a-asset-item>
+        <a-asset-item id="green_pillow" src="./imgs/green_pillow.glb"></a-asset-item>
+        <a-asset-item id="red_pillow" src="./imgs/red_pillow.glb"></a-asset-item>
+        <a-asset-item id="yellow_vase" src="./imgs/yellow_vase.glb"></a-asset-item>
 
       </a-assets>
       <a-entity environment="preset: default; ground:flat"></a-entity>
@@ -60,7 +68,7 @@
         <a-box width="0.1" height="2.4" depth="0.1" color="white" position="0.6 0 0"></a-box>
         <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
         <a-box width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
-        <a-box id="outside-d" class="door-hole" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 90 0" width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box id="outside-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 90 0" width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
         <a-box  visible="false" class="door-hole" id="invisible-outside-d" raycaster-collide   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
      
       </a-entity>
@@ -225,7 +233,14 @@
         <rw-wall material="color:#FFF">
             <rw-doorhole id="salon"></rw-doorhole>
         </rw-wall>
-        
+
+        <a-gltf-model id="id_table" src="#table" scale="0.1 0.2 0.1" position="3 0.01 1"></a-gltf-model>
+        <a-gltf-model id="id_sofa" src="#sofa" scale="1 1 1" position="6 0.01 2">
+        </a-gltf-model>
+        <a-gltf-model src="#blue_pillow"  material="color: red" scale="1 1 1" position="2 0.01 2"></a-gltf-model>
+        <a-gltf-model src="#green_pillow" scale="1 1 1" position="4 0.01 2"></a-gltf-model>
+        <a-gltf-model src="#red_pillow" scale="1 1 1" position="8 0.01 2"></a-gltf-model>
+        <a-gltf-model src="#yellow_vase" scale="1 1 1" position="1 0.01 2"></a-gltf-model>
         <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
         <rw-ceiling material="color:#FFF"></rw-ceiling>
     
@@ -355,5 +370,21 @@
     </a-scene>
   </body>
   <footer>
+    <script>
+      function changeColor(object_id, color) {
+        var modelEntity = document.querySelector("#" + object_id);
+        modelEntity.addEventListener("model-loaded", function(){
+          var model  = modelEntity.getObject3D("mesh");
+          model.traverse(function(node){
+            if (node.isMesh) {
+              node.material.color.set(color)
+            }
+          })
+      })
+     }
+
+     changeColor("id_table", "red")
+
+    </script>
   </footer>
 </html>

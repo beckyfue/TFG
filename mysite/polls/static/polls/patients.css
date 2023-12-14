@@ -56,3 +56,11 @@ body, html {
     height: 90vh;
     width: auto;
 }
+
+.no-patients-message {
+    color: white;
+    font-size: 24px;
+    margin-top: 20px;
+    /* Add any additional styling you want for the message */
+}
+

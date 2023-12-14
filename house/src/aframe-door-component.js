@@ -1,14 +1,25 @@
 //Diccionario para guardar si se puede colisionar o no
 //Si el usuario va en dirección a una puerta abierta las colisiones se desactivan.
 var door_dict = {
-"salon-d": true,
-"outside-d": true,
-"door-kit": true,
-"bed1-d": true,
-"bed2-d": true,
-"bath1-d": true,
-"bed3-d": true,
-"bath2-d": true
+  "salon-d": true,
+  "outside-d": true,
+  "door-kit": true,
+  "bed1-d": true,
+  "bed2-d": true,
+  "bath1-d": true,
+  "bed3-d": true,
+  "bath2-d": true
+};
+
+var door_dict = {
+  "id_mesa": "red",
+  "outside-d": true,
+  "door-kit": true,
+  "bed1-d": true,
+  "bed2-d": true,
+  "bath1-d": true,
+  "bed3-d": true,
+  "bath2-d": true
 };
 
 
