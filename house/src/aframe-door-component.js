@@ -11,12 +11,12 @@ var door_dict = {
   "bath2-d": true
 };
 
-var door_dict = {
-  "id_mesa": "red",
-  "outside-d": true,
-  "door-kit": true,
-  "bed1-d": true,
-  "bed2-d": true,
+var colours = {
+  "id_blue_pillow": "blue",
+  "id_green_pillow": "green",
+  "id_red_pillow": "red",
+  "id_yellow_vase": "yellow",
+  "id_painting_1": "yellow",
   "bath1-d": true,
   "bed3-d": true,
   "bath2-d": true
