@@ -17,7 +17,7 @@ var colours = {
   "id_red_pillow": "red",
   "id_yellow_vase": "yellow",
   "id_painting_1": "yellow",
-  "bath1-d": true,
+  "id_mixer": "red",
   "bed3-d": true,
   "bath2-d": true
 };
