@@ -18,7 +18,7 @@ var colours = {
   "id_yellow_vase": "yellow",
   "id_painting_1": "yellow",
   "id_mixer": "red",
-  "bed3-d": true,
+  "id_bathtup": "blue",
   "bath2-d": true
 };
 
