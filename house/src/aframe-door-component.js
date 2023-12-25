@@ -22,6 +22,7 @@ var colours = {
   "id_puff_1": "red",
   "id_puff_2": "red",
   "id_rocket": "red",
+  "id_shoes": "yellow",
   "bath2-d": true
 };
 
