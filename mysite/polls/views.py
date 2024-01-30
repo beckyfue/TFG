@@ -213,6 +213,8 @@ def patients(request):
 def games(request):
     return render(request, 'polls/games.html')
 
+
+
 @login_required(login_url='polls:custom_login')
 def patient_homepage(request):
     return render(request, 'polls/patient_homepage.html')
@@ -247,3 +249,9 @@ def delete_patient(request, patient_id):
         return redirect('polls:patients')  # Redirect to the list of patients
 
     return render(request, 'polls/delete_patient.html', {'patient': patient})
+
+
+@login_required(login_url='polls:custom_login')
+def vrgame(request):
+    print("VR GAME URL")
+    return render(request, 'polls/vrgame.html')

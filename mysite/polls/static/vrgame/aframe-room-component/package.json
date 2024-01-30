@@ -1,0 +1,61 @@
+{
+  "name": "aframe-room-component",
+  "version": "0.4.2",
+  "description": "An A-Frame component for quickly creating rooms connected by doors.",
+  "main": "./index.js",
+  "cdn": "./dist/aframe-room-component.min.js",
+  "scripts": {
+    "dist:dev": "webpack --config webpack.config.js",
+    "dist:prd": "webpack --config webpack.prod.config.js",
+    "dist": "npm run dist:prd && npm run dist:dev",
+    "ghpages": "ghpages",
+    "lint": "semistandard -v | snazzy",
+    "prepublish": "npm run dist",
+    "start:https": "webpack serve --progress --open --server-type https",
+    "start": "webpack serve --progress --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omgitsraven/aframe-room-component.git"
+  },
+  "keywords": [
+    "aframe",
+    "aframe-component",
+    "aframe-vr",
+    "vr",
+    "mozvr",
+    "webvr",
+    "room"
+  ],
+  "author": "Hazel Fraticelli <omgitsraven@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/omgitsraven/aframe-room-component/issues"
+  },
+  "homepage": "https://github.com/omgitsraven/aframe-room-component#readme",
+  "devDependencies": {
+    "@babel/core": "7.21.3",
+    "@babel/preset-env": "7.20.2",
+    "babel-loader": "9.1.2",
+    "ghpages": "0.0.10",
+    "semistandard": "16.0.1",
+    "snazzy": "9.0.0",
+    "terser-webpack-plugin": "5.3.7",
+    "webpack-cli": "5.0.1",
+    "webpack-dev-server": "4.13.1",
+    "webpack": "5.76.3"
+  },
+  "peerDependencies": {
+    "aframe": ">=1.2.0"
+  },
+  "semistandard": {
+    "globals": [
+      "AFRAME",
+      "THREE"
+    ],
+    "ignore": [
+      "examples/build.js",
+      "dist/**"
+    ]
+  }
+}
