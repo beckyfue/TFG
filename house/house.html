@@ -16,7 +16,7 @@
 
   </head>
   <body>
-    <a-scene timedelta="1000" renderer="colorManagement: true;">
+    <a-scene timedelta="1000" renderer="colorManagement: true;" stats>
 
       <a-assets>
                 
@@ -28,32 +28,28 @@
         <img crossorigin="anonymous" id="bathroom-wall" src="./imgs/bathroom_wall.webp">
 
         <a-asset-item id="table" src="./imgs/table.glb"></a-asset-item>
-        <a-asset-item id="lounge_sofa" src="./imgs/sofa.glb"></a-asset-item>
-        <a-asset-item id="blue_pillow" src="./imgs/blue_pillow.glb"></a-asset-item>
+        <a-asset-item id="lounge_sofa" src="./imgs/sofa_1.glb"></a-asset-item>
         <a-asset-item id="green_pillow" src="./imgs/green_pillow.glb"></a-asset-item>
-        <a-asset-item id="red_pillow" src="./imgs/red_pillow.glb"></a-asset-item>
         <a-asset-item id="yellow_vase" src="./imgs/yellow_vase.glb"></a-asset-item>
         <a-asset-item id="coffee_table" src="./imgs/coffee_table.glb"></a-asset-item>
         <a-asset-item id="book" src="./imgs/book.glb"></a-asset-item>
-        <a-asset-item id="armchair" src="./imgs/armchair.glb"></a-asset-item>
         <a-asset-item id="tv" src="./imgs/tv.gltf"></a-asset-item>
         <a-asset-item id="painting_1" src="./imgs/painting_1.glb"></a-asset-item>
         <a-asset-item id="painting_2" src="./imgs/painting_2.glb"></a-asset-item>
-        <a-asset-item id="lounge_chair_1" src="./imgs/lounge_chair.glb"></a-asset-item>
-        <a-asset-item id="lounge_chair_2" src="./imgs/lounge_chair.glb"></a-asset-item>
-        <a-asset-item id="lounge_chair_3" src="./imgs/lounge_chair.glb"></a-asset-item>
-        <a-asset-item id="lounge_chair_4" src="./imgs/lounge_chair.glb"></a-asset-item>
+        <a-asset-item id="lounge_chair" src="./imgs/lounge_chair.glb"></a-asset-item> 
         <a-asset-item id="fruit_bowl" src="./imgs/fruit_bowl.glb"></a-asset-item>
         <a-asset-item id="lounge_drawers" src="./imgs/lounge_drawers.glb"></a-asset-item>
        
+
+
         <a-asset-item id="kitchen_counter" src="./imgs/kitchen_counter.glb"></a-asset-item>
-        <a-asset-item id="fridge" src="./imgs/fridge.glb"></a-asset-item>
+        <a-asset-item id="fridge" src="./imgs/fridge_1.glb"></a-asset-item>
         <a-asset-item id="mixer" src="./imgs/mixer.glb"></a-asset-item>
-        <a-asset-item id="stove" src="./imgs/stove.glb"></a-asset-item>
         <a-asset-item id="kitchen_cupboard" src="./imgs/kitchen_cupboard.glb"></a-asset-item>
-        <a-asset-item id="kettle" src="./imgs/kettle.glb"></a-asset-item>
         <a-asset-item id="sauce_pan" src="./imgs/sauce_pan.glb"></a-asset-item>
         <a-asset-item id="coffee_machine" src="./imgs/coffee_machine.glb"></a-asset-item>
+        <a-asset-item id="kettle" src="./imgs/kettle.glb"></a-asset-item>
+
 
 
 
@@ -66,6 +62,39 @@
         <a-asset-item id="bathtub" src="./imgs/bathtub.gltf"></a-asset-item>
         <a-asset-item id="toilet_2" src="./imgs/toilet_2.gltf"></a-asset-item>
         
+
+        <a-asset-item id="bed_1" src="./imgs/bed_1.glb"></a-asset-item>
+        <a-asset-item id="bedside_table_1" src="./imgs/bedside_table_1.glb"></a-asset-item>
+        <a-asset-item id="wardrobe_1" src="./imgs/wardrobe_1.glb"></a-asset-item>
+        <a-asset-item id="puff" src="./imgs/puff.glb"></a-asset-item>
+        <a-asset-item id="teddy" src="./imgs/teddy.glb"></a-asset-item>
+        <a-asset-item id="toy_car" src="./imgs/toy_car.glb"></a-asset-item>
+        <a-asset-item id="shelf_bedroom_1" src="./imgs/shelf_bedroom_1.glb"></a-asset-item>
+        <a-asset-item id="football" src="./imgs/football.glb"></a-asset-item>
+        <a-asset-item id="rocket" src="./imgs/rocket.glb"></a-asset-item>
+
+
+        <a-asset-item id="lights" src="./imgs/lights.glb"></a-asset-item>
+        <a-asset-item id="ottoman" src="./imgs/ottoman.glb"></a-asset-item>
+        <a-asset-item id="hat" src="./imgs/hat.glb"></a-asset-item>
+        <a-asset-item id="sunglasses" src="./imgs/sunglasses.glb"></a-asset-item>
+        <a-asset-item id="shoes" src="./imgs/shoes.glb"></a-asset-item>
+        <a-asset-item id="desk" src="./imgs/desk.glb"></a-asset-item>
+        <a-asset-item id="laptop" src="./imgs/laptop.gltf"></a-asset-item>
+        <a-asset-item id="mouse" src="./imgs/mouse.glb"></a-asset-item>
+        <a-asset-item id="headphones" src="./imgs/headphones.glb"></a-asset-item>
+        <a-asset-item id="guitar" src="./imgs/guitar.glb"></a-asset-item>
+        <a-asset-item id="poster" src="./imgs/poster.glb"></a-asset-item>
+       
+
+        <a-asset-item id="main_wardrobe" src="./imgs/main_wardrobe.glb"></a-asset-item>
+        <a-asset-item id="vanity" src="./imgs/vanity.glb"></a-asset-item>
+        <a-asset-item id="main_lamp" src="./imgs/main_lamp.glb"></a-asset-item>
+        <a-asset-item id="main_painting" src="./imgs/main_painting.glb"></a-asset-item>
+     
+       
+
+
         
 
       </a-assets>
@@ -180,12 +209,11 @@
         <a-gltf-model id="id_kitchen_counter" src="#kitchen_counter" scale="0.6 0.6 0.2" position="0.3 0.01 3" rotation="0 270 0"></a-gltf-model>
         <a-gltf-model id="id_fridge" src="#fridge" scale="0.015 0.012 0.005" position="0.3 0.001 5.2" rotation="0 90 0"></a-gltf-model>
         <a-gltf-model id="id_mixer" src="#mixer" scale="0.1 0.1 0.1" position="0.3 0.9 1.8" rotation="0 180 0"></a-gltf-model>
-        <a-gltf-model id="id_stove" src="#stove" scale="0.5 0.7 0.2" position="0.3 0.95 4" rotation="0 90 0"></a-gltf-model>
         <a-gltf-model id="id_kitchen_cupboard" src="#kitchen_cupboard" scale="0.5 0.5 0.2" position="0.1 2.2 3.2" rotation="0 90 0"></a-gltf-model>
         <a-gltf-model id="id_sauce_pan" src="#sauce_pan" scale="0.8 0.8 0.8" position="0.4 1 2.3" rotation="0 180 0"></a-gltf-model>
-        <a-gltf-model id="id_kettle" src="#kettle" scale="0.3 0.3 0.3" position="0.3 0.9 2.7" rotation="0 0 0"></a-gltf-model>
         <a-gltf-model id="id_coffee_machine" src="#coffee_machine" scale="0.7 1.1 0.8" position="0.2 0.85 3.3" rotation="0 0 0"></a-gltf-model>
-
+        <a-gltf-model id="id_kettle" src="#kettle" scale="2 2 2" position="0.3 0.9 4" rotation="0 75 0"></a-gltf-model>
+      
 
 
         <rw-floor material="src:#kitchen-floor;repeat:2 2"></rw-floor>
@@ -217,6 +245,10 @@
           
         </rw-wall>
         
+        
+        
+
+
         <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
         <rw-ceiling material="color:#FFF"></rw-ceiling>
         
@@ -285,20 +317,19 @@
 
         <a-gltf-model id="id_table" src="#table" scale="0.1 0.2 0.3" position="2 0.01 5.5" rotation="0 90 0"></a-gltf-model>
         <a-gltf-model id="id_sofa" src="#lounge_sofa" scale="1 1 1" position="6 0.01 2" rotation="0 90 0"></a-gltf-model>
-        <a-gltf-model id="id_red_pillow" src="#red_pillow" scale="1 1 1" position="6 0.74 2"  rotation="70 90 0"></a-gltf-model>
-        <a-gltf-model id="id_blue_pillow" src="#blue_pillow" scale="0.3 0.3 0.3" position="6 0.8 2.7" rotation="0 50 100"></a-gltf-model>
-        <a-gltf-model id="id_green_pillow" src="#green_pillow" scale="0.4 0.4 0.4" position="6 0.88 1.25"  rotation="70 90 0"></a-gltf-model>
+        <a-gltf-model id="id_green_pillow_1" src="#green_pillow" scale="0.4 0.4 0.4" position="6 0.88 2"  rotation="70 90 0"></a-gltf-model>
+        <a-gltf-model id="id_green_pillow_2" src="#green_pillow" scale="0.4 0.4 0.4" position="6 0.88 2.7"  rotation="70 90 0"></a-gltf-model>
+        <a-gltf-model id="id_green_pillow_3" src="#green_pillow" scale="0.4 0.4 0.4" position="6 0.88 1.25"  rotation="70 90 0"></a-gltf-model>
         <a-gltf-model id="id_yellow_vase" src="#yellow_vase" scale="0.2 0.2 0.2" position="8.6 0.4 2"></a-gltf-model>
         <a-gltf-model id="id_coffee_table" src="#coffee_table" scale="1 1 1" position="8.5 0.01 2"></a-gltf-model>
         <a-gltf-model id="id_book" src="#book" scale="2.5 2.5 2.5" position="8.5 0.45 1.7"></a-gltf-model>
-        <a-gltf-model id="id_armchair" src="#armchair" scale="1 1 1" position="8 0.01 4" rotation="0 180 0"></a-gltf-model>
         <a-gltf-model id="id_tv" src="#tv" scale="1.5 1.5 1.5" position="10 1 2" rotation="0 180 0"></a-gltf-model>
         <a-gltf-model id="id_painting_1" src="#painting_1" scale="0.5 0.5 0.5" position="8 1.5 0.02" rotation="0 90 0"></a-gltf-model>
         <a-gltf-model id="id_painting_2" src="#painting_2" scale="1 1 1" position="9.95 1.5 6" rotation="0 180 0"></a-gltf-model>
-        <a-gltf-model id="id_lounge_chair_1" src="#lounge_chair_1" scale="1.2 1.5 1.2" position="3.5 0.01 6.4" rotation="0 180 0"></a-gltf-model>
-        <a-gltf-model id="id_lounge_chair_2" src="#lounge_chair_2" scale="1.2 1.5 1.2" position="4.7 0.01 6.4" rotation="0 180 0"></a-gltf-model>
-        <a-gltf-model id="id_lounge_chair_3" src="#lounge_chair_3" scale="1.2 1.5 1.2" position="3.5 0.01 5" rotation="0 0 0"></a-gltf-model>
-        <a-gltf-model id="id_lounge_chair_4" src="#lounge_chair_4" scale="1.2 1.5 1.2" position="4.7 0.01 5" rotation="0 0 0"></a-gltf-model>
+        <a-gltf-model id="id_lounge_chair_1" src="#lounge_chair" scale="1.2 1.5 1.2" position="3.5 0.01 6.4" rotation="0 180 0"></a-gltf-model>
+        <a-gltf-model id="id_lounge_chair_2" src="#lounge_chair" scale="1.2 1.5 1.2" position="4.7 0.01 6.4" rotation="0 180 0"></a-gltf-model>
+        <a-gltf-model id="id_lounge_chair_3" src="#lounge_chair" scale="1.2 1.5 1.2" position="3.5 0.01 5" rotation="0 0 0"></a-gltf-model>
+        <a-gltf-model id="id_lounge_chair_4" src="#lounge_chair" scale="1.2 1.5 1.2" position="4.7 0.01 5" rotation="0 0 0"></a-gltf-model>
         <a-gltf-model id="id_fruit_bowl" src="#fruit_bowl" scale="1.5 1.5 1.5" position="4.1 1 5.7" rotation="0 0 0"></a-gltf-model>
         <a-gltf-model id="id_lounge_drawers" src="#lounge_drawers" scale="1.5 1 1" position="3 0.01 0.01" rotation="0 0 0"></a-gltf-model>
         
@@ -326,11 +357,26 @@
 
         </rw-wall>
         
-        
+
+
+        <a-gltf-model id="id_bed_1" src="#bed_1" scale="0.3 0.6 0.3" position="0.8 0.01 1.1" rotation="0 270 0"></a-gltf-model>
+        <a-gltf-model id="id_bedside_table_1" src="#bedside_table_1" scale="0.35 0.2 0.35" position="2.5 0.01 0.35" rotation="0 0 0"></a-gltf-model>
+        <a-gltf-model id="id_wardrobe_1" src="#wardrobe_1" scale="1 1.2 1" position="2.4 0.01 9" rotation="0 180 0"></a-gltf-model>
+        <a-gltf-model id="id_painting_3" src="#painting_1" scale="1 1 1" position="0.05 1.2 7" rotation="0 180 0"></a-gltf-model>
+        <a-gltf-model id="id_puff_1" src="#puff" scale="2 1.5 4" position="0.4 0.2 8.3" rotation="90 0 0"></a-gltf-model>
+        <a-gltf-model id="id_puff_2" src="#puff" scale="2 1.5 4" position="3.5 0.2 0.4" rotation="90 0 0"></a-gltf-model>
+        <a-gltf-model id="id_teddy" src="#teddy" scale="0.3 0.3 0.3" position="0.2 1.4 2.9" rotation="0 270 0"></a-gltf-model>
+        <a-gltf-model id="id_toy_car" src="#toy_car" scale="0.1 0.1 0.1" position="0.2 1.4 4.5" rotation="0 290 0"></a-gltf-model>
+        <a-gltf-model id="id_shelf_bedroom_1" src="#shelf_bedroom_1" scale="1 1.3 1" position="0.2 0.01 3.7" rotation="0 90 0"></a-gltf-model>
+        <a-gltf-model id="id_football" src="#football" scale="0.3 0.3 0.3" position="0.2 1.5 3.41" rotation="0 270 0"></a-gltf-model>
+        <a-gltf-model id="id_rocket" src="#rocket" scale="0.1 0.1 0.1" position="0.2 1.4 3.9" rotation="0 290 0"></a-gltf-model>
+
+
         <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
         <rw-ceiling material="color:#FFF"></rw-ceiling>
     
     </rw-room>
+
 
     <!-- bedroom 2-->
     <rw-room position="-1.5 0.01 -16" width="5.5" length="5.5" height="3">
@@ -346,6 +392,25 @@
         <rw-wall material="color:#FFF">
         </rw-wall>
         
+
+        <a-gltf-model id="id_bed_2" src="#bed_1" scale="0.3 0.6 0.3" position="0.8 0.01 1.1" rotation="0 270 0"></a-gltf-model>
+        <a-gltf-model id="id_shelf_bedroom_1" src="#shelf_bedroom_1" scale="1 1.3 1" position="3 0.01 0.35" rotation="0 0 0"></a-gltf-model>
+        <a-gltf-model id="id_lights" src="#lights" scale="1 2 1" position="5 0.01 0.5" rotation="0 270 0"></a-gltf-model>
+        <a-gltf-model id="id_ottoman" src="#ottoman" scale="1 2 2" position="0.9 0.01 2.5" rotation="0 260 0"></a-gltf-model>
+        <a-gltf-model id="id_hat" src="#hat" scale="1.4 1.4 1.4" position="2.4 1.45 0.4" rotation="0 0 0"></a-gltf-model>
+        <a-gltf-model id="id_sunglasses" src="#sunglasses" scale="0.2 0.2 0.2" position="2.8 1.5 0.3" rotation="0 90 0"></a-gltf-model>
+        <a-gltf-model id="id_shoes" src="#shoes" scale="0.8 0.8 0.8" position="3.5 1.4 0.3" rotation="0 0 0"></a-gltf-model>
+        <a-gltf-model id="id_desk" src="#desk" scale="1.2 1.5 0.8" position="5 0.01 3" rotation="0 90 0"></a-gltf-model>
+        <a-gltf-model id="id_laptop" src="#laptop" scale="1 1 1" position="5 1.1 2.7" rotation="0 270 0"></a-gltf-model>
+        <a-gltf-model id="id_mouse" src="#mouse" scale="1 1 1" position="5 1.1 3" rotation="0 270 0"></a-gltf-model>
+        <a-gltf-model id="id_headphones" src="#headphones" scale="0.3 0.3 0.3" position="5 1.15 3.4" rotation="0 0 0"></a-gltf-model>
+        <a-gltf-model id="id_guitar" src="#guitar" scale="0.3 0.3 0.3" position="5.7 0.8 4.5" rotation="0 270 0"></a-gltf-model>
+        <a-gltf-model id="id_poster" src="#poster" scale="0.05 0.05 0.05" position="0.8 2.1 0.02" rotation="0 0 0"></a-gltf-model>
+        
+
+
+
+
         <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
         <rw-ceiling material="color:#FFF"></rw-ceiling>
     
@@ -369,7 +434,7 @@
         
 
 
-        <a-gltf-model id="id_toilet_1" src="#toilet_1" scale="1.5 1.5 1.5" position="1 -0.01 3.1" rotation="0 140 0"></a-gltf-model>
+        <a-gltf-model id="id_toilet_1" src="#toilet_1" scale="1.5 1.5 1.5" position="1 -0.01 3" rotation="0 140 0"></a-gltf-model>
         <a-gltf-model id="id_sink_1" src="#sink_1" scale="1.5 1 1" position="3.7 -0.01 3" rotation="0 180 0"></a-gltf-model>
         <a-gltf-model id="id_soap" src="#soap" scale="1.8 1.8 1.8" position="3.7 0.75 2.7" rotation="0 180 0"></a-gltf-model>
         <a-gltf-model id="id_dustbin" src="#dustbin" scale="1 1 1" position="2.5 0.01 3" rotation="0 180 0"></a-gltf-model>
@@ -418,6 +483,21 @@
 
         </rw-wall>
         
+
+        <a-gltf-model id="id_bed_3" src="#bed_1" scale="0.5 0.5 0.5" position="3 0.01 2" rotation="0 270 0"></a-gltf-model>
+        <a-gltf-model id="id_main_wardrobe" src="#main_wardrobe" scale="0.5 0.5 0.5" position="6.7 0.01 5" rotation="0 180 0"></a-gltf-model>
+        <a-gltf-model id="id_vanity" src="#vanity" scale="1 1 1" position="6.5 0.01 2" rotation="0 270 0"></a-gltf-model>
+        <a-gltf-model id="id_bedside_table_2" src="#bedside_table_1" scale="0.35 0.2 0.35" position="1 0.01 0.35" rotation="0 0 0"></a-gltf-model>
+        <a-gltf-model id="id_bedside_table_3" src="#bedside_table_1" scale="0.35 0.2 0.35" position="5 0.01 0.35" rotation="0 0 0"></a-gltf-model>
+        <a-gltf-model id="id_main_lamp_2" src="#main_lamp" scale="1 1 1" position="5 0.6 0.4" rotation="0 0 0"></a-gltf-model>
+        <a-gltf-model id="id_main_lamp_3" src="#main_lamp" scale="1 1 1" position="1 0.6 0.4" rotation="0 0 0"></a-gltf-model>
+        <a-gltf-model id="id_main_painting" src="#painting_1" scale="1 1 1" position="3 1.4 0.05" rotation="0 90 0"></a-gltf-model>
+
+        
+        
+
+
+
         <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
         <rw-ceiling material="color:#FFF"></rw-ceiling>
     
@@ -440,7 +520,7 @@
 
         <a-gltf-model id="id_bathtub" src="#bathtub" scale="1.3 1.4 2.26" position="3.9 0.01 0" rotation="0 180 0"></a-gltf-model>
         <a-gltf-model id="id_toilet_2" src="#toilet_2" scale="1.5 1.5 1.5" position="1.5 0.01 3.5" rotation="0 180 0"></a-gltf-model>
-
+        
         <rw-floor material="src:#bathroom-floor;repeat:2 2"></rw-floor>
         <rw-ceiling material="color:#FFF"></rw-ceiling>
 
