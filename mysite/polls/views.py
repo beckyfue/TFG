@@ -19,7 +19,7 @@ from dash import dcc, html
 import plotly.express as px
 from datetime import datetime
 from datetime import timedelta
-
+import random
 from django_plotly_dash import DjangoDash
 
 
@@ -253,5 +253,16 @@ def delete_patient(request, patient_id):
 
 @login_required(login_url='polls:custom_login')
 def vrgame(request):
+    object_ids = ["id_table", "id_sofa", "id_green_pillow_1", "id_green_pillow_2", "id_green_pillow_3", "id_blue_vase", "id_coffee_table","id_book",
+                   "id_tv", "id_painting_1", "id_painting_2", "id_lounge_chair_1", "id_lounge_chair_2", "id_lounge_chair_3", "id_lounge_chair_4",
+                    "id_fruit_bowl", "id_lounge_drawers"]
+    selected_object_ids = random.sample(object_ids, 4)
+    available_colors = ["red", "green", "blue", "yellow"]
+    random_colors = random.sample(available_colors, 1)
+    
+    context = {
+        'selected_object_ids': json.dumps(selected_object_ids),
+        'random_colors': random_colors[0],
+    }
     print("VR GAME URL")
-    return render(request, 'polls/vrgame.html')
+    return render(request, 'polls/vrgame.html', context)

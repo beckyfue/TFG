@@ -23,6 +23,7 @@
         <a-asset-item id="lounge_sofa" src="{% static 'vrgame/imgs/sofa_1.glb' %}"></a-asset-item>
         <a-asset-item id="green_pillow" src="{% static 'vrgame/imgs/green_pillow.glb' %}"></a-asset-item>
         <a-asset-item id="yellow_vase" src="{% static 'vrgame/imgs/yellow_vase.glb' %}"></a-asset-item>
+        <a-asset-item id="blue_vase" src="{% static 'vrgame/imgs/blue_vase.glb' %}"></a-asset-item>
         <a-asset-item id="coffee_table" src="{% static 'vrgame/imgs/coffee_table.glb' %}"></a-asset-item>
         <a-asset-item id="book" src="{% static 'vrgame/imgs/book.glb' %}"></a-asset-item>
         <a-asset-item id="tv" src="{% static 'vrgame/imgs/tv.gltf' %}"></a-asset-item>
@@ -312,7 +313,7 @@
         <a-gltf-model id="id_green_pillow_1" src="#green_pillow" scale="0.4 0.4 0.4" position="6 0.88 2"  rotation="70 90 0"></a-gltf-model>
         <a-gltf-model id="id_green_pillow_2" src="#green_pillow" scale="0.4 0.4 0.4" position="6 0.88 2.7"  rotation="70 90 0"></a-gltf-model>
         <a-gltf-model id="id_green_pillow_3" src="#green_pillow" scale="0.4 0.4 0.4" position="6 0.88 1.25"  rotation="70 90 0"></a-gltf-model>
-        <a-gltf-model id="id_yellow_vase" src="#yellow_vase" scale="0.2 0.2 0.2" position="8.6 0.4 2"></a-gltf-model>
+        <a-gltf-model id="id_blue_vase" src="#blue_vase" scale="1 1 1" position="8.6 0.4 2"></a-gltf-model>
         <a-gltf-model id="id_coffee_table" src="#coffee_table" scale="1 1 1" position="8.5 0.01 2"></a-gltf-model>
         <a-gltf-model id="id_book" src="#book" scale="2.5 2.5 2.5" position="8.5 0.45 1.7"></a-gltf-model>
         <a-gltf-model id="id_tv" src="#tv" scale="1.5 1.5 1.5" position="10 1 2" rotation="0 180 0"></a-gltf-model>
@@ -519,5 +520,31 @@
     </rw-room>
     </a-scene>
         <!-- Add more games as needed -->
-    </div>
+    
+    <footer>
+      <script>
+     window.onload = function() {
+      var selectedObjects = JSON.parse('{{ selected_object_ids|safe }}');
+      var color = '{{ random_colors }}';
+      for (var i = 0; i < selectedObjects.length; i++) {
+        changeColor(selectedObjects[i], color);
+}
+};
+
+
+    function changeColor(object_id, color) {
+      var modelEntity = document.querySelector("#" + object_id);
+      modelEntity.addEventListener("model-loaded", function(){
+        var model  = modelEntity.getObject3D("mesh");
+        model.traverse(function(node){
+          if (node.isMesh) {
+            node.material.color.set(color);
+          }
+        });
+      });
+    }
+      </script>
+    </footer>
+
+  </div>
 {% endblock %}
