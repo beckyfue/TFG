@@ -253,10 +253,16 @@ def delete_patient(request, patient_id):
 
 @login_required(login_url='polls:custom_login')
 def vrgame(request):
-    object_ids = ["id_table", "id_sofa", "id_green_pillow_1", "id_green_pillow_2", "id_green_pillow_3", "id_blue_vase", "id_coffee_table","id_book",
-                   "id_tv", "id_painting_1", "id_painting_2", "id_lounge_chair_1", "id_lounge_chair_2", "id_lounge_chair_3", "id_lounge_chair_4",
-                    "id_fruit_bowl", "id_lounge_drawers"]
-    selected_object_ids = random.sample(object_ids, 4)
+    object_ids = ["id_table", "id_sofa", "id_green_pillow_1", "id_green_pillow_2", "id_green_pillow_3", "id_blue_vase", "id_coffee_table",
+                    "id_lounge_chair_1", "id_lounge_chair_2", "id_lounge_chair_3", "id_lounge_chair_4","id_lounge_drawers",
+                   "id_kitchen_counter", "id_fridge", "id_kitchen_cupboard", "id_sauce_pan", "id_coffee_machine", "id_kettle", "id_toaster",
+                  "id_toy_car",  "id_teddy", "id_rocket",  "id_football", "id_bedside_table_1","id_wardrobe_1", "id_bed_1",  "id_puff_2",  
+                  "id_shelf_bedroom_1", "id_puff_1", "id_bed_2", "id_lights", "id_mouse" ,"id_guitar", "id_sunglasses","id_shoes", 
+                  "id_shelf_bedroom_2", "id_ottoman","id_hat","id_headphones",  "id_desk", "id_toilet_1", "id_sink_1", "id_soap", 
+                  "id_dustbin", "id_vanity","id_bed_3", "id_bedside_table_2", "id_bedside_table_3", "id_main_wardrobe", 
+                  "id_main_lamp_2", "id_main_lamp_3", "id_toilet_2", "id_bathtub"] 
+    
+    selected_object_ids = random.sample(object_ids, 10)
     available_colors = ["red", "green", "blue", "yellow"]
     random_colors = random.sample(available_colors, 1)
     

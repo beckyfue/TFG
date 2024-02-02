@@ -12,18 +12,19 @@ var door_dict = {
 };
 
 var colours = {
+
   "id_green_pillow_1": "green",
   "id_green_pillow_2": "green",
   "id_green_pillow_3": "green",
-  "id_yellow_vase": "yellow",
-  "id_painting_1": "yellow",
-  "id_mixer": "red",
+  "id_blue_vase": "blue",
   "id_bathtup": "blue",
+  "id_ottoman": "yellow",
+  "id_shoes": "yellow",
   "id_puff_1": "red",
   "id_puff_2": "red",
   "id_rocket": "red",
-  "id_shoes": "yellow",
-  "bath2-d": true
+  "id_toy_car": "red"
+  
 };
 
 
