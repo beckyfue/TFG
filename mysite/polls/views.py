@@ -253,6 +253,24 @@ def delete_patient(request, patient_id):
 
 @login_required(login_url='polls:custom_login')
 def vrgame(request):
+
+    precolored_objects = {
+        "id_green_pillow_1": "green",
+        "id_green_pillow_2": "green",
+        "id_green_pillow_3": "green",
+        "id_blue_vase": "blue",
+        "id_bathtub": "blue",
+        "id_dustbin": "blue",
+        "id_ottoman": "yellow",
+        "id_shoes": "yellow",
+        "id_puff_1": "red",
+        "id_puff_2": "red",
+        "id_rocket": "red",
+        "id_toy_car": "red"
+    }
+
+
+
     object_ids = ["id_table", "id_sofa", "id_green_pillow_1", "id_green_pillow_2", "id_green_pillow_3", "id_blue_vase", "id_coffee_table",
                     "id_lounge_chair_1", "id_lounge_chair_2", "id_lounge_chair_3", "id_lounge_chair_4","id_lounge_drawers",
                    "id_kitchen_counter", "id_fridge", "id_kitchen_cupboard", "id_sauce_pan", "id_coffee_machine", "id_kettle", "id_toaster",
@@ -265,10 +283,26 @@ def vrgame(request):
     selected_object_ids = random.sample(object_ids, 10)
     available_colors = ["red", "green", "blue", "yellow"]
     random_colors = random.sample(available_colors, 1)
+    print("slected objects", selected_object_ids)
+    print("selected colour", random_colors)
+
+    change_objects = []
+    new_color = None
+
+    for obj_id, obj_color in precolored_objects.items():
+        if obj_id not in selected_object_ids and obj_color == random_colors[0]:
+            change_objects.append(obj_id)
+            if obj_color in available_colors:
+                available_colors.remove(obj_color)
+                new_color = random.choice(available_colors)
+
     
     context = {
         'selected_object_ids': json.dumps(selected_object_ids),
         'random_colors': random_colors[0],
+        'new_color': new_color,
+        'change_objects': json.dumps(change_objects),
     }
     print("VR GAME URL")
     return render(request, 'polls/vrgame.html', context)
+    

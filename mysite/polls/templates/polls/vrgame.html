@@ -521,30 +521,36 @@
     </a-scene>
         <!-- Add more games as needed -->
     
-    <footer>
-      <script>
-     window.onload = function() {
-      var selectedObjects = JSON.parse('{{ selected_object_ids|safe }}');
-      var color = '{{ random_colors }}';
-      for (var i = 0; i < selectedObjects.length; i++) {
-        changeColor(selectedObjects[i], color);
-}
-};
-
-
-    function changeColor(object_id, color) {
-      var modelEntity = document.querySelector("#" + object_id);
-      modelEntity.addEventListener("model-loaded", function(){
-        var model  = modelEntity.getObject3D("mesh");
-        model.traverse(function(node){
-          if (node.isMesh) {
-            node.material.color.set(color);
-          }
-        });
-      });
-    }
-      </script>
-    </footer>
+        <footer>
+          <script>
+              window.onload = function() {
+                  var selectedObjects = JSON.parse('{{ selected_object_ids|safe }}');
+                  var color = '{{ random_colors }}';
+                  var new_color = '{{ new_color }}';
+                  var change_objects = JSON.parse('{{ change_objects|safe }}');
+      
+                  for (var i = 0; i < selectedObjects.length; i++) {
+                      changeColor(selectedObjects[i], color);
+                  }
+      
+                  for (var i = 0; i < change_objects.length; i++) {  // Corrected variable name
+                      changeColor(change_objects[i], new_color);
+                  }
+              };
+      
+              function changeColor(object_id, color) {
+                  var modelEntity = document.querySelector("#" + object_id);
+                  modelEntity.addEventListener("model-loaded", function(){
+                      var model  = modelEntity.getObject3D("mesh");
+                      model.traverse(function(node){
+                          if (node.isMesh) {
+                              node.material.color.set(color);
+                          }
+                      });
+                  });
+              }
+          </script>
+      </footer>
 
   </div>
 {% endblock %}
