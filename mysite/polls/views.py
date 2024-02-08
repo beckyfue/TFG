@@ -280,8 +280,8 @@ def vrgame(request):
                   "id_dustbin", "id_vanity","id_bed_3", "id_bedside_table_2", "id_bedside_table_3", "id_main_wardrobe", 
                   "id_main_lamp_2", "id_main_lamp_3", "id_toilet_2", "id_bathtub"] 
     
-    selected_object_ids = random.sample(object_ids, 10)
-    available_colors = ["red", "green", "blue", "yellow"]
+    selected_object_ids = random.sample(object_ids, len(object_ids))
+    available_colors = ["red"]
     random_colors = random.sample(available_colors, 1)
     print("slected objects", selected_object_ids)
     print("selected colour", random_colors)
