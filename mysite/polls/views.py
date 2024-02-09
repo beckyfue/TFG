@@ -263,7 +263,8 @@ def vrgame(request):
         "id_ottoman": "yellow",
         "id_shoes": "yellow",
         "id_rocket": "red",
-        "id_toy_car": "red"
+        "id_toy_car": "red", 
+        "id_truck": "red"
     }
 
 
@@ -286,6 +287,8 @@ def vrgame(request):
     change_objects = []
     new_color = None
 
+
+    # Change colour of objets that are colour of random colour chosen but are not in list of selected objects
     for obj_id, obj_color in precolored_objects.items():
         if obj_id not in selected_object_ids and obj_color == random_colors[0]:
             change_objects.append(obj_id)
