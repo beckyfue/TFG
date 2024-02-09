@@ -258,30 +258,27 @@ def vrgame(request):
         "id_green_pillow_1": "green",
         "id_green_pillow_2": "green",
         "id_green_pillow_3": "green",
-        "id_blue_vase": "blue",
         "id_bathtub": "blue",
         "id_dustbin": "blue",
         "id_ottoman": "yellow",
         "id_shoes": "yellow",
-        "id_puff_1": "red",
-        "id_puff_2": "red",
         "id_rocket": "red",
         "id_toy_car": "red"
     }
 
 
 
-    object_ids = ["id_table", "id_sofa", "id_green_pillow_1", "id_green_pillow_2", "id_green_pillow_3", "id_blue_vase", "id_coffee_table",
+    object_ids = ["id_table", "id_sofa", "id_green_pillow_1", "id_green_pillow_2", "id_green_pillow_3", "id_tissues", "id_coffee_table",
                     "id_lounge_chair_1", "id_lounge_chair_2", "id_lounge_chair_3", "id_lounge_chair_4","id_lounge_drawers",
                    "id_kitchen_counter", "id_fridge", "id_kitchen_cupboard", "id_sauce_pan", "id_coffee_machine", "id_kettle", "id_toaster",
-                  "id_toy_car",  "id_teddy", "id_rocket",  "id_football", "id_bedside_table_1","id_wardrobe_1", "id_bed_1",  "id_puff_2",  
-                  "id_shelf_bedroom_1", "id_puff_1", "id_bed_2", "id_lights", "id_mouse" ,"id_guitar", "id_sunglasses","id_shoes", 
+                  "id_toy_car", "id_rocket",  "id_football", "id_bedside_table_1","id_wardrobe_1", "id_bed_1",  "id_stool_2", "id_truck", 
+                  "id_shelf_bedroom_1", "id_stool_1", "id_bed_2", "id_lights", "id_mouse" ,"id_guitar", "id_bottle_water","id_shoes", 
                   "id_shelf_bedroom_2", "id_ottoman","id_hat","id_headphones",  "id_desk", "id_toilet_1", "id_sink_1", "id_soap", 
                   "id_dustbin", "id_vanity","id_bed_3", "id_bedside_table_2", "id_bedside_table_3", "id_main_wardrobe", 
                   "id_main_lamp_2", "id_main_lamp_3", "id_toilet_2", "id_bathtub"] 
     
-    selected_object_ids = random.sample(object_ids, len(object_ids))
-    available_colors = ["red"]
+    selected_object_ids = random.sample(object_ids, 10)
+    available_colors = ["blue", "red", "green", "yellow"]
     random_colors = random.sample(available_colors, 1)
     print("slected objects", selected_object_ids)
     print("selected colour", random_colors)
