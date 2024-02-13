@@ -156,22 +156,6 @@
             });
         });
     </script>
-    <script>
-        function changeColor(object_id, color) {
-          var modelEntity = document.querySelector("#" + object_id);
-          modelEntity.addEventListener("model-loaded", function(){
-            var model  = modelEntity.getObject3D("mesh");
-            model.traverse(function(node){
-              if (node.isMesh) {
-                node.material.color.set(color)
-              }
-            })
-        })
-       }
-  
-       changeColor("id_try", "red")
-  
-      </script>
 
 
 </div>

@@ -50,8 +50,6 @@ AFRAME.registerComponent("object-disappear", {
     console.log("Toggle visibility here");
     if (this.el.getAttribute("visible")) {
       this.el.setAttribute("visible", false);
-    } else {
-      this.el.setAttribute("visible", true);
     }
   },
 });
