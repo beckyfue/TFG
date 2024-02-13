@@ -38,6 +38,28 @@ function enable_camera_collisions(d){
 
 }
 
+
+
+AFRAME.registerComponent("object-disappear", {
+  init: function () {
+    this.toggleVisibility = this.toggleVisibility.bind(this);
+    this.el.addEventListener("click", this.toggleVisibility);
+  },
+
+  toggleVisibility: function () {
+    console.log("Toggle visibility here");
+    if (this.el.getAttribute("visible")) {
+      this.el.setAttribute("visible", false);
+    } else {
+      this.el.setAttribute("visible", true);
+    }
+  },
+});
+
+
+
+
+
 AFRAME.registerComponent("door-test", {
     schema: {
         rotation: { type: "string", default: "0 90 0" }, // Default open rotation
