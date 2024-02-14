@@ -530,15 +530,17 @@
                     var change_objects = JSON.parse('{{ change_objects|safe }}');
         
                     
-                    changeColorForObjects(selectedObjects, color);
+                    changeColorForObjects(selectedObjects, color, true);
         
                     
-                    changeColorForObjects(change_objects, new_color);
+                    changeColorForObjects(change_objects, new_color, false);
                 };
         
-                function changeColorForObjects(objects, color) {
+                function changeColorForObjects(objects, color, disappear) {
                     for (var i = 0; i < objects.length; i++) {
-                        document.getElementById(objects[i]).setAttribute("object-disappear", ""); 
+                        if (disappear) {
+                            document.getElementById(objects[i]).setAttribute("object-disappear", ""); 
+                        }
                         changeColor(objects[i], color);
                     }
                 }
