@@ -269,13 +269,13 @@ def vrgame(request):
 
 
 
-    object_ids = ["id_table", "id_sofa", "id_green_pillow_1", "id_green_pillow_2", "id_green_pillow_3", "id_tissues", "id_coffee_table",
+    object_ids = ["id_green_pillow_1", "id_green_pillow_2", "id_green_pillow_3", "id_tissues", 
                     "id_lounge_chair_1", "id_lounge_chair_2", "id_lounge_chair_3", "id_lounge_chair_4","id_lounge_drawers",
-                   "id_kitchen_counter", "id_fridge", "id_kitchen_cupboard", "id_sauce_pan", "id_coffee_machine", "id_kettle", "id_toaster",
+                    "id_fridge", "id_kitchen_cupboard", "id_sauce_pan", "id_coffee_machine", "id_kettle", "id_toaster",
                   "id_toy_car", "id_rocket",  "id_football", "id_bedside_table_1","id_wardrobe_1", "id_bed_1",  "id_stool_2", "id_truck", 
-                  "id_shelf_bedroom_1", "id_stool_1", "id_bed_2", "id_lights", "id_mouse" ,"id_guitar", "id_bottle_water","id_shoes", 
-                  "id_shelf_bedroom_2", "id_ottoman","id_hat","id_headphones",  "id_desk", "id_toilet_1", "id_sink_1", "id_soap", 
-                  "id_dustbin", "id_vanity","id_bed_3", "id_bedside_table_2", "id_bedside_table_3", "id_main_wardrobe", 
+                   "id_stool_1", "id_bed_2", "id_lights", "id_mouse" ,"id_guitar", "id_bottle_water","id_shoes", 
+                   "id_ottoman","id_hat","id_headphones",   "id_toilet_1", "id_soap", 
+                  "id_dustbin", "id_vanity","id_bed_3", "id_main_wardrobe", 
                   "id_main_lamp_2", "id_main_lamp_3", "id_toilet_2", "id_bathtub"] 
     
     selected_object_ids = random.sample(object_ids, 10)
