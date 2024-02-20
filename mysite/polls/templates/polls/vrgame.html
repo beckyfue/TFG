@@ -523,6 +523,8 @@
     </rw-room>
     </a-scene>
         <!-- Add more games as needed -->
+
+        
     
         <footer>
             <script>
@@ -531,48 +533,51 @@
                     var color = '{{ random_colors }}';
                     var new_color = '{{ new_color }}';
                     var change_objects = JSON.parse('{{ change_objects|safe }}');
-
+        
                     var clickedObjects = new Set();  // Set to keep track of clicked objects
-
+        
                     changeColorForObjects(selectedObjects, color, true);
-
+        
                     changeColorForObjects(change_objects, new_color, false);
-
+        
                     // Function to handle object click
                     function handleObjectClick(objectId) {
-                        // Check if the object has not been clicked before
                         if (!clickedObjects.has(objectId)) {
                             clickedObjects.add(objectId);
-                            // Check if all selected objects are clicked
+        
                             if (clickedObjects.size === selectedObjects.length) {
-                                // Disable WASD controls when all objects are clicked
                                 disableMovementControls();
-
-                                // Show congratulatory message at the last cursor position
                                 showCongratulatoryMessage();
                             }
-
-                            // Debug print to console
+        
                             console.log("Clicked object:", objectId);
                         }
                     }
-
-                    // Function to show congratulatory message
+        
+                    // Function to handle "Play Again" button click
+                    function handlePlayAgainClick() {
+                        location.reload();
+                    }
+        
+                    // Function to handle "End Game" button click
+                    function handleEndGameClick() {
+                        window.location.href = "{% url 'polls:patient_homepage' %}";
+                    }
+        
+                    // Function to show congratulatory message and buttons
                     function showCongratulatoryMessage() {
-                        // Get the cursor element
                         var cursor = document.querySelector("#front-cursor");
-                        
-                        // Get the world position and rotation of the cursor
                         var cursorPosition = new THREE.Vector3();
                         var cursorRotation = new THREE.Quaternion();
                         cursor.object3D.getWorldPosition(cursorPosition);
                         cursor.object3D.getWorldQuaternion(cursorRotation);
-
+        
                         console.log("Cursor Position:", cursorPosition);
                         console.log("Cursor Rotation:", cursorRotation);
-
-                        // Create a congratulatory message entity
+        
                         var scene = document.querySelector("a-scene");
+        
+                        // Create congratulatory message entity
                         var congratulatoryMessage = document.createElement("a-entity");
                         congratulatoryMessage.setAttribute("text", {
                             value: "Congratulations! You found all objects.",
@@ -582,21 +587,45 @@
                         });
                         congratulatoryMessage.object3D.position.copy(cursorPosition);
                         congratulatoryMessage.object3D.rotation.setFromQuaternion(cursorRotation);
-
                         scene.appendChild(congratulatoryMessage);
+        
+                        // Create "Play Again" button entity
+                        var playAgainButton = createButton("Play Again", handlePlayAgainClick, cursorPosition.clone().add(new THREE.Vector3(-0.4, -0.2, 0)), cursorRotation);
+                        playAgainButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
+                        playAgainButton.setAttribute("material", "color: #3498db");
+                        scene.appendChild(playAgainButton);
 
-                        console.log("Congratulatory Message Element:", congratulatoryMessage);
+                        // Create "End Game" button entity
+                        var endGameButton = createButton("End Game", handleEndGameClick, cursorPosition.clone().add(new THREE.Vector3(0.4, -0.2, 0)), cursorRotation);
+                        endGameButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
+                        endGameButton.setAttribute("material", "color: #e74c3c");
+                        scene.appendChild(endGameButton);
                     }
 
+                    // Function to create a button entity
+                    function createButton(text, clickHandler, position, rotation) {
+                        var button = document.createElement("a-entity");
+                        button.setAttribute("text", {
+                            value: text,
+                            align: "center",
+                            color: "#ffffff",
+                        });
+                        button.object3D.position.copy(position);
+                        button.object3D.rotation.setFromQuaternion(rotation);
 
+                        button.setAttribute("class", "clickable");
+                        button.addEventListener("click", clickHandler);
+                        button.setAttribute("cursor-listener", "");
+
+                        return button;
+                    }
+        
                     // Function to disable movement controls
                     function disableMovementControls() {
                         var cameraEntity = document.querySelector("#camera");
-                        // Remove the wasd-controls component
-                        cameraEntity.removeAttribute("wasd-controls");
-                        //cameraEntity.removeAttribute("look-controls");
+                        // cameraEntity.removeAttribute("wasd-controls");
                     }
-
+        
                     // Attach click event listener to each selected object
                     for (var i = 0; i < selectedObjects.length; i++) {
                         var objectId = selectedObjects[i];
@@ -604,7 +633,8 @@
                         objectEntity.addEventListener("click", handleObjectClick.bind(null, objectId));
                     }
                 };
-
+                
+                // Functions for changing colors
                 function changeColorForObjects(objects, color, disappear) {
                     for (var i = 0; i < objects.length; i++) {
                         if (disappear) {
@@ -613,7 +643,7 @@
                         changeColor(objects[i], color);
                     }
                 }
-
+        
                 function changeColor(object_id, color) {
                     var modelEntity = document.querySelector("#" + object_id);
                     modelEntity.addEventListener("model-loaded", function () {
@@ -627,6 +657,10 @@
                 }
             </script>
         </footer>
+        
+        
+        
+        
         
         
       
