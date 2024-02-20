@@ -111,6 +111,9 @@
         </a-entity>
       </a-entity>
 
+
+
+    
       
       <a-entity id="door-salon"  position=" 1 1 -3.5" rotation="0 -90 0">
         <a-box width="0.1" height="2.4" depth="0.1" color="white" position="0.6 0 0"></a-box>
@@ -528,13 +531,13 @@
                     var color = '{{ random_colors }}';
                     var new_color = '{{ new_color }}';
                     var change_objects = JSON.parse('{{ change_objects|safe }}');
-        
+
                     var clickedObjects = new Set();  // Set to keep track of clicked objects
-        
+
                     changeColorForObjects(selectedObjects, color, true);
-        
+
                     changeColorForObjects(change_objects, new_color, false);
-        
+
                     // Function to handle object click
                     function handleObjectClick(objectId) {
                         // Check if the object has not been clicked before
@@ -542,66 +545,58 @@
                             clickedObjects.add(objectId);
                             // Check if all selected objects are clicked
                             if (clickedObjects.size === selectedObjects.length) {
-                                // Disable WASD controls and display congratulatory message
+                                // Disable WASD controls when all objects are clicked
                                 disableMovementControls();
+
+                                // Show congratulatory message at the last cursor position
+                                showCongratulatoryMessage();
                             }
-        
+
                             // Debug print to console
                             console.log("Clicked object:", objectId);
                         }
                     }
-        
-                    // Function to disable movement controls and display congratulatory message
+
+                    // Function to show congratulatory message
+                    function showCongratulatoryMessage() {
+                        // Get the cursor element
+                        var cursor = document.querySelector("#front-cursor");
+                        
+                        // Get the world position and rotation of the cursor
+                        var cursorPosition = new THREE.Vector3();
+                        var cursorRotation = new THREE.Quaternion();
+                        cursor.object3D.getWorldPosition(cursorPosition);
+                        cursor.object3D.getWorldQuaternion(cursorRotation);
+
+                        console.log("Cursor Position:", cursorPosition);
+                        console.log("Cursor Rotation:", cursorRotation);
+
+                        // Create a congratulatory message entity
+                        var scene = document.querySelector("a-scene");
+                        var congratulatoryMessage = document.createElement("a-entity");
+                        congratulatoryMessage.setAttribute("text", {
+                            value: "Congratulations! You found all objects.",
+                            align: "center",
+                            wrapCount: 20,
+                            color: "black",
+                        });
+                        congratulatoryMessage.object3D.position.copy(cursorPosition);
+                        congratulatoryMessage.object3D.rotation.setFromQuaternion(cursorRotation);
+
+                        scene.appendChild(congratulatoryMessage);
+
+                        console.log("Congratulatory Message Element:", congratulatoryMessage);
+                    }
+
+
+                    // Function to disable movement controls
                     function disableMovementControls() {
                         var cameraEntity = document.querySelector("#camera");
-                        // Retrieve the current position of the camera
-                        var cameraPosition = cameraEntity.getAttribute("position");
+                        // Remove the wasd-controls component
                         cameraEntity.removeAttribute("wasd-controls");
-                        // cameraEntity.removeAttribute("look-controls");
-        
-                        // Display congratulatory message at the current camera position
-                        displayCongratulatoryMessage(cameraEntity, cameraPosition);
+                        //cameraEntity.removeAttribute("look-controls");
                     }
-        
-                    // Function to display congratulatory message
-                    function displayCongratulatoryMessage(cameraEntity, position) {
-                    // Create a text entity for the congratulatory message
-                    var textEntity = document.createElement("a-text");
-                    textEntity.setAttribute("value", "Congratulations! You found all objects.");
-                    textEntity.setAttribute("color", "black");
-                    textEntity.setAttribute("align", "center");
-                    textEntity.setAttribute("wrap-count", 20);
 
-                    // Set the position of the text entity to the camera's last position with an offset
-                    var offsetDistance = 0.8; // Adjust this value as needed
-                    var offsetPosition = {
-                        x: position.x,
-                        y: position.y,
-                        z: position.z - offsetDistance
-                    };
-                    textEntity.setAttribute("position", offsetPosition);
-
-                    // Use vector calculation to determine the orientation
-                    var cameraPosition = cameraEntity.getAttribute("position");
-                    var lookAtVector = new THREE.Vector3(
-                        cameraPosition.x - offsetPosition.x,
-                        cameraPosition.y - offsetPosition.y,
-                        cameraPosition.z - offsetPosition.z
-                    ).normalize();
-
-                    var rotationY = Math.atan2(-lookAtVector.x, -lookAtVector.z);
-
-                    textEntity.setAttribute("rotation", { x: 0, y: rotationY * (180 / Math.PI) + 180, z: 0 });
-
-                    textEntity.setAttribute("font", "mozillavr"); // or another font of your choice
-                    textEntity.setAttribute("width", 0.5); // Set the width to control the font size
-
-                    // Append the text entity to the scene
-                    document.querySelector("a-scene").appendChild(textEntity);
-                    console.log("Congratulatory message appended to the scene");
-                }
-
-                        
                     // Attach click event listener to each selected object
                     for (var i = 0; i < selectedObjects.length; i++) {
                         var objectId = selectedObjects[i];
@@ -609,7 +604,7 @@
                         objectEntity.addEventListener("click", handleObjectClick.bind(null, objectId));
                     }
                 };
-        
+
                 function changeColorForObjects(objects, color, disappear) {
                     for (var i = 0; i < objects.length; i++) {
                         if (disappear) {
@@ -618,7 +613,7 @@
                         changeColor(objects[i], color);
                     }
                 }
-        
+
                 function changeColor(object_id, color) {
                     var modelEntity = document.querySelector("#" + object_id);
                     modelEntity.addEventListener("model-loaded", function () {
@@ -632,7 +627,6 @@
                 }
             </script>
         </footer>
-        
         
         
       
