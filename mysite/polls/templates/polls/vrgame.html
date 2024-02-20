@@ -592,16 +592,28 @@
                         // Create "Play Again" button entity
                         var playAgainButton = createButton("Play Again", handlePlayAgainClick, cursorPosition.clone().add(new THREE.Vector3(-0.4, -0.2, 0)), cursorRotation);
                         playAgainButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
-                        playAgainButton.setAttribute("material", "color: #3498db");
+                        playAgainButton.setAttribute("material", "color: #2ecc71"); // Change color to green
+                        playAgainButton.setAttribute("text", {
+                            value: "Play Again",
+                            align: "center",
+                            color: "#ffffff",
+                            width: 1.5, // Adjust the width attribute to make the text bigger
+                        });
                         scene.appendChild(playAgainButton);
-
+        
                         // Create "End Game" button entity
                         var endGameButton = createButton("End Game", handleEndGameClick, cursorPosition.clone().add(new THREE.Vector3(0.4, -0.2, 0)), cursorRotation);
                         endGameButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
                         endGameButton.setAttribute("material", "color: #e74c3c");
+                        endGameButton.setAttribute("text", {
+                            value: "End Game",
+                            align: "center",
+                            color: "#ffffff",
+                            width: 1.5, // Adjust the width attribute to make the text bigger
+                        });
                         scene.appendChild(endGameButton);
                     }
-
+        
                     // Function to create a button entity
                     function createButton(text, clickHandler, position, rotation) {
                         var button = document.createElement("a-entity");
@@ -612,11 +624,11 @@
                         });
                         button.object3D.position.copy(position);
                         button.object3D.rotation.setFromQuaternion(rotation);
-
+        
                         button.setAttribute("class", "clickable");
                         button.addEventListener("click", clickHandler);
                         button.setAttribute("cursor-listener", "");
-
+        
                         return button;
                     }
         
@@ -633,7 +645,7 @@
                         objectEntity.addEventListener("click", handleObjectClick.bind(null, objectId));
                     }
                 };
-                
+        
                 // Functions for changing colors
                 function changeColorForObjects(objects, color, disappear) {
                     for (var i = 0; i < objects.length; i++) {
@@ -657,6 +669,7 @@
                 }
             </script>
         </footer>
+        
         
         
         
