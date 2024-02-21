@@ -101,7 +101,7 @@
 
 
       <a-entity id="rig">
-        <a-entity id="camera" camera-listener camera-movement camera wasd-controls="acceleration:20" look-controls position="-0.5 1.6 0" geometry="primitive: sphere; radius: 11" >
+        <a-entity id="camera" camera-listener camera-movement camera look-controls position="-0.5 1.6 0" geometry="primitive: sphere; radius: 11" >
           <!-- Move the raycaster inside the camera entity as a child entity -->
           <a-cursor  id="front-cursor" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .clickable" position="0 0 -1" raycaster-wall></a-cursor>
           <a-cursor  id="front-cursor2" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .door-hole" position="0 0 -1" raycaster-wall></a-cursor>
@@ -186,6 +186,7 @@
         <a-box  visible="false" class="door-hole" id="invisible-bath2-d" raycaster-collide   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
      
       </a-entity>
+      
 
 
 <!-- cocina-->
@@ -533,6 +534,93 @@
                     var color = '{{ random_colors }}';
                     var new_color = '{{ new_color }}';
                     var change_objects = JSON.parse('{{ change_objects|safe }}');
+
+                    function showInitialMessage() {
+                        var cursor = document.querySelector("#front-cursor");
+                        var cursorPosition = new THREE.Vector3();
+                        var cursorRotation = new THREE.Quaternion();
+                        cursor.object3D.getWorldPosition(cursorPosition);
+                        cursor.object3D.getWorldQuaternion(cursorRotation);
+
+                        console.log("Cursor Position:", cursorPosition);
+                        console.log("Cursor Rotation:", cursorRotation);
+
+                        var scene = document.querySelector("a-scene");
+
+                        // Create initial message entity
+                        // Create initial message entity
+                        var initialMessage = document.createElement("a-entity");
+                        initialMessage.setAttribute("id", "initial-message");
+                        initialMessage.setAttribute("text", {
+                            value: "Find " + selectedObjects.length + " objects that are " + color + ".",
+                            align: "center",
+                            wrapCount: 20,
+                            color: "black",
+                        });
+                        initialMessage.object3D.position.copy(cursorPosition);
+                        initialMessage.object3D.rotation.setFromQuaternion(cursorRotation);
+
+                        // Adjust position to be relative to the cursor
+                        var offset = new THREE.Vector3(-0.8, 2, -1.6); // Adjust the offset as needed
+                        initialMessage.object3D.position.add(offset);
+
+                        // Set a style attribute to make sure it's visible
+                        initialMessage.setAttribute("style", "position: absolute; z-index: 999");
+
+                        scene.appendChild(initialMessage);
+
+
+                        // Create "Start" button entity
+                        var startButton = createButton(
+                            "Start",
+                            handleStartClick,
+                            initialMessage.object3D.position.clone().add(new THREE.Vector3(0, -0.4, 0)),
+                            cursorRotation
+                        );
+                        startButton.setAttribute("id", "start-button");
+                        startButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
+                        startButton.setAttribute("material", "color: #2ecc71");
+                        startButton.setAttribute("text", {
+                            value: "Start",
+                            align: "center",
+                            color: "#ffffff",
+                            width: 1.5,
+                        });
+                        scene.appendChild(startButton);
+                    }
+
+                    // Function to handle "Start" button click
+                    function handleStartClick(initialMessage, startButton) {
+                        var initialMessage = document.querySelector("#initial-message");
+                        var startButton = document.querySelector("#start-button");
+                        if (initialMessage) {
+                            initialMessage.parentNode.removeChild(initialMessage);
+                        }
+
+                        if (startButton) {
+                            startButton.parentNode.removeChild(startButton);
+                        }
+                        enableMovementControls();
+                    }
+
+                    // Call the function to show the initial message and "Start" button
+                    showInitialMessage();
+
+                    function enableMovementControls() {
+                        var cameraEntity = document.querySelector("#camera");
+                        cameraEntity.setAttribute("wasd-controls", "acceleration:20");
+                    }
+
+
+
+
+
+
+
+
+
+
+
         
                     var clickedObjects = new Set();  // Set to keep track of clicked objects
         
@@ -590,7 +678,7 @@
                         scene.appendChild(congratulatoryMessage);
         
                         // Create "Play Again" button entity
-                        var playAgainButton = createButton("Play Again", handlePlayAgainClick, cursorPosition.clone().add(new THREE.Vector3(-0.4, -0.2, 0)), cursorRotation);
+                        var playAgainButton = createButton("Play Again", handlePlayAgainClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.2, 0)), cursorRotation);
                         playAgainButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
                         playAgainButton.setAttribute("material", "color: #2ecc71"); // Change color to green
                         playAgainButton.setAttribute("text", {
@@ -602,7 +690,7 @@
                         scene.appendChild(playAgainButton);
         
                         // Create "End Game" button entity
-                        var endGameButton = createButton("End Game", handleEndGameClick, cursorPosition.clone().add(new THREE.Vector3(0.4, -0.2, 0)), cursorRotation);
+                        var endGameButton = createButton("End Game", handleEndGameClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.5, 0)), cursorRotation);
                         endGameButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
                         endGameButton.setAttribute("material", "color: #e74c3c");
                         endGameButton.setAttribute("text", {
@@ -635,7 +723,7 @@
                     // Function to disable movement controls
                     function disableMovementControls() {
                         var cameraEntity = document.querySelector("#camera");
-                        // cameraEntity.removeAttribute("wasd-controls");
+                        cameraEntity.removeAttribute("wasd-controls");
                     }
         
                     // Attach click event listener to each selected object
@@ -669,15 +757,10 @@
                 }
             </script>
         </footer>
-        
-        
-        
-        
-        
-        
+
         
       
-        </div>
-        {% endblock %}
+  </div>
+{% endblock %}
         
 
