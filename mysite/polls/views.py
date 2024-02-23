@@ -254,6 +254,9 @@ def delete_patient(request, patient_id):
 @login_required(login_url='polls:custom_login')
 def vrgame(request):
 
+
+
+
     precolored_objects = {
         "id_green_pillow_1": "green",
         "id_green_pillow_2": "green",
@@ -304,5 +307,5 @@ def vrgame(request):
         'change_objects': json.dumps(change_objects),
     }
     print("VR GAME URL")
-    return render(request, 'polls/vrgame.html', context)
+    return render(request, 'polls/vrgame.html')
     
