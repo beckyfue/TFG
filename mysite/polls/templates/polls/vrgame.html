@@ -101,7 +101,7 @@
 
 
       <a-entity id="rig">
-        <a-entity id="camera" camera-listener camera-movement camera look-controls position="-0.5 1.6 0" geometry="primitive: sphere; radius: 11" >
+        <a-entity id="camera" camera-listener camera-movement camera position="-0.5 1.6 0" geometry="primitive: sphere; radius: 11" >
           <!-- Move the raycaster inside the camera entity as a child entity -->
           <a-cursor  id="front-cursor" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .clickable" position="0 0 -1" raycaster-wall></a-cursor>
           <a-cursor  id="front-cursor2" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .door-hole" position="0 0 -1" raycaster-wall></a-cursor>
@@ -534,6 +534,7 @@
                     var color = '{{ random_colors }}';
                     var new_color = '{{ new_color }}';
                     var change_objects = JSON.parse('{{ change_objects|safe }}');
+                    
 
                     function showInitialMessage() {
                         var cursor = document.querySelector("#front-cursor");
@@ -561,7 +562,7 @@
                         initialMessage.object3D.rotation.setFromQuaternion(cursorRotation);
 
                         // Adjust position to be relative to the cursor
-                        var offset = new THREE.Vector3(-0.8, 2, -1.6); // Adjust the offset as needed
+                        var offset = new THREE.Vector3(-0.5, 2, -1.6); // Adjust the offset as needed
                         initialMessage.object3D.position.add(offset);
 
                         // Set a style attribute to make sure it's visible
@@ -609,7 +610,57 @@
                     function enableMovementControls() {
                         var cameraEntity = document.querySelector("#camera");
                         cameraEntity.setAttribute("wasd-controls", "acceleration:20");
+                        cameraEntity.setAttribute("look-controls", "");
+
                     }
+
+
+                    var counterMessageEntity = null;
+
+                    // Function to show the counter message
+                    function showCounterMessage(count) {
+                        var cursor = document.querySelector("#front-cursor");
+                        var cursorPosition = new THREE.Vector3();
+                        var cursorRotation = new THREE.Quaternion();
+                        cursor.object3D.getWorldPosition(cursorPosition);
+                        cursor.object3D.getWorldQuaternion(cursorRotation);
+
+                        var scene = document.querySelector("a-scene");
+
+                        // Remove previous counter message if exists
+                        if (counterMessageEntity) {
+                            scene.removeChild(counterMessageEntity);
+                        }
+
+                        // Create counter message entity
+                        counterMessageEntity = document.createElement("a-entity");
+                        counterMessageEntity.setAttribute("text", {
+                            value: "You have found " + count + " objects.",
+                            align: "center",
+                            wrapCount: 20,
+                            color: "black",
+                        });
+                        counterMessageEntity.object3D.position.copy(cursorPosition);
+                        counterMessageEntity.object3D.rotation.setFromQuaternion(cursorRotation);
+                        scene.appendChild(counterMessageEntity);
+
+                        // Set a timeout to remove the counter message after 3 seconds
+                        setTimeout(function () {
+                            if (counterMessageEntity) {
+                                scene.removeChild(counterMessageEntity);
+                                counterMessageEntity = null; // Reset the counter message entity variable
+                            }
+                        }, 3000);
+                    }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -632,6 +683,12 @@
                     function handleObjectClick(objectId) {
                         if (!clickedObjects.has(objectId)) {
                             clickedObjects.add(objectId);
+
+
+                            if (clickedObjects.size < selectedObjects.length) {
+                                // Show counter message only if not all objects are found
+                                showCounterMessage(clickedObjects.size);
+                            }
         
                             if (clickedObjects.size === selectedObjects.length) {
                                 disableMovementControls();

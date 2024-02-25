@@ -24,6 +24,8 @@ AFRAME.registerComponent('camera-listener', {
     }
   });
 
+ 
+
 
   AFRAME.registerComponent('camera-movement', {
     schema: {

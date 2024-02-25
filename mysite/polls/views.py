@@ -197,17 +197,6 @@ def patients(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     
 @login_required(login_url='polls:custom_login')
 def games(request):
@@ -273,12 +262,12 @@ def vrgame(request):
                     "id_lounge_chair_1", "id_lounge_chair_2", "id_lounge_chair_3", "id_lounge_chair_4","id_lounge_drawers",
                     "id_fridge", "id_kitchen_cupboard", "id_sauce_pan", "id_coffee_machine", "id_kettle", "id_toaster",
                   "id_toy_car", "id_rocket",  "id_football", "id_bedside_table_1","id_wardrobe_1", "id_bed_1",  "id_stool_2", "id_truck", 
-                   "id_stool_1", "id_bed_2", "id_lights", "id_mouse" ,"id_guitar", "id_bottle_water","id_shoes", 
+                   "id_stool_1", "id_bed_2", "id_mouse" ,"id_guitar", "id_bottle_water","id_shoes", 
                    "id_ottoman","id_hat","id_headphones",   "id_toilet_1", "id_soap", 
                   "id_dustbin", "id_vanity","id_bed_3", "id_main_wardrobe", 
                   "id_main_lamp_2", "id_main_lamp_3", "id_toilet_2", "id_bathtub"] 
     
-    selected_object_ids = random.sample(object_ids, 1)
+    selected_object_ids = random.sample(object_ids, 10)
     available_colors = ["blue", "red", "green", "yellow"]
     random_colors = random.sample(available_colors, 1)
     print("slected objects", selected_object_ids)
