@@ -101,7 +101,7 @@
 
 
       <a-entity  id="rig">
-        <a-entity id="camera" camera-listener camera-movement camera look-controls wasd-controls="acceleration: 20" position="-0.5 1 0" geometry="primitive: sphere; radius: 11" >
+        <a-entity id="camera" camera-listener camera-movement camera position="-0.5 1.6 0" geometry="primitive: sphere; radius: 11" >
           <!-- Move the raycaster inside the camera entity as a child entity -->
           <a-cursor  id="front-cursor" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .clickable" position="0 0 -1" raycaster-wall></a-cursor>
           <a-cursor  id="front-cursor2" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .door-hole" position="0 0 -1" raycaster-wall></a-cursor>
@@ -437,7 +437,7 @@
         <a-gltf-model id="id_toilet_1" src="#toilet_1" scale="1.5 1.5 1.5" position="1 -0.01 3" rotation="0 140 0" class = "clickable"></a-gltf-model>
         <a-gltf-model id="id_sink_1" src="#sink_1" scale="1.5 1 1" position="3.7 -0.01 3" rotation="0 180 0" class = "clickable"></a-gltf-model>
         <a-gltf-model id="id_soap" src="#soap" scale="1.8 1.8 1.8" position="3.7 0.75 2.7" rotation="0 180 0" class = "clickable"></a-gltf-model>
-        <a-gltf-model id="id_dustbin" src="#dustbin" scale="1 1 1" position="2.5 0.01 3" rotation="0 180 0"  class = "clickable">></a-gltf-model>
+        <a-gltf-model id="id_dustbin" src="#dustbin" scale="1 1 1" position="2.5 0.01 3" rotation="0 180 0"  class = "clickable"></a-gltf-model>
 
 
         <rw-floor material="src:#bathroom-floor;repeat:2 2"></rw-floor>
@@ -478,7 +478,7 @@
             <rw-doorhole id="habitacion3-bano2"></rw-doorhole> 
             <rw-doorlink from="#habitacion3-bano2" to="#bano2" width="1.25" height="2.15" position="2 0 0"></rw-doorlink>
         </rw-wall>
-        <rw-wall material="color:#FFF">w
+        <rw-wall material="color:#FFF">
             <rw-doorhole id="habitacion3"></rw-doorhole>
 
         </rw-wall>
@@ -567,7 +567,7 @@
 					"id_main_lamp_2", "id_main_lamp_3", "id_toilet_2", "id_bathtub"] 
 				  
 				  
-					var selectedObjects = selectRandomElements(object_ids, 1);
+					var selectedObjects = selectRandomElements(object_ids, 10);
 					var available_colors = ["blue", "red", "green", "yellow"]
 					var color = selectRandomElements(available_colors, 1)[0]
 					
@@ -742,6 +742,18 @@
                     }
 
         
+                    function resetCameraPosition() {
+                        var cameraEntity = document.querySelector("#camera");
+                        cameraEntity.setAttribute("position", "-0.5 1.6 0");
+                        cameraEntity.setAttribute("rotation", "0 0 0");
+
+                        // Reset look-controls rotation
+                        var lookControls = cameraEntity.components["look-controls"];
+                        if (lookControls) {
+                            lookControls.pitchObject.rotation.set(0, 0, 0);
+                            lookControls.yawObject.rotation.set(0, 0, 0);
+                        }
+                    }
 
         
                     // Function to handle object click
@@ -757,6 +769,7 @@
         
                             if (clickedObjects.size === selectedObjects.length) {
                                 disableMovementControls();
+                                resetCameraPosition();
                                 showCongratulatoryMessage();
                             }
         
