@@ -80,7 +80,7 @@ AFRAME.registerComponent("door-test", {
         console.log("SaltaEvent", event);
         var cursor = event.detail.cursorEl.getAttribute("id")
         console.log(cursor);
-        if (cursor !== "front-cursor"){
+        if ((cursor !== "front-cursor") && (cursor!== "rightHand")){
           return
         }
         camera = document.querySelector("#camera");
