@@ -100,13 +100,8 @@
       </a-entity>-->
 
 
-<<<<<<< HEAD
       <a-entity  id="rig">
         <a-entity id="camera" camera-listener camera-movement camera look-controls wasd-controls="acceleration: 20" position="-0.5 1 0" geometry="primitive: sphere; radius: 11" >
-=======
-      <a-entity id="rig">
-        <a-entity id="camera" camera-listener camera-movement camera position="-0.5 1.6 0" geometry="primitive: sphere; radius: 11" >
->>>>>>> 4c320d456ac1062a179720471c45e436cb9a3d23
           <!-- Move the raycaster inside the camera entity as a child entity -->
           <a-cursor  id="front-cursor" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .clickable" position="0 0 -1" raycaster-wall></a-cursor>
           <a-cursor  id="front-cursor2" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .door-hole" position="0 0 -1" raycaster-wall></a-cursor>
@@ -539,7 +534,6 @@
             <script>
 				
                 window.onload = function () {
-<<<<<<< HEAD
 				
 					function selectRandomElements(arr, num) {
 					  // Shuffle the array
@@ -560,13 +554,6 @@
 						"id_toy_car": "red", 
 						"id_truck": "red"
 					}
-=======
-                    var selectedObjects = JSON.parse('{{ selected_object_ids|safe }}');
-                    var color = '{{ random_colors }}';
-                    var new_color = '{{ new_color }}';
-                    var change_objects = JSON.parse('{{ change_objects|safe }}');
-                    
->>>>>>> 4c320d456ac1062a179720471c45e436cb9a3d23
 
 
 
@@ -716,8 +703,6 @@
 
                     }
 
-<<<<<<< HEAD
-=======
 
                     var counterMessageEntity = null;
 
@@ -783,7 +768,6 @@
         
                     changeColorForObjects(change_objects, new_color, false);
         
->>>>>>> 4c320d456ac1062a179720471c45e436cb9a3d23
                     // Function to handle object click
                     function handleObjectClick(objectId) {
                         if (!clickedObjects.has(objectId)) {
