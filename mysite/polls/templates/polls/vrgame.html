@@ -100,15 +100,23 @@
       </a-entity>-->
 
 
+<<<<<<< HEAD
+      <a-entity  id="rig">
+        <a-entity id="camera" camera-listener camera-movement camera look-controls wasd-controls="acceleration: 20" position="-0.5 1 0" geometry="primitive: sphere; radius: 11" >
+=======
       <a-entity id="rig">
         <a-entity id="camera" camera-listener camera-movement camera position="-0.5 1.6 0" geometry="primitive: sphere; radius: 11" >
+>>>>>>> 4c320d456ac1062a179720471c45e436cb9a3d23
           <!-- Move the raycaster inside the camera entity as a child entity -->
           <a-cursor  id="front-cursor" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .clickable" position="0 0 -1" raycaster-wall></a-cursor>
           <a-cursor  id="front-cursor2" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .door-hole" position="0 0 -1" raycaster-wall></a-cursor>
           <!--<a-cursor id="left-cursor" rotation="0 90 0" raycaster="interval: 100; showLine: true; enabled: true;objects: .clickable;far:2" position="-1 0 0"></a-cursor>
           <a-cursor id="right-cursor" rotation="0 -90 0" raycaster="interval: 100; showLine: true; enabled: true;objects: .clickable;far:2" position="1 0 0"></a-cursor>
           <a-cursor id="back-cursor" raycaster="interval: 100; showLine: true; enabled: true;objects: .clickable;far:2" position="0 0 1" rotation="0 180 0"></a-cursor>-->
-        </a-entity>
+					
+	   </a-entity>
+	   <a-entity oculus-touch-controls="hand: left" oculus-thumbstick-controls="acceleration:20;adEnabled:false"></a-entity>  
+	   <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .clickable; far: 5"></a-entity>	
       </a-entity>
 
 
@@ -529,13 +537,107 @@
     
         <footer>
             <script>
+				
                 window.onload = function () {
+<<<<<<< HEAD
+				
+					function selectRandomElements(arr, num) {
+					  // Shuffle the array
+					  arr = arr.sort(() => Math.random() - 0.5);
+					  // Slice the array to get the desired number of elements
+					  return arr.slice(0, num);
+					}
+					
+					precolored_objects = {
+						"id_green_pillow_1": "green",
+						"id_green_pillow_2": "green",
+						"id_green_pillow_3": "green",
+						"id_bathtub": "blue",
+						"id_dustbin": "blue",
+						"id_ottoman": "yellow",
+						"id_shoes": "yellow",
+						"id_rocket": "red",
+						"id_toy_car": "red", 
+						"id_truck": "red"
+					}
+=======
                     var selectedObjects = JSON.parse('{{ selected_object_ids|safe }}');
                     var color = '{{ random_colors }}';
                     var new_color = '{{ new_color }}';
                     var change_objects = JSON.parse('{{ change_objects|safe }}');
                     
+>>>>>>> 4c320d456ac1062a179720471c45e436cb9a3d23
 
+
+
+					object_ids = ["id_green_pillow_1", "id_green_pillow_2", "id_green_pillow_3", "id_tissues", 
+                    "id_lounge_chair_1", "id_lounge_chair_2", "id_lounge_chair_3", "id_lounge_chair_4","id_lounge_drawers",
+                    "id_fridge", "id_kitchen_cupboard", "id_sauce_pan", "id_coffee_machine", "id_kettle", "id_toaster",
+					"id_toy_car", "id_rocket",  "id_football", "id_bedside_table_1","id_wardrobe_1", "id_bed_1",  "id_stool_2", "id_truck", 
+					"id_stool_1", "id_bed_2", "id_lights", "id_mouse" ,"id_guitar", "id_bottle_water","id_shoes", 
+					"id_ottoman","id_hat","id_headphones",   "id_toilet_1", "id_soap", 
+					"id_dustbin", "id_vanity","id_bed_3", "id_main_wardrobe", 
+					"id_main_lamp_2", "id_main_lamp_3", "id_toilet_2", "id_bathtub"] 
+				  
+				  
+					var selectedObjects = selectRandomElements(object_ids, 1);
+					var available_colors = ["blue", "red", "green", "yellow"]
+					var color = selectRandomElements(available_colors, 1)[0]
+					
+					
+					//var selectedObjects = JSON.parse('{{ selected_object_ids|safe }}');
+					
+					var change_objects = [];
+					var new_color;
+					 /**for obj_id, obj_color in precolored_objects.items():
+						if obj_id not in selected_object_ids and obj_color == random_colors[0]:
+							change_objects.append(obj_id)
+							if obj_color in available_colors:
+								available_colors.remove(obj_color)
+								new_color = random.choice(available_colors)**/
+				
+					Object.entries(precolored_objects).forEach(([key, value]) => {
+					  console.log('Key: ' + key + ', Value: ' + value);
+					  if (!(key in selectedObjects) && (value === color)) {
+						change_objects.push(key);
+						if (value in available_colors) {
+							var copiedList = available_colors.slice();
+							var index = copiedList.indexOf(value);
+							if (index !== -1) {
+							  copiedList.splice(index, 1);
+							}
+							var new_color = selectRandomElements(copiedList, 1);
+						}
+					  }
+					});
+					console.log("OBJETOS2 -------");
+					console.log(selectedObjects, color);
+					
+					//var color = '{{ random_colors }}';
+					//var new_color = '{{ new_color }}';
+					//var change_objects = JSON.parse('{{ change_objects|safe }}');
+					
+					
+					function changeColorForObjects(objects, color, disappear) {
+						for (var i = 0; i < objects.length; i++) {
+							if (disappear) {
+								document.getElementById(objects[i]).setAttribute("object-disappear", "");
+							}
+							changeColor(objects[i], color);
+						}
+					}
+			
+					function changeColor(object_id, color) {
+						var modelEntity = document.querySelector("#" + object_id);
+						modelEntity.addEventListener("model-loaded", function () {
+							var model = modelEntity.getObject3D("mesh");
+							model.traverse(function (node) {
+								if (node.isMesh) {
+									node.material.color.set(color);
+								}
+							});
+						});
+					}
                     function showInitialMessage() {
                         var cursor = document.querySelector("#front-cursor");
                         var cursorPosition = new THREE.Vector3();
@@ -605,7 +707,7 @@
                     }
 
                     // Call the function to show the initial message and "Start" button
-                    showInitialMessage();
+
 
                     function enableMovementControls() {
                         var cameraEntity = document.querySelector("#camera");
@@ -614,6 +716,8 @@
 
                     }
 
+<<<<<<< HEAD
+=======
 
                     var counterMessageEntity = null;
 
@@ -679,6 +783,7 @@
         
                     changeColorForObjects(change_objects, new_color, false);
         
+>>>>>>> 4c320d456ac1062a179720471c45e436cb9a3d23
                     // Function to handle object click
                     function handleObjectClick(objectId) {
                         if (!clickedObjects.has(objectId)) {
@@ -708,6 +813,10 @@
                     function handleEndGameClick() {
                         window.location.href = "{% url 'polls:patient_homepage' %}";
                     }
+        
+
+        
+
         
                     // Function to show congratulatory message and buttons
                     function showCongratulatoryMessage() {
@@ -782,6 +891,8 @@
                         var cameraEntity = document.querySelector("#camera");
                         cameraEntity.removeAttribute("wasd-controls");
                     }
+					
+					
         
                     // Attach click event listener to each selected object
                     for (var i = 0; i < selectedObjects.length; i++) {
@@ -789,29 +900,16 @@
                         var objectEntity = document.getElementById(objectId);
                         objectEntity.addEventListener("click", handleObjectClick.bind(null, objectId));
                     }
+					
+				var clickedObjects = new Set();  // Set to keep track of clicked objects
+				changeColorForObjects(selectedObjects, color, true);
+				changeColorForObjects(change_objects, new_color, false);
+				showInitialMessage();
                 };
-        
-                // Functions for changing colors
-                function changeColorForObjects(objects, color, disappear) {
-                    for (var i = 0; i < objects.length; i++) {
-                        if (disappear) {
-                            document.getElementById(objects[i]).setAttribute("object-disappear", "");
-                        }
-                        changeColor(objects[i], color);
-                    }
-                }
-        
-                function changeColor(object_id, color) {
-                    var modelEntity = document.querySelector("#" + object_id);
-                    modelEntity.addEventListener("model-loaded", function () {
-                        var model = modelEntity.getObject3D("mesh");
-                        model.traverse(function (node) {
-                            if (node.isMesh) {
-                                node.material.color.set(color);
-                            }
-                        });
-                    });
-                }
+					
+					
+
+
             </script>
         </footer>
 
