@@ -582,18 +582,17 @@
 							if obj_color in available_colors:
 								available_colors.remove(obj_color)
 								new_color = random.choice(available_colors)**/
-				
+					var copiedList = available_colors.slice();
 					Object.entries(precolored_objects).forEach(([key, value]) => {
-					  console.log('Key: ' + key + ', Value: ' + value);
+					  console.log('Key: ' + key + ', Value: ' + value, color);
 					  if (!(key in selectedObjects) && (value === color)) {
+						console.log("-AÑADE A CAMBIAR");
 						change_objects.push(key);
-						if (value in available_colors) {
-							var copiedList = available_colors.slice();
+						if (copiedList.includes(value)) {
+							console.log("------BORRA 1---------");
 							var index = copiedList.indexOf(value);
-							if (index !== -1) {
-							  copiedList.splice(index, 1);
-							}
-							var new_color = selectRandomElements(copiedList, 1);
+							copiedList.splice(index, 1)
+							new_color = selectRandomElements(copiedList, 1)[0];
 						}
 					  }
 					});
@@ -742,31 +741,8 @@
                         }, 3000);
                     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         
-                    var clickedObjects = new Set();  // Set to keep track of clicked objects
-        
-                    changeColorForObjects(selectedObjects, color, true);
-        
-                    changeColorForObjects(change_objects, new_color, false);
+
         
                     // Function to handle object click
                     function handleObjectClick(objectId) {
@@ -799,9 +775,6 @@
                     }
         
 
-        
-
-        
                     // Function to show congratulatory message and buttons
                     function showCongratulatoryMessage() {
                         var cursor = document.querySelector("#front-cursor");
@@ -884,11 +857,11 @@
                         var objectEntity = document.getElementById(objectId);
                         objectEntity.addEventListener("click", handleObjectClick.bind(null, objectId));
                     }
-					
-				var clickedObjects = new Set();  // Set to keep track of clicked objects
-				changeColorForObjects(selectedObjects, color, true);
-				changeColorForObjects(change_objects, new_color, false);
-				showInitialMessage();
+					console.log("CAMBIAR OBJETOS", change_objects, new_color);
+					var clickedObjects = new Set();  // Set to keep track of clicked objects
+					changeColorForObjects(selectedObjects, color, true);
+					changeColorForObjects(change_objects, new_color, false);
+					showInitialMessage();
                 };
 					
 					
