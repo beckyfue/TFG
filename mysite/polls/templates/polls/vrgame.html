@@ -561,7 +561,7 @@
                     "id_lounge_chair_1", "id_lounge_chair_2", "id_lounge_chair_3", "id_lounge_chair_4","id_lounge_drawers",
                     "id_fridge", "id_kitchen_cupboard", "id_sauce_pan", "id_coffee_machine", "id_kettle", "id_toaster",
 					"id_toy_car", "id_rocket",  "id_football", "id_bedside_table_1","id_wardrobe_1", "id_bed_1",  "id_stool_2", "id_truck", 
-					"id_stool_1", "id_bed_2", "id_lights", "id_mouse" ,"id_guitar", "id_bottle_water","id_shoes", 
+					"id_stool_1", "id_bed_2", "id_mouse" ,"id_guitar", "id_bottle_water","id_shoes", 
 					"id_ottoman","id_hat","id_headphones",   "id_toilet_1", "id_soap", 
 					"id_dustbin", "id_vanity","id_bed_3", "id_main_wardrobe", 
 					"id_main_lamp_2", "id_main_lamp_3", "id_toilet_2", "id_bathtub"] 
@@ -576,33 +576,20 @@
 					
 					var change_objects = [];
 					var new_color;
-					 /**for obj_id, obj_color in precolored_objects.items():
-						if obj_id not in selected_object_ids and obj_color == random_colors[0]:
-							change_objects.append(obj_id)
-							if obj_color in available_colors:
-								available_colors.remove(obj_color)
-								new_color = random.choice(available_colors)**/
-					var copiedList = available_colors.slice();
-					Object.entries(precolored_objects).forEach(([key, value]) => {
-					  console.log('Key: ' + key + ', Value: ' + value, color);
-					  if (!(key in selectedObjects) && (value === color)) {
-						console.log("-AÑADE A CAMBIAR");
-						change_objects.push(key);
-						if (copiedList.includes(value)) {
-							console.log("------BORRA 1---------");
-							var index = copiedList.indexOf(value);
-							copiedList.splice(index, 1)
-							new_color = selectRandomElements(copiedList, 1)[0];
-						}
-					  }
-					});
-					console.log("OBJETOS2 -------");
-					console.log(selectedObjects, color);
-					
-					//var color = '{{ random_colors }}';
-					//var new_color = '{{ new_color }}';
-					//var change_objects = JSON.parse('{{ change_objects|safe }}');
-					
+                    var filtered_colors = available_colors.filter(c => c !== color);
+
+                    var new_color = selectRandomElements(filtered_colors, 1)[0];
+                    var change_objects = [];
+
+                    for (const objectId in precolored_objects) {
+                        if (precolored_objects.hasOwnProperty(objectId)) {
+                            const objColor = precolored_objects[objectId];
+                            if (!selectedObjects.includes(objectId) && objColor == color) {
+                                change_objects.push(objectId);
+                            }
+                        }
+                    }
+
 					
 					function changeColorForObjects(objects, color, disappear) {
 						for (var i = 0; i < objects.length; i++) {
@@ -678,6 +665,10 @@
                         scene.appendChild(startButton);
                     }
 
+
+                    var startTime;
+                    var endTime;
+
                     // Function to handle "Start" button click
                     function handleStartClick(initialMessage, startButton) {
                         var initialMessage = document.querySelector("#initial-message");
@@ -690,6 +681,7 @@
                             startButton.parentNode.removeChild(startButton);
                         }
                         enableMovementControls();
+                        startTime = Date.now();
                     }
 
                     // Call the function to show the initial message and "Start" button
@@ -723,10 +715,10 @@
                         // Create counter message entity
                         counterMessageEntity = document.createElement("a-entity");
                         counterMessageEntity.setAttribute("text", {
-                            value: "You have found " + count + " objects.",
+                            value:  count + "objects found",
                             align: "center",
                             wrapCount: 20,
-                            color: "black",
+                            color: "white",
                         });
                         counterMessageEntity.object3D.position.copy(cursorPosition);
                         counterMessageEntity.object3D.rotation.setFromQuaternion(cursorRotation);
@@ -755,6 +747,8 @@
                         }
                     }
 
+                   
+
         
                     // Function to handle object click
                     function handleObjectClick(objectId) {
@@ -770,7 +764,9 @@
                             if (clickedObjects.size === selectedObjects.length) {
                                 disableMovementControls();
                                 resetCameraPosition();
-                                showCongratulatoryMessage();
+                                endTime = Date.now(); // Set the end time
+                                var elapsedTime = (endTime - startTime) / 1000; // Calculate elapsed time in seconds
+                                showCongratulatoryMessage(elapsedTime); // Pass elapsed time to showCongratulatoryMessage function
                             }
         
                             console.log("Clicked object:", objectId);
@@ -789,7 +785,7 @@
         
 
                     // Function to show congratulatory message and buttons
-                    function showCongratulatoryMessage() {
+                    function showCongratulatoryMessage(elapsedTime) {
                         var cursor = document.querySelector("#front-cursor");
                         var cursorPosition = new THREE.Vector3();
                         var cursorRotation = new THREE.Quaternion();
@@ -804,7 +800,7 @@
                         // Create congratulatory message entity
                         var congratulatoryMessage = document.createElement("a-entity");
                         congratulatoryMessage.setAttribute("text", {
-                            value: "Congratulations! You found all objects.",
+                            value: "Congratulations! You found all objects in " + elapsedTime + " seconds.",
                             align: "center",
                             wrapCount: 20,
                             color: "black",
@@ -814,7 +810,7 @@
                         scene.appendChild(congratulatoryMessage);
         
                         // Create "Play Again" button entity
-                        var playAgainButton = createButton("Play Again", handlePlayAgainClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.2, 0)), cursorRotation);
+                        var playAgainButton = createButton("Play Again", handlePlayAgainClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.25, 0)), cursorRotation);
                         playAgainButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
                         playAgainButton.setAttribute("material", "color: #2ecc71"); // Change color to green
                         playAgainButton.setAttribute("text", {
@@ -826,7 +822,7 @@
                         scene.appendChild(playAgainButton);
         
                         // Create "End Game" button entity
-                        var endGameButton = createButton("End Game", handleEndGameClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.5, 0)), cursorRotation);
+                        var endGameButton = createButton("End Game", handleEndGameClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.50, 0)), cursorRotation);
                         endGameButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
                         endGameButton.setAttribute("material", "color: #e74c3c");
                         endGameButton.setAttribute("text", {
