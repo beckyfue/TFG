@@ -49,6 +49,11 @@ AFRAME.registerComponent("object-disappear", {
   toggleVisibility: function () {
     console.log("Toggle visibility here");
     if (this.el.getAttribute("visible")) {
+      let audio = document.querySelector("#correct");
+	  console.log("--------AUDIO ---------");
+	  console.log(audio);
+	  audio.volume = 0.15;
+	  audio.play();
       this.el.setAttribute("visible", false);
     }
   },
