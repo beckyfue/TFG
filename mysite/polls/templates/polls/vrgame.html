@@ -13,6 +13,7 @@
       <a-assets>
                 
         <audio id="correct" src="{% static 'vrgame/sounds/correct.wav' %}" preload="auto"></audio>
+		<audio id="intro" src="{% static 'vrgame/sounds/intro.mp3' %}" preload="auto"></audio>
 		
         <img crossorigin="anonymous" id="wood-floor" src="{% static 'vrgame/imgs/floor.jpg' %}">
         <img crossorigin="anonymous" id="kitchen-floor" src="{% static 'vrgame/imgs/kitchen_floor.webp' %}">
@@ -535,7 +536,7 @@
             <script>
 				
                 window.onload = function () {
-				
+					
 					function selectRandomElements(arr, num) {
 					  // Shuffle the array
 					  arr = arr.sort(() => Math.random() - 0.5);
@@ -677,6 +678,7 @@
                             width: 1.5,
                         });
                         scene.appendChild(startButton);
+
                     }
 
 
@@ -685,6 +687,9 @@
 
                     // Function to handle "Start" button click
                     function handleStartClick(initialMessage, startButton) {
+											let intro_sound = document.querySelector("#intro");
+						intro_sound.volume = 0.15
+						intro_sound.play();
                         var initialMessage = document.querySelector("#initial-message");
                         var startButton = document.querySelector("#start-button");
                         if (initialMessage) {
