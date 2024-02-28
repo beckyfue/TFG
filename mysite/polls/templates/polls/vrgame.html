@@ -101,7 +101,7 @@
 
 
       <a-entity  id="rig">
-        <a-entity id="camera" camera-listener camera-movement camera look-controls wasd-controls="acceleration: 20" position="-0.5 1 0" geometry="primitive: sphere; radius: 11" >
+        <a-entity id="camera" camera-listener camera-movement camera position="-0.5 1.6 0" geometry="primitive: sphere; radius: 11" >
           <!-- Move the raycaster inside the camera entity as a child entity -->
           <a-cursor  id="front-cursor" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .clickable" position="0 0 -1" raycaster-wall></a-cursor>
           <a-cursor  id="front-cursor2" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .door-hole" position="0 0 -1" raycaster-wall></a-cursor>
@@ -437,7 +437,7 @@
         <a-gltf-model id="id_toilet_1" src="#toilet_1" scale="1.5 1.5 1.5" position="1 -0.01 3" rotation="0 140 0" class = "clickable"></a-gltf-model>
         <a-gltf-model id="id_sink_1" src="#sink_1" scale="1.5 1 1" position="3.7 -0.01 3" rotation="0 180 0" class = "clickable"></a-gltf-model>
         <a-gltf-model id="id_soap" src="#soap" scale="1.8 1.8 1.8" position="3.7 0.75 2.7" rotation="0 180 0" class = "clickable"></a-gltf-model>
-        <a-gltf-model id="id_dustbin" src="#dustbin" scale="1 1 1" position="2.5 0.01 3" rotation="0 180 0"  class = "clickable">></a-gltf-model>
+        <a-gltf-model id="id_dustbin" src="#dustbin" scale="1 1 1" position="2.5 0.01 3" rotation="0 180 0"  class = "clickable"></a-gltf-model>
 
 
         <rw-floor material="src:#bathroom-floor;repeat:2 2"></rw-floor>
@@ -478,7 +478,7 @@
             <rw-doorhole id="habitacion3-bano2"></rw-doorhole> 
             <rw-doorlink from="#habitacion3-bano2" to="#bano2" width="1.25" height="2.15" position="2 0 0"></rw-doorlink>
         </rw-wall>
-        <rw-wall material="color:#FFF">w
+        <rw-wall material="color:#FFF">
             <rw-doorhole id="habitacion3"></rw-doorhole>
 
         </rw-wall>
@@ -561,13 +561,13 @@
                     "id_lounge_chair_1", "id_lounge_chair_2", "id_lounge_chair_3", "id_lounge_chair_4","id_lounge_drawers",
                     "id_fridge", "id_kitchen_cupboard", "id_sauce_pan", "id_coffee_machine", "id_kettle", "id_toaster",
 					"id_toy_car", "id_rocket",  "id_football", "id_bedside_table_1","id_wardrobe_1", "id_bed_1",  "id_stool_2", "id_truck", 
-					"id_stool_1", "id_bed_2", "id_lights", "id_mouse" ,"id_guitar", "id_bottle_water","id_shoes", 
+					"id_stool_1", "id_bed_2", "id_mouse" ,"id_guitar", "id_bottle_water","id_shoes", 
 					"id_ottoman","id_hat","id_headphones",   "id_toilet_1", "id_soap", 
 					"id_dustbin", "id_vanity","id_bed_3", "id_main_wardrobe", 
 					"id_main_lamp_2", "id_main_lamp_3", "id_toilet_2", "id_bathtub"] 
 				  
 				  
-					var selectedObjects = selectRandomElements(object_ids, 1);
+					var selectedObjects = selectRandomElements(object_ids, 10);
 					var available_colors = ["blue", "red", "green", "yellow"]
 					var color = selectRandomElements(available_colors, 1)[0]
 					
@@ -602,7 +602,7 @@
 					//var color = '{{ random_colors }}';
 					//var new_color = '{{ new_color }}';
 					//var change_objects = JSON.parse('{{ change_objects|safe }}');
-					
+
 					
 					function changeColorForObjects(objects, color, disappear) {
 						for (var i = 0; i < objects.length; i++) {
@@ -678,6 +678,10 @@
                         scene.appendChild(startButton);
                     }
 
+
+                    var startTime;
+                    var endTime;
+
                     // Function to handle "Start" button click
                     function handleStartClick(initialMessage, startButton) {
                         var initialMessage = document.querySelector("#initial-message");
@@ -690,6 +694,7 @@
                             startButton.parentNode.removeChild(startButton);
                         }
                         enableMovementControls();
+                        startTime = Date.now();
                     }
 
                     // Call the function to show the initial message and "Start" button
@@ -723,10 +728,10 @@
                         // Create counter message entity
                         counterMessageEntity = document.createElement("a-entity");
                         counterMessageEntity.setAttribute("text", {
-                            value: "You have found " + count + " objects.",
+                            value:  count + "objects found",
                             align: "center",
                             wrapCount: 20,
-                            color: "black",
+                            color: "white",
                         });
                         counterMessageEntity.object3D.position.copy(cursorPosition);
                         counterMessageEntity.object3D.rotation.setFromQuaternion(cursorRotation);
@@ -742,6 +747,20 @@
                     }
 
         
+                    function resetCameraPosition() {
+                        var cameraEntity = document.querySelector("#camera");
+                        cameraEntity.setAttribute("position", "-0.5 1.6 0");
+                        cameraEntity.setAttribute("rotation", "0 0 0");
+
+                        // Reset look-controls rotation
+                        var lookControls = cameraEntity.components["look-controls"];
+                        if (lookControls) {
+                            lookControls.pitchObject.rotation.set(0, 0, 0);
+                            lookControls.yawObject.rotation.set(0, 0, 0);
+                        }
+                    }
+
+                   
 
         
                     // Function to handle object click
@@ -757,7 +776,10 @@
         
                             if (clickedObjects.size === selectedObjects.length) {
                                 disableMovementControls();
-                                showCongratulatoryMessage();
+                                resetCameraPosition();
+                                endTime = Date.now(); // Set the end time
+                                var elapsedTime = (endTime - startTime) / 1000; // Calculate elapsed time in seconds
+                                showCongratulatoryMessage(elapsedTime); // Pass elapsed time to showCongratulatoryMessage function
                             }
         
                             console.log("Clicked object:", objectId);
@@ -776,7 +798,7 @@
         
 
                     // Function to show congratulatory message and buttons
-                    function showCongratulatoryMessage() {
+                    function showCongratulatoryMessage(elapsedTime) {
                         var cursor = document.querySelector("#front-cursor");
                         var cursorPosition = new THREE.Vector3();
                         var cursorRotation = new THREE.Quaternion();
@@ -791,7 +813,7 @@
                         // Create congratulatory message entity
                         var congratulatoryMessage = document.createElement("a-entity");
                         congratulatoryMessage.setAttribute("text", {
-                            value: "Congratulations! You found all objects.",
+                            value: "Congratulations! You found all objects in " + elapsedTime + " seconds.",
                             align: "center",
                             wrapCount: 20,
                             color: "black",
@@ -801,7 +823,7 @@
                         scene.appendChild(congratulatoryMessage);
         
                         // Create "Play Again" button entity
-                        var playAgainButton = createButton("Play Again", handlePlayAgainClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.2, 0)), cursorRotation);
+                        var playAgainButton = createButton("Play Again", handlePlayAgainClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.25, 0)), cursorRotation);
                         playAgainButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
                         playAgainButton.setAttribute("material", "color: #2ecc71"); // Change color to green
                         playAgainButton.setAttribute("text", {
@@ -813,7 +835,7 @@
                         scene.appendChild(playAgainButton);
         
                         // Create "End Game" button entity
-                        var endGameButton = createButton("End Game", handleEndGameClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.5, 0)), cursorRotation);
+                        var endGameButton = createButton("End Game", handleEndGameClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.50, 0)), cursorRotation);
                         endGameButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
                         endGameButton.setAttribute("material", "color: #e74c3c");
                         endGameButton.setAttribute("text", {

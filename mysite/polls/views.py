@@ -273,8 +273,7 @@ def vrgame(request):
     selected_object_ids = random.sample(object_ids, 10)
     available_colors = ["blue", "red", "green", "yellow"]
     random_colors = random.sample(available_colors, 1)
-    print("slected objects", selected_object_ids)
-    print("selected colour", random_colors)
+    
 
     change_objects = []
     new_color = None
