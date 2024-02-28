@@ -585,7 +585,7 @@
 					var copiedList = available_colors.slice();
 					Object.entries(precolored_objects).forEach(([key, value]) => {
 					  console.log('Key: ' + key + ', Value: ' + value, color);
-					  if (!(key in selectedObjects) && (value === color)) {
+					  if (!(selectedObjects.includes(key)) && (value === color)) {
 						console.log("-AÑADE A CAMBIAR");
 						change_objects.push(key);
 						if (copiedList.includes(value)) {
