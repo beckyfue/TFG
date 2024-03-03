@@ -295,5 +295,61 @@ def vrgame(request):
         'change_objects': json.dumps(change_objects),
     }
     print("VR GAME URL")
-    return render(request, 'polls/vrgame.html')
+    return render(request, 'polls/vrgame2.html')
     
+@login_required(login_url='polls:custom_login')
+def vrgame2(request):
+
+
+
+
+    precolored_objects = {
+        "id_green_pillow_1": "green",
+        "id_green_pillow_2": "green",
+        "id_green_pillow_3": "green",
+        "id_bathtub": "blue",
+        "id_dustbin": "blue",
+        "id_ottoman": "yellow",
+        "id_shoes": "yellow",
+        "id_rocket": "red",
+        "id_toy_car": "red", 
+        "id_truck": "red"
+    }
+
+
+
+    object_ids = ["id_green_pillow_1", "id_green_pillow_2", "id_green_pillow_3", "id_tissues", 
+                    "id_lounge_chair_1", "id_lounge_chair_2", "id_lounge_chair_3", "id_lounge_chair_4","id_lounge_drawers",
+                    "id_fridge", "id_kitchen_cupboard", "id_sauce_pan", "id_coffee_machine", "id_kettle", "id_toaster",
+                  "id_toy_car", "id_rocket",  "id_football", "id_bedside_table_1","id_wardrobe_1", "id_bed_1",  "id_stool_2", "id_truck", 
+                   "id_stool_1", "id_bed_2", "id_mouse" ,"id_guitar", "id_bottle_water","id_shoes", 
+                   "id_ottoman","id_hat","id_headphones",   "id_toilet_1", "id_soap", 
+                  "id_dustbin", "id_vanity","id_bed_3", "id_main_wardrobe", 
+                  "id_main_lamp_2", "id_main_lamp_3", "id_toilet_2", "id_bathtub"] 
+    
+    selected_object_ids = random.sample(object_ids, 10)
+    available_colors = ["blue", "red", "green", "yellow"]
+    random_colors = random.sample(available_colors, 1)
+    
+
+    change_objects = []
+    new_color = None
+
+
+    # Change colour of objets that are colour of random colour chosen but are not in list of selected objects
+    for obj_id, obj_color in precolored_objects.items():
+        if obj_id not in selected_object_ids and obj_color == random_colors[0]:
+            change_objects.append(obj_id)
+            if obj_color in available_colors:
+                available_colors.remove(obj_color)
+                new_color = random.choice(available_colors)
+
+    
+    context = {
+        'selected_object_ids': json.dumps(selected_object_ids),
+        'random_colors': random_colors[0],
+        'new_color': new_color,
+        'change_objects': json.dumps(change_objects),
+    }
+    print("VR GAME URL")
+    return render(request, 'polls/vrgame.html')

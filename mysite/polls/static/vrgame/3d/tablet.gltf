@@ -1,0 +1,269 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 18696,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 3920,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.298993826, 1.94191925e-05, -0.132429406 ],
+			"max": [ 0.298993021, 0.281702012, 0.132429406 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 3920,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 3920,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 3920,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 882,
+			"type": "SCALAR",
+			"componentType": 5121
+		},
+		{
+			"bufferView": 6,
+			"count": 182,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.294245481, 0.00726907933, -0.124737747 ],
+			"max": [ 0.295380503, 0.279725045, 0.130607665 ]
+		},
+		{
+			"bufferView": 7,
+			"count": 182,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 8,
+			"count": 182,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 9,
+			"count": 182,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "tablet.bin",
+			"byteLength": 235172
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 37392,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 47040,
+			"byteOffset": 37392,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 47040,
+			"byteOffset": 84432,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 62720,
+			"byteOffset": 131472,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 31360,
+			"byteOffset": 194192,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 882,
+			"byteOffset": 225552,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2184,
+			"byteOffset": 226436,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2184,
+			"byteOffset": 228620,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2912,
+			"byteOffset": 230804,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1456,
+			"byteOffset": 233716,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "MI_GraphicTablet02_BaseColor.png"
+		},
+		{
+			"uri": "MI_GraphicTablet02_MetallicRoughness.png"
+		},
+		{
+			"uri": "MI_GraphicTablet02_Normal.png"
+		},
+		{
+			"uri": "MI_TechScreen01_BaseColor.png"
+		},
+		{
+			"uri": "MI_TechScreen01_Emissive.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "MI_GraphicTablet02",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			},
+			"alphaMode": "MASK"
+		},
+		{
+			"name": "MI_TechScreen01",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 3
+				},
+				"metallicFactor": 0,
+				"roughnessFactor": 0.0980392247
+			},
+			"emissiveTexture":
+			{
+				"index": 4
+			},
+			"emissiveFactor": [ 1, 1, 1 ],
+			"alphaMode": "MASK"
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_GraphicTablet02",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4
+					},
+					"indices": 0,
+					"material": 0
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 6,
+						"NORMAL": 7,
+						"TANGENT": 8,
+						"TEXCOORD_0": 9
+					},
+					"indices": 5,
+					"material": 1
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "MI_GraphicTablet02_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "MI_GraphicTablet02_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "MI_GraphicTablet02_Normal",
+			"sampler": 0,
+			"source": 2
+		},
+		{
+			"name": "MI_TechScreen01_BaseColor",
+			"sampler": 0,
+			"source": 3
+		},
+		{
+			"name": "MI_TechScreen01_Emissive",
+			"sampler": 0,
+			"source": 4
+		}
+	]
+}

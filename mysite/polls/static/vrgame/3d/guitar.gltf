@@ -1,0 +1,162 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 123216,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 33228,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.194999993, -7.15255721e-09, 9.53674295e-09 ],
+			"max": [ 0.194999993, 1.04717064, 0.117970146 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 33228,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 33228,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 33228,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "guitar.bin",
+			"byteLength": 1841376
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 246432,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 398736,
+			"byteOffset": 246432,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 398736,
+			"byteOffset": 645168,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 531648,
+			"byteOffset": 1043904,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 265824,
+			"byteOffset": 1575552,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "MI_AcousticGuitar01_BaseColor.png"
+		},
+		{
+			"uri": "MI_AcousticGuitar01_MetallicRoughness.png"
+		},
+		{
+			"uri": "MI_AcousticGuitar01_Normal.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "MI_AcousticGuitar01",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			},
+			"alphaMode": "MASK"
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_AcousticGuitar01",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4
+					},
+					"indices": 0,
+					"material": 0
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9984,
+			"magFilter": 9728
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "MI_AcousticGuitar01_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "MI_AcousticGuitar01_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "MI_AcousticGuitar01_Normal",
+			"sampler": 0,
+			"source": 2
+		}
+	]
+}

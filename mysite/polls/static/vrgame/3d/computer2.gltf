@@ -1,0 +1,162 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 15612,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 3511,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.152399912, -1.75358768e-08, -0.102101669 ],
+			"max": [ 0.152399883, 0.0200453047, 0.106419705 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 3511,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 3511,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 3511,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "computer2.bin",
+			"byteLength": 199752
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 31224,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 42132,
+			"byteOffset": 31224,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 42132,
+			"byteOffset": 73356,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 56176,
+			"byteOffset": 115488,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 28088,
+			"byteOffset": 171664,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "MI_Laptop02White_BaseColor.png"
+		},
+		{
+			"uri": "MI_Laptop02White_MetallicRoughness.png"
+		},
+		{
+			"uri": "MI_Laptop02White_Normal.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "MI_Laptop02White",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			},
+			"alphaMode": "MASK"
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_Laptop05",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4
+					},
+					"indices": 0,
+					"material": 0
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9984,
+			"magFilter": 9728
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "MI_Laptop02White_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "MI_Laptop02White_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "MI_Laptop02White_Normal",
+			"sampler": 0,
+			"source": 2
+		}
+	]
+}

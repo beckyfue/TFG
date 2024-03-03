@@ -1,0 +1,234 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 5526,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 1100,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.0416942015, 0.803645134, -0.24235788 ],
+			"max": [ 0.0414558649, 0.806880653, -0.192438662 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 1100,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 1100,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 1100,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 11064,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 6,
+			"count": 2206,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.190886244, -7.09528347e-09, -0.286330193 ],
+			"max": [ 0.190886244, 0.803808749, 0.286329418 ]
+		},
+		{
+			"bufferView": 7,
+			"count": 2206,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 8,
+			"count": 2206,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 9,
+			"count": 2206,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "toilet.bin",
+			"byteLength": 191868
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 11052,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 13200,
+			"byteOffset": 11052,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 13200,
+			"byteOffset": 24252,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 17600,
+			"byteOffset": 37452,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 8800,
+			"byteOffset": 55052,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 22128,
+			"byteOffset": 63852,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 26472,
+			"byteOffset": 85980,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 26472,
+			"byteOffset": 112452,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 35296,
+			"byteOffset": 138924,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 17648,
+			"byteOffset": 174220,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "MI_PlasticGlossy01_SM_Toilet04_MetallicRoughness.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "MI_MetalChromeClean01_SM_Toilet04",
+			"pbrMetallicRoughness":
+			{
+				"baseColorFactor": [ 0.846873224, 0.846873224, 0.846873224, 1 ],
+				"roughnessFactor": 0.0980392247
+			},
+			"alphaMode": "MASK",
+			"alphaCutoff": 0.333299994
+		},
+		{
+			"name": "MI_PlasticGlossy01_SM_Toilet04",
+			"pbrMetallicRoughness":
+			{
+				"baseColorFactor": [ 0.73791039, 0.73791039, 0.73791039, 1 ],
+				"metallicRoughnessTexture":
+				{
+					"index": 0,
+					"extensions":
+					{
+						"KHR_texture_transform":
+						{
+							"offset": [ 0.190765873, 0.19082126 ],
+							"scale": [ 0.638901889, 0.61835748 ]
+						}
+					}
+				}
+			},
+			"alphaMode": "MASK",
+			"alphaCutoff": 0.333299994
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_Toilet04",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4
+					},
+					"indices": 0,
+					"material": 0
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 6,
+						"NORMAL": 7,
+						"TANGENT": 8,
+						"TEXCOORD_0": 9
+					},
+					"indices": 5,
+					"material": 1
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "MI_PlasticGlossy01_SM_Toilet04_MetallicRoughness",
+			"sampler": 0,
+			"source": 0
+		}
+	],
+	"extensionsUsed": [
+		"KHR_texture_transform"
+	]
+}

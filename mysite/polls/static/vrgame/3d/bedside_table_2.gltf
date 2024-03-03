@@ -1,0 +1,302 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 4602,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 1616,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.180074841, -1.14022174e-17, -0.211612329 ],
+			"max": [ 0.18356736, 0.692686439, 0.211612329 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 1616,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 1616,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 1616,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 1616,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 6,
+			"count": 522,
+			"type": "SCALAR",
+			"componentType": 5121
+		},
+		{
+			"bufferView": 7,
+			"count": 182,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.18356736, 0.586635649, -0.0133642992 ],
+			"max": [ -0.165722713, 0.61336422, 0.0133642992 ]
+		},
+		{
+			"bufferView": 8,
+			"count": 182,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 9,
+			"count": 182,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 10,
+			"count": 182,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 11,
+			"count": 182,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "bedside_table_2.bin",
+			"byteLength": 110416
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 9204,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 19392,
+			"byteOffset": 9204,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 19392,
+			"byteOffset": 28596,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 25856,
+			"byteOffset": 47988,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 12928,
+			"byteOffset": 73844,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 12928,
+			"byteOffset": 86772,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 522,
+			"byteOffset": 99700,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2184,
+			"byteOffset": 100224,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2184,
+			"byteOffset": 102408,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2912,
+			"byteOffset": 104592,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1456,
+			"byteOffset": 107504,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1456,
+			"byteOffset": 108960,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "WardrobeWood_a_Mat_BaseColor.png"
+		},
+		{
+			"uri": "WardrobeWood_a_Mat_MetallicRoughness.png"
+		},
+		{
+			"uri": "WardrobeWood_a_Mat_Normal.png"
+		},
+		{
+			"uri": "WritingDeskKnob_a_Mat_BaseColor.png"
+		},
+		{
+			"uri": "WritingDeskKnob_a_Mat_MetallicRoughness.png"
+		},
+		{
+			"uri": "WritingDeskKnob_a_Mat_Normal.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "WardrobeWood_a_Mat",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			}
+		},
+		{
+			"name": "WritingDeskKnob_a_Mat",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 3
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 4
+				}
+			},
+			"normalTexture":
+			{
+				"index": 5
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "BedsideTable_a",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 7,
+						"NORMAL": 8,
+						"TANGENT": 9,
+						"TEXCOORD_0": 10,
+						"TEXCOORD_1": 11
+					},
+					"indices": 6,
+					"material": 1
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9984,
+			"magFilter": 9728
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "WardrobeWood_a_Mat_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "WardrobeWood_a_Mat_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "WardrobeWood_a_Mat_Normal",
+			"sampler": 0,
+			"source": 2
+		},
+		{
+			"name": "WritingDeskKnob_a_Mat_BaseColor",
+			"sampler": 0,
+			"source": 3
+		},
+		{
+			"name": "WritingDeskKnob_a_Mat_MetallicRoughness",
+			"sampler": 0,
+			"source": 4
+		},
+		{
+			"name": "WritingDeskKnob_a_Mat_Normal",
+			"sampler": 0,
+			"source": 5
+		}
+	]
+}

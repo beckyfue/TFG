@@ -1,0 +1,186 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.2.1"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 2484,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 520,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.0925776288, -0.000423213787, -0.00978676882 ],
+			"max": [ 0.0817222968, 0.0145374862, 0.00978676882 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 520,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 520,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 520,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 520,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "fork.bin",
+			"byteLength": 34088
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 4968,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 6240,
+			"byteOffset": 4968,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 6240,
+			"byteOffset": 11208,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 8320,
+			"byteOffset": 17448,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4160,
+			"byteOffset": 25768,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4160,
+			"byteOffset": 29928,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "M_Cutlery_BaseColor.png"
+		},
+		{
+			"uri": "M_Cutlery_MetallicRoughness.png"
+		},
+		{
+			"uri": "M_Cutlery_Normal.png"
+		},
+		{
+			"uri": "M_Cutlery_Occlusion.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "M_Cutlery",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			},
+			"occlusionTexture":
+			{
+				"index": 3
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_Fork",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "M_Cutlery_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "M_Cutlery_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "M_Cutlery_Normal",
+			"sampler": 0,
+			"source": 2
+		},
+		{
+			"name": "M_Cutlery_Occlusion",
+			"sampler": 0,
+			"source": 3
+		}
+	]
+}

@@ -1,0 +1,175 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 25734,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 6024,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.0610006861, -4.22337783e-18, -0.0797014683 ],
+			"max": [ 0.0610016137, 0.122847259, 0.0797014683 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 6024,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 6024,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 6024,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 6024,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "camera.bin",
+			"byteLength": 388812
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 51468,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 72288,
+			"byteOffset": 51468,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 72288,
+			"byteOffset": 123756,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 96384,
+			"byteOffset": 196044,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 48192,
+			"byteOffset": 292428,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 48192,
+			"byteOffset": 340620,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "MI_InstantCamera01_BaseColor.png"
+		},
+		{
+			"uri": "MI_InstantCamera01_MetallicRoughness.png"
+		},
+		{
+			"uri": "MI_InstantCamera01_Normal.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "MI_InstantCamera01",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			},
+			"alphaMode": "MASK"
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_InstantCamera01",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "MI_InstantCamera01_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "MI_InstantCamera01_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "MI_InstantCamera01_Normal",
+			"sampler": 0,
+			"source": 2
+		}
+	]
+}
