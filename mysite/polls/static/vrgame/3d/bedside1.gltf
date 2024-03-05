@@ -1,0 +1,225 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 312,
+			"type": "SCALAR",
+			"componentType": 5121
+		},
+		{
+			"bufferView": 1,
+			"count": 100,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.289812148, -0.000896015612, -0.241367891 ],
+			"max": [ 0.29002288, 0.562600255, 0.213158101 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 100,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 100,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 100,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 100,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 6,
+			"count": 1476,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 7,
+			"count": 374,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.298461378, 0.0548477955, -0.241367891 ],
+			"max": [ 0.298413157, 0.559863746, 0.222658083 ]
+		},
+		{
+			"bufferView": 8,
+			"count": 374,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 9,
+			"count": 374,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 10,
+			"count": 374,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 11,
+			"count": 374,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "bedside1.bin",
+			"byteLength": 29808
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 312,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1200,
+			"byteOffset": 312,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1200,
+			"byteOffset": 1512,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1600,
+			"byteOffset": 2712,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 800,
+			"byteOffset": 4312,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 800,
+			"byteOffset": 5112,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2952,
+			"byteOffset": 5912,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4488,
+			"byteOffset": 8864,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4488,
+			"byteOffset": 13352,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 5984,
+			"byteOffset": 17840,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2992,
+			"byteOffset": 23824,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2992,
+			"byteOffset": 26816,
+			"target": 34962
+		}
+	],
+	"materials": [
+		{
+			"name": "M_Bed_drawer_plastic",
+			"pbrMetallicRoughness":
+			{
+				"baseColorFactor": [ 0.698039234, 0.654901981, 0.588235319, 1 ],
+				"metallicFactor": 0,
+				"roughnessFactor": 0.300000012
+			}
+		},
+		{
+			"name": "M_Bed_drawer_metall",
+			"pbrMetallicRoughness":
+			{
+				"baseColorFactor": [ 0.694444418, 0.61195153, 0.441261619, 1 ],
+				"roughnessFactor": 0.200000003
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_Bed_Drawer",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 7,
+						"NORMAL": 8,
+						"TANGENT": 9,
+						"TEXCOORD_0": 10,
+						"TEXCOORD_1": 11
+					},
+					"indices": 6,
+					"material": 1
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	]
+}

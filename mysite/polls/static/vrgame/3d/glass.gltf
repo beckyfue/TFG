@@ -1,0 +1,192 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.2.1"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 1908,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 393,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.0352329202, 9.99974727e-05, -0.0352329202 ],
+			"max": [ 0.035232909, 0.0771043599, 0.035232909 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 393,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 393,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 393,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 393,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "glass.bin",
+			"byteLength": 25824
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 3816,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4716,
+			"byteOffset": 3816,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4716,
+			"byteOffset": 8532,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 6288,
+			"byteOffset": 13248,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3144,
+			"byteOffset": 19536,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3144,
+			"byteOffset": 22680,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "M_GlassProps_Dirt_SM_Glass_BaseColor.png"
+		},
+		{
+			"uri": "M_GlassProps_Dirt_SM_Glass_MetallicRoughness.png"
+		},
+		{
+			"uri": "M_GlassProps_Dirt_SM_Glass_Emissive.png"
+		},
+		{
+			"uri": "M_GlassProps_Dirt_SM_Glass_Normal.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "M_GlassProps_Dirt_SM_Glass",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0,
+					"texCoord": 1
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1,
+					"texCoord": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 3,
+				"texCoord": 1
+			},
+			"emissiveTexture":
+			{
+				"index": 2,
+				"texCoord": 1
+			},
+			"emissiveFactor": [ 0.00608825684, 0.00608825684, 0.00608825684 ],
+			"alphaMode": "BLEND"
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_Glass",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "M_GlassProps_Dirt_SM_Glass_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "M_GlassProps_Dirt_SM_Glass_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "M_GlassProps_Dirt_SM_Glass_Emissive",
+			"sampler": 0,
+			"source": 2
+		},
+		{
+			"name": "M_GlassProps_Dirt_SM_Glass_Normal",
+			"sampler": 0,
+			"source": 3
+		}
+	]
+}

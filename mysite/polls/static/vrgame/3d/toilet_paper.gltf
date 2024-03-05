@@ -1,0 +1,267 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 756,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 294,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -3.91248608, 0.586797416, 3.1220572 ],
+			"max": [ -3.76754689, 0.785509467, 3.36578465 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 294,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 294,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 294,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 294,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 6,
+			"count": 264,
+			"type": "SCALAR",
+			"componentType": 5121
+		},
+		{
+			"bufferView": 7,
+			"count": 110,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -3.84699154, 0.572859764, 3.16388798 ],
+			"max": [ -3.69164109, 0.753097951, 3.30818081 ]
+		},
+		{
+			"bufferView": 8,
+			"count": 110,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 9,
+			"count": 110,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 10,
+			"count": 110,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 11,
+			"count": 110,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "toilet_paper.bin",
+			"byteLength": 24400
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 1512,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3528,
+			"byteOffset": 1512,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3528,
+			"byteOffset": 5040,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4704,
+			"byteOffset": 8568,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2352,
+			"byteOffset": 13272,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2352,
+			"byteOffset": 15624,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 264,
+			"byteOffset": 17976,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1320,
+			"byteOffset": 18240,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1320,
+			"byteOffset": 19560,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1760,
+			"byteOffset": 20880,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 880,
+			"byteOffset": 22640,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 880,
+			"byteOffset": 23520,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "wood_a_Mat_Inst_BaseColor.png"
+		},
+		{
+			"uri": "wood_a_Mat_Inst_MetallicRoughness.png"
+		},
+		{
+			"uri": "wood_a_Mat_Inst_Normal.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "wood_a_Mat_Inst",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			}
+		},
+		{
+			"name": "pageBlank_a_Mat",
+			"pbrMetallicRoughness":
+			{
+				"metallicFactor": 0
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "animorphs_girl_bedroom_toilet_paper",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 7,
+						"NORMAL": 8,
+						"TANGENT": 9,
+						"TEXCOORD_0": 10,
+						"TEXCOORD_1": 11
+					},
+					"indices": 6,
+					"material": 1
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "wood_a_Mat_Inst_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "wood_a_Mat_Inst_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "wood_a_Mat_Inst_Normal",
+			"sampler": 0,
+			"source": 2
+		}
+	]
+}

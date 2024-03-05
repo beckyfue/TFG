@@ -1,0 +1,162 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 1572,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 1490,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.751811206, 0.000214619053, -0.142900512 ],
+			"max": [ 0.752289474, 0.963128746, 0.0931595042 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 1490,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 1490,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 1490,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 1490,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "tv.bin",
+			"byteLength": 86584
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 3144,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 17880,
+			"byteOffset": 3144,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 17880,
+			"byteOffset": 21024,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 23840,
+			"byteOffset": 38904,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 11920,
+			"byteOffset": 62744,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 11920,
+			"byteOffset": 74664,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "M_TV_BaseColor.png"
+		},
+		{
+			"uri": "M_TV_MetallicRoughness.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "M_TV",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_TV",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "M_TV_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "M_TV_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		}
+	]
+}

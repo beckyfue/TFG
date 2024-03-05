@@ -1,0 +1,174 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 4452,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 1265,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.189517394, -0.000247306307, -0.189517394 ],
+			"max": [ 0.189517394, 0.743227661, 0.189517394 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 1265,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 1265,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 1265,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 1265,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "bedlamp3.bin",
+			"byteLength": 79744
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 8904,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 15180,
+			"byteOffset": 8904,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 15180,
+			"byteOffset": 24084,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 20240,
+			"byteOffset": 39264,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 10120,
+			"byteOffset": 59504,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 10120,
+			"byteOffset": 69624,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "MollyBedsideLamp_Mat_BaseColor.png"
+		},
+		{
+			"uri": "MollyBedsideLamp_Mat_MetallicRoughness.png"
+		},
+		{
+			"uri": "MollyBedsideLamp_Mat_Normal.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "MollyBedsideLamp_Mat",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "MollyBedsideLamp",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9984,
+			"magFilter": 9728
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "MollyBedsideLamp_Mat_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "MollyBedsideLamp_Mat_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "MollyBedsideLamp_Mat_Normal",
+			"sampler": 0,
+			"source": 2
+		}
+	]
+}

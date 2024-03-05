@@ -1,0 +1,173 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 5694,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 5518,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.318732381, -0.00497733755, -0.323255569 ],
+			"max": [ 0.318732381, 0.84586525, 0.323255539 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 5518,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 5518,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 5518,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "lounge_chair.bin",
+			"byteLength": 276252
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 11388,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 66216,
+			"byteOffset": 11388,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 66216,
+			"byteOffset": 77604,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 88288,
+			"byteOffset": 143820,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 44144,
+			"byteOffset": 232108,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "MI_Modern_Chair_1_BaseColor.png"
+		},
+		{
+			"uri": "MI_Modern_Chair_1_MetallicRoughness.png"
+		},
+		{
+			"uri": "MI_Modern_Chair_1_Normal.png"
+		},
+		{
+			"uri": "MI_Modern_Chair_1_Occlusion.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "MI_Modern_Chair_1",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			},
+			"occlusionTexture":
+			{
+				"index": 3
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_Modern_Chair_1",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4
+					},
+					"indices": 0,
+					"material": 0
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "MI_Modern_Chair_1_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "MI_Modern_Chair_1_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "MI_Modern_Chair_1_Normal",
+			"sampler": 0,
+			"source": 2
+		},
+		{
+			"name": "MI_Modern_Chair_1_Occlusion",
+			"sampler": 0,
+			"source": 3
+		}
+	]
+}

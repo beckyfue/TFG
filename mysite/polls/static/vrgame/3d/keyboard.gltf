@@ -1,0 +1,162 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 20112,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 14402,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.214999974, -1.87124058e-08, -0.0725208297 ],
+			"max": [ 0.214999974, 0.015097905, 0.0725208372 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 14402,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 14402,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 14402,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "keyboard.bin",
+			"byteLength": 731520
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 40224,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 172824,
+			"byteOffset": 40224,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 172824,
+			"byteOffset": 213048,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 230432,
+			"byteOffset": 385872,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 115216,
+			"byteOffset": 616304,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "MI_PCKeyboardMouse01_BaseColor.png"
+		},
+		{
+			"uri": "MI_PCKeyboardMouse01_MetallicRoughness.png"
+		},
+		{
+			"uri": "MI_PCKeyboardMouse01_Normal.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "MI_PCKeyboardMouse01",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			},
+			"alphaMode": "MASK"
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_PCKeyboard01",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4
+					},
+					"indices": 0,
+					"material": 0
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "MI_PCKeyboardMouse01_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "MI_PCKeyboardMouse01_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "MI_PCKeyboardMouse01_Normal",
+			"sampler": 0,
+			"source": 2
+		}
+	]
+}

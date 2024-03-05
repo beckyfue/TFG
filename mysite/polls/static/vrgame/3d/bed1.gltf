@@ -1,0 +1,552 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 2028,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 448,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.663699389, 0.206252053, 0.387788713 ],
+			"max": [ 0.661459506, 0.588341415, 1.00676131 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 448,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 448,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 448,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 448,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 6,
+			"count": 1230,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 7,
+			"count": 872,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.608826637, -3.43322739e-07, -0.987466395 ],
+			"max": [ 0.608826518, 0.888960481, 0.987466574 ]
+		},
+		{
+			"bufferView": 8,
+			"count": 872,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 9,
+			"count": 872,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 10,
+			"count": 872,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 11,
+			"count": 872,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 12,
+			"count": 1644,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 13,
+			"count": 362,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.560568511, 0.327590525, -0.93746829 ],
+			"max": [ 0.560517848, 0.532120943, 0.94015193 ]
+		},
+		{
+			"bufferView": 14,
+			"count": 362,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 15,
+			"count": 362,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 16,
+			"count": 362,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 17,
+			"count": 362,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 18,
+			"count": 3174,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 19,
+			"count": 630,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.713010907, 0.207040116, -0.806077421 ],
+			"max": [ 0.709415793, 0.618750393, 0.897495389 ]
+		},
+		{
+			"bufferView": 20,
+			"count": 630,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 21,
+			"count": 630,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 22,
+			"count": 630,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 23,
+			"count": 630,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "bed1.bin",
+			"byteLength": 145624
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 4056,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 5376,
+			"byteOffset": 4056,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 5376,
+			"byteOffset": 9432,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 7168,
+			"byteOffset": 14808,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3584,
+			"byteOffset": 21976,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3584,
+			"byteOffset": 25560,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2460,
+			"byteOffset": 29144,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 10464,
+			"byteOffset": 31604,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 10464,
+			"byteOffset": 42068,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 13952,
+			"byteOffset": 52532,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 6976,
+			"byteOffset": 66484,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 6976,
+			"byteOffset": 73460,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3288,
+			"byteOffset": 80436,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4344,
+			"byteOffset": 83724,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4344,
+			"byteOffset": 88068,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 5792,
+			"byteOffset": 92412,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2896,
+			"byteOffset": 98204,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2896,
+			"byteOffset": 101100,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 6348,
+			"byteOffset": 103996,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 7560,
+			"byteOffset": 110344,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 7560,
+			"byteOffset": 117904,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 10080,
+			"byteOffset": 125464,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 5040,
+			"byteOffset": 135544,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 5040,
+			"byteOffset": 140584,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "EdithRoomBed_b_Mat_BaseColor.png"
+		},
+		{
+			"uri": "EdithRoomBed_b_Mat_MetallicRoughness.png"
+		},
+		{
+			"uri": "EdithRoomBed_b_Mat_Normal.png"
+		},
+		{
+			"uri": "WM_ShelfWood_a_mat_BaseColor.png"
+		},
+		{
+			"uri": "WM_ShelfWood_a_mat_MetallicRoughness.png"
+		},
+		{
+			"uri": "WM_ShelfWood_a_mat_Normal.png"
+		},
+		{
+			"uri": "HospitalBed_Mat_BaseColor.png"
+		},
+		{
+			"uri": "HospitalBed_Mat_MetallicRoughness.png"
+		},
+		{
+			"uri": "HospitalBed_Mat_Normal.png"
+		},
+		{
+			"uri": "EdithRoomBed_a_Mat_BaseColor.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "EdithRoomBed_b_Mat",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			}
+		},
+		{
+			"name": "WM_ShelfWood_a_mat",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 3
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 4
+				}
+			},
+			"normalTexture":
+			{
+				"index": 5
+			}
+		},
+		{
+			"name": "HospitalBed_Mat",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 6
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 7
+				}
+			},
+			"normalTexture":
+			{
+				"index": 8
+			}
+		},
+		{
+			"name": "EdithRoomBed_a_Mat",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 9
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 10
+				}
+			},
+			"normalTexture":
+			{
+				"index": 11
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "EdithRoomBed_a",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 7,
+						"NORMAL": 8,
+						"TANGENT": 9,
+						"TEXCOORD_0": 10,
+						"TEXCOORD_1": 11
+					},
+					"indices": 6,
+					"material": 1
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 13,
+						"NORMAL": 14,
+						"TANGENT": 15,
+						"TEXCOORD_0": 16,
+						"TEXCOORD_1": 17
+					},
+					"indices": 12,
+					"material": 2
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 19,
+						"NORMAL": 20,
+						"TANGENT": 21,
+						"TEXCOORD_0": 22,
+						"TEXCOORD_1": 23
+					},
+					"indices": 18,
+					"material": 3
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "EdithRoomBed_b_Mat_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "EdithRoomBed_b_Mat_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "EdithRoomBed_b_Mat_Normal",
+			"sampler": 0,
+			"source": 2
+		},
+		{
+			"name": "WM_ShelfWood_a_mat_BaseColor",
+			"sampler": 0,
+			"source": 3
+		},
+		{
+			"name": "WM_ShelfWood_a_mat_MetallicRoughness",
+			"sampler": 0,
+			"source": 4
+		},
+		{
+			"name": "WM_ShelfWood_a_mat_Normal",
+			"sampler": 0,
+			"source": 5
+		},
+		{
+			"name": "HospitalBed_Mat_BaseColor",
+			"sampler": 0,
+			"source": 6
+		},
+		{
+			"name": "HospitalBed_Mat_MetallicRoughness",
+			"sampler": 0,
+			"source": 7
+		},
+		{
+			"name": "HospitalBed_Mat_Normal",
+			"sampler": 0,
+			"source": 8
+		},
+		{
+			"name": "EdithRoomBed_a_Mat_BaseColor",
+			"sampler": 0,
+			"source": 9
+		},
+		{
+			"name": "EdithRoomBed_a_Mat_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "EdithRoomBed_a_Mat_Normal",
+			"sampler": 0,
+			"source": 2
+		}
+	]
+}

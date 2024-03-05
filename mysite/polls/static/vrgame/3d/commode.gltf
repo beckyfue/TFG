@@ -1,0 +1,268 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 5892,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 1789,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.56601423, 0.264604777, 0.296080232 ],
+			"max": [ 0.561111867, 0.792784691, 0.33556506 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 1789,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 1789,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 1789,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 1789,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 6,
+			"count": 2049,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 7,
+			"count": 757,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.734930873, -0.00249238266, -0.273529232 ],
+			"max": [ 0.733604014, 0.881587744, 0.298998952 ]
+		},
+		{
+			"bufferView": 8,
+			"count": 757,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 9,
+			"count": 757,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 10,
+			"count": 757,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 11,
+			"count": 757,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "commode.bin",
+			"byteLength": 158460
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 11784,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 21468,
+			"byteOffset": 11784,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 21468,
+			"byteOffset": 33252,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 28624,
+			"byteOffset": 54720,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 14312,
+			"byteOffset": 83344,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 14312,
+			"byteOffset": 97656,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4098,
+			"byteOffset": 111968,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 9084,
+			"byteOffset": 116068,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 9084,
+			"byteOffset": 125152,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 12112,
+			"byteOffset": 134236,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 6056,
+			"byteOffset": 146348,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 6056,
+			"byteOffset": 152404,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "M_Commode_BaseColor.png"
+		},
+		{
+			"uri": "M_Commode_MetallicRoughness.png"
+		},
+		{
+			"uri": "M_Commode_Normal.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "M_Chrome",
+			"pbrMetallicRoughness":
+			{
+				"baseColorFactor": [ 0.800000012, 0.800000012, 0.800000012, 1 ],
+				"roughnessFactor": 0.300000012
+			}
+		},
+		{
+			"name": "M_Commode",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_Commode",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 7,
+						"NORMAL": 8,
+						"TANGENT": 9,
+						"TEXCOORD_0": 10,
+						"TEXCOORD_1": 11
+					},
+					"indices": 6,
+					"material": 1
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "M_Commode_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "M_Commode_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "M_Commode_Normal",
+			"sampler": 0,
+			"source": 2
+		}
+	]
+}

@@ -1,0 +1,190 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.3.2"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 27300,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 6703,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.309735507, 0.00038066032, -0.356773138 ],
+			"max": [ 0.310766697, 1.02221394, 0.287539005 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 6703,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 6703,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 6703,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 6703,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "officechair.bin",
+			"byteLength": 429968
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 54600,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 80436,
+			"byteOffset": 54600,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 80436,
+			"byteOffset": 135036,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 107248,
+			"byteOffset": 215472,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 53624,
+			"byteOffset": 322720,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 53624,
+			"byteOffset": 376344,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "M_Office_Chair_BaseColor.png"
+		},
+		{
+			"uri": "M_Office_Chair_MetallicRoughness.png"
+		},
+		{
+			"uri": "M_Office_Chair_Occlusion.png"
+		},
+		{
+			"uri": "T_Office_Chair_N.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "M_Office_Chair",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			},
+			"occlusionTexture":
+			{
+				"index": 3
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_Modern_Office_chair",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9984,
+			"magFilter": 9728
+		},
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "M_Office_Chair_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "M_Office_Chair_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "T_Office_Chair_N",
+			"sampler": 1,
+			"source": 3
+		},
+		{
+			"name": "M_Office_Chair_Occlusion",
+			"sampler": 0,
+			"source": 2
+		}
+	]
+}

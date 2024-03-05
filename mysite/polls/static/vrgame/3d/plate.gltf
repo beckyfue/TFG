@@ -1,0 +1,186 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.2.1"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 2346,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 563,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.0780255049, -6.86332278e-05, -0.0778436288 ],
+			"max": [ 0.07802549, 0.0121730305, 0.077843599 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 563,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 563,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 563,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 563,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "plate.bin",
+			"byteLength": 36220
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 4692,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 6756,
+			"byteOffset": 4692,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 6756,
+			"byteOffset": 11448,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 9008,
+			"byteOffset": 18204,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4504,
+			"byteOffset": 27212,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4504,
+			"byteOffset": 31716,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "M_Plate_BaseColor.png"
+		},
+		{
+			"uri": "M_Plate_MetallicRoughness.png"
+		},
+		{
+			"uri": "M_Plate_Normal.png"
+		},
+		{
+			"uri": "M_Plate_Occlusion.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "M_Plate",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			},
+			"occlusionTexture":
+			{
+				"index": 3
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_Plate",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "M_Plate_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "M_Plate_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "M_Plate_Normal",
+			"sampler": 0,
+			"source": 2
+		},
+		{
+			"name": "M_Plate_Occlusion",
+			"sampler": 0,
+			"source": 3
+		}
+	]
+}
