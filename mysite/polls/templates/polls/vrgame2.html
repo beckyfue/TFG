@@ -44,7 +44,9 @@
 		<a-asset-item id="armchair1" src="{% static 'vrgame/3d/armchair1.gltf' %}"></a-asset-item>
 		<a-asset-item id="bed1" src="{% static 'vrgame/3d/bed1.gltf' %}"></a-asset-item>	
 		<a-asset-item id="bedside1" src="{% static 'vrgame/3d/bedside1.gltf' %}"></a-asset-item>
-		<a-asset-item id="bike1" src="{% static 'vrgame/3d/bike1.gltf' %}"></a-asset-item>			
+		<a-asset-item id="bike1" src="{% static 'vrgame/3d/bike1.gltf' %}"></a-asset-item>
+        <a-asset-item id="skirt" src="{% static 'vrgame/3d/skirt/scene.gltf' %}"></a-asset-item>
+
         
 		<!-- bedroom2 assets -->
 		
@@ -362,7 +364,8 @@
 		
 		<a-gltf-model id="id_wardrobe_1" src="#wardrobe1" scale="1 1.2 1" position="2.4 0.01 8.626" rotation="0 180 0" class = "clickable"></a-gltf-model>
 		<a-gltf-model id="id_library_1" src="#library1" scale="1.5 1.25 1" position="0.02 0.01 3.7" rotation="0 90 0" class = "clickable"></a-gltf-model>
-		<a-gltf-model id="id_stool_1" src="#armchair1" scale="1 1 1" position="0.688 -0.14 8.423" rotation="0 0 0" class = "clickable"></a-gltf-model>
+		<a-gltf-model id="id_stool_1" src="#armchair1" scale="1 1 1" position="0.688 0.01 8.423" rotation="0 0 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_skirt_1" src="#skirt" scale="1 1 1" position="0.688 1 8.423" rotation="0 0 0" class = "clickable"></a-gltf-model>
 
         <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
         <rw-ceiling material="color:#FFF"></rw-ceiling>
