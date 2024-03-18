@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pink Pig Plush (3xP)
+* source:	https://sketchfab.com/3d-models/pink-pig-plush-3xp-047d567fcd314d1fac6409d4ff8b2cea
+* author:	MightyPinecone (https://sketchfab.com/Mighty.Pinecone)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pink Pig Plush (3xP)" (https://sketchfab.com/3d-models/pink-pig-plush-3xp-047d567fcd314d1fac6409d4ff8b2cea) by MightyPinecone (https://sketchfab.com/Mighty.Pinecone) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

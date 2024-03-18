@@ -1,0 +1,11 @@
+Model Information:
+* title:	CC0 - Table 6
+* source:	https://sketchfab.com/3d-models/cc0-table-6-0a72d5acb0fa41a1ac48d4f07e9a4417
+* author:	plaggy (https://sketchfab.com/plaggy)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "CC0 - Table 6" (https://sketchfab.com/3d-models/cc0-table-6-0a72d5acb0fa41a1ac48d4f07e9a4417) by plaggy (https://sketchfab.com/plaggy) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

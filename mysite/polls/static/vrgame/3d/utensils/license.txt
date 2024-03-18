@@ -1,0 +1,11 @@
+Model Information:
+* title:	Kitchen Utensils
+* source:	https://sketchfab.com/3d-models/kitchen-utensils-3ba85ef43cfc48508e43bd1d6c052295
+* author:	simalardicc (https://sketchfab.com/simalardicc)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Kitchen Utensils" (https://sketchfab.com/3d-models/kitchen-utensils-3ba85ef43cfc48508e43bd1d6c052295) by simalardicc (https://sketchfab.com/simalardicc) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

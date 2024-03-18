@@ -1,0 +1,11 @@
+Model Information:
+* title:	Plush toy
+* source:	https://sketchfab.com/3d-models/plush-toy-304f877357de42a6a018b1d96fa571af
+* author:	yanix (https://sketchfab.com/yanix)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Plush toy" (https://sketchfab.com/3d-models/plush-toy-304f877357de42a6a018b1d96fa571af) by yanix (https://sketchfab.com/yanix) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

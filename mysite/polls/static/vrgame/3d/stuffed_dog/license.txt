@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stuffed Toy Animal: Charles - The Dog
+* source:	https://sketchfab.com/3d-models/stuffed-toy-animal-charles-the-dog-33de3e5daaf3404fb0b8d0f4613f14c8
+* author:	brian-aa (https://sketchfab.com/brian-aa)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stuffed Toy Animal: Charles - The Dog" (https://sketchfab.com/3d-models/stuffed-toy-animal-charles-the-dog-33de3e5daaf3404fb0b8d0f4613f14c8) by brian-aa (https://sketchfab.com/brian-aa) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
