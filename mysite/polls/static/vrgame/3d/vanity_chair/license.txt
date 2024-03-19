@@ -1,0 +1,11 @@
+Model Information:
+* title:	Wooden Stool
+* source:	https://sketchfab.com/3d-models/wooden-stool-a58ae667aa1b43e789211047b8aae27c
+* author:	RachelC (https://sketchfab.com/rachelclarkediting)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Wooden Stool" (https://sketchfab.com/3d-models/wooden-stool-a58ae667aa1b43e789211047b8aae27c) by RachelC (https://sketchfab.com/rachelclarkediting) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

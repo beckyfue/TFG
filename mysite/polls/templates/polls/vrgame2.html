@@ -31,12 +31,17 @@
 		<a-asset-item id="lounge_coffee_table" src="{% static 'vrgame/3d/coffee_table.gltf' %}"></a-asset-item> 
 		<a-asset-item id="lounge_picture_flowers" src="{% static 'vrgame/3d/picture_flowers.gltf' %}"></a-asset-item> 
 		<a-asset-item id="lounge_cactus" src="{% static 'vrgame/3d/cactus.gltf' %}"></a-asset-item> 
-		<a-asset-item id="bottle" src="{% static 'vrgame/3d/bottle.gltf' %}"></a-asset-item> 
 		<a-asset-item id="fork" src="{% static 'vrgame/3d/fork.gltf' %}"></a-asset-item> 
 		<a-asset-item id="glass" src="{% static 'vrgame/3d/glass.gltf' %}"></a-asset-item> 
 		<a-asset-item id="knife" src="{% static 'vrgame/3d/knife.gltf' %}"></a-asset-item> 
 		<a-asset-item id="plate" src="{% static 'vrgame/3d/plate.gltf' %}"></a-asset-item> 
 		<a-asset-item id="picture2" src="{% static 'vrgame/3d/picture2.gltf' %}"></a-asset-item> 
+        <a-asset-item id="cactus" src="{% static 'vrgame/3d/cactus/scene.gltf' %}"></a-asset-item>
+        <a-asset-item id="f1" src="{% static 'vrgame/3d/f1/scene.gltf' %}"></a-asset-item>
+        
+
+
+
 		
 		<!-- bedroom1 assets --> 
 		<a-asset-item id="wardrobe1" src="{% static 'vrgame/3d/wardrobe1.gltf' %}"></a-asset-item>
@@ -44,7 +49,6 @@
 		<a-asset-item id="armchair1" src="{% static 'vrgame/3d/armchair1.gltf' %}"></a-asset-item>
 		<a-asset-item id="bed1" src="{% static 'vrgame/3d/bed1.gltf' %}"></a-asset-item>	
 		<a-asset-item id="bedside1" src="{% static 'vrgame/3d/bedside1.gltf' %}"></a-asset-item>
-		<a-asset-item id="bike1" src="{% static 'vrgame/3d/bike1.gltf' %}"></a-asset-item>
         <a-asset-item id="football" src="{% static 'vrgame/3d/football/scene.gltf' %}"></a-asset-item>
         <a-asset-item id="dinosaur" src="{% static 'vrgame/3d/dinosaur/scene.gltf' %}"></a-asset-item>
         <a-asset-item id="pig" src="{% static 'vrgame/3d/stuffed_pig/scene.gltf' %}"></a-asset-item>
@@ -53,9 +57,9 @@
         <a-asset-item id="play_doh" src="{% static 'vrgame/3d/play_doh/scene.gltf' %}"></a-asset-item>
         <a-asset-item id="toy_books" src="{% static 'vrgame/3d/toy_books/scene.gltf' %}"></a-asset-item>
         <a-asset-item id="kid_table" src="{% static 'vrgame/3d/kid_table/scene.gltf' %}"></a-asset-item>
-        <a-asset-item id="pencil_holder" src="{% static 'vrgame/3d/pencil_holder/scene.gltf' %}"></a-asset-item>
         <a-asset-item id="table_notepad" src="{% static 'vrgame/3d/table_notepad/scene.gltf' %}"></a-asset-item>
         <a-asset-item id="table_toy" src="{% static 'vrgame/3d/table_toy/scene.gltf' %}"></a-asset-item>
+        <a-asset-item id="tricycle" src="{% static 'vrgame/3d/tricycle/scene.gltf' %}"></a-asset-item>
        
 
         
@@ -82,6 +86,14 @@
 		<a-asset-item id="bedside_table_2" src="{% static 'vrgame/3d/bedside_table_2.gltf' %}"></a-asset-item>
         <a-asset-item id="main_wardrobe" src="{% static 'vrgame/3d/ward1.glb' %}"></a-asset-item>
 		<a-asset-item id="bed_lamp" src="{% static 'vrgame/3d/bedlamp3.gltf' %}"></a-asset-item>
+        <a-asset-item id="vanity" src="{% static 'vrgame/3d/vanity/scene.gltf' %}"></a-asset-item>
+        <a-asset-item id="standing_mirror" src="{% static 'vrgame/3d/standing_mirror/scene.gltf' %}"></a-asset-item>
+        <a-asset-item id="vanity_chair" src="{% static 'vrgame/3d/vanity_chair/scene.gltf' %}"></a-asset-item>
+        <a-asset-item id="bike1" src="{% static 'vrgame/3d/bike1.gltf' %}"></a-asset-item>
+        <a-asset-item id="main_drawers" src="{% static 'vrgame/3d/main_drawers/scene.gltf' %}"></a-asset-item>
+        <a-asset-item id="carpet" src="{% static 'vrgame/3d/carpet/scene.gltf' %}"></a-asset-item>
+
+
 	  
 		<!-- bathroom2 assets -->
 		<a-asset-item id="bathtub" src="{% static 'vrgame/imgs/bathtub.gltf' %}"></a-asset-item>
@@ -347,12 +359,21 @@
         <a-gltf-model id="id_coffee_table" src="#lounge_coffee_table" scale="1.5 1.25 3" position="7.228 0.01 2.209" rotation="0 0 0" class = "clickable" ></a-gltf-model>
         <a-gltf-model id="id_picture_flowers" src="#lounge_picture_flowers" scale="3 2 2" position="7.343 2.072 0.013" rotation="0 0 0" class = "clickable" ></a-gltf-model>
         <!--<a-gltf-model id="id_lounge_cactus" src="#lounge_cactus" scale="3 2 2" position="3.908 0.979 6.031" rotation="0 0 0" class = "clickable" ></a-gltf-model>-->
-        <a-gltf-model id="id_bottle" src="#bottle" scale="3 2 2" position="7.261 0.455 2.263" rotation="0 0 0" class = "clickable" ></a-gltf-model>
-        <a-gltf-model id="id_fork" src="#fork" scale="1.5 1.5 1.5" position="2.812 1.004 5.677" rotation="0 90 0" class = "clickable" ></a-gltf-model>
-        <a-gltf-model id="id_glass" src="#glass" scale="1 1 1" position="3.275 1.012 5.916" rotation="0 0 0" class = "clickable" ></a-gltf-model>
-        <a-gltf-model id="id_knife" src="#knife" scale="1.5 1.5 1.5" position="3.419 0.998 5.699" rotation="0 90 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_fork" src="#fork" scale="1.5 1.5 1.5" position="3.419 0.998 5.699" rotation="0 90 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_glass" src="#glass" scale="2 2 2" position="3.275 1.012 5.916" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_knife" src="#knife" scale="1.5 1.5 1.5" position= "2.812 1.004 5.677" rotation="0 90 0" class = "clickable" ></a-gltf-model>
         <a-gltf-model id="id_plate" src="#plate" scale="3 2 2" position="3.134 1.004 5.696" rotation="0 0 0" class = "clickable" ></a-gltf-model>
-     <a-gltf-model id="id_picture2" src="#picture2" scale="1 3 5" position="9.964 2.135 4.993" rotation="0 180 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_picture2" src="#picture2" scale="1 3 5" position="9.964 2.135 4.993" rotation="0 180 0" class = "clickable" ></a-gltf-model>
+
+        <a-gltf-model id="id_fork_2" src="#fork" scale="1.5 1.5 1.5" position="4.812 1.004 5.677" rotation="0 90 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_glass_2" src="#glass" scale="2 2 2" position="4.875 1.012 5.916" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_knife_2" src="#knife" scale="1.5 1.5 1.5" position="4.319 0.998 5.699" rotation="0 90 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_plate_2" src="#plate" scale="3 2 2" position="4.534 1.004 5.696" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+
+        <a-gltf-model id="id_cactus" src="#cactus" scale="0.002 0.002 0.002" position="3.834 1.004 6.396" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_f1" src="#f1" scale="0.07 0.07 0.07" position="7.228 0.6 2.309" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+
+
        
 
         <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
@@ -377,7 +398,6 @@
         
 		<a-gltf-model id="id_bed_1" src="#bed1" scale="0.9 1 1" position="0.639 0.01 1" rotation="0 0 0" class = "clickable"></a-gltf-model>
 		<a-gltf-model id="id_bedside_table_1" src="#bedside1" scale="1 1 1" position="1.604 0.01 0.255" rotation="0 0 0" class = "clickable"></a-gltf-model>
-		<a-gltf-model id="id_bike1" src="#bike1" scale="1 1 1" position="3.481 0.01 2.090" rotation="0 0 0" class = "clickable"></a-gltf-model>
 		<a-gltf-model id="id_wardrobe_1" src="#wardrobe1" scale="1 1.2 1" position="2.4 0.01 8.626" rotation="0 180 0" class = "clickable"></a-gltf-model>
 		<a-gltf-model id="id_library_1" src="#library1" scale="1.5 1.25 1" position="0.02 0.01 3.7" rotation="0 90 0" class = "clickable"></a-gltf-model>
 		<a-gltf-model id="id_stool_1" src="#armchair1" scale="1 1 1" position="0.688 0.01 8.423" rotation="0 0 0" class = "clickable"></a-gltf-model>
@@ -393,12 +413,9 @@
         <a-gltf-model id="id_toy_books_2" src="#toy_books" scale="1.5 1.5 1.5" position="0.35 0.75 3" rotation="0 90 0" class = "clickable"></a-gltf-model>
         <a-gltf-model id="id_toy_books_3" src="#toy_books" scale="1.5 1.5 1.5" position="0.35 0.75 4.5" rotation="0 90 0" class = "clickable"></a-gltf-model>
         <a-gltf-model id="id_kid_table" src="#kid_table" scale="1.5 2.5 1.5" position="0.5 0.01 6" rotation="0 0 0" class = "clickable"></a-gltf-model>
-        <a-gltf-model id="id_pencil_holder" src="#pencil_holder" scale="1 1 1" position="0.0000001 0.6 6.1" rotation="0 0 0" class = "clickable"></a-gltf-model>
         <a-gltf-model id="id_table_notepad" src="#table_notepad" scale="0.04 0.04 0.04" position="0.6 0.6 6.2" rotation="0 0 0" class = "clickable"></a-gltf-model>
-        <a-gltf-model id="id_table_toy" src="#table_toy" scale="0.1 0.1 0.1" position="0.25 0.55 5.8" rotation="0 100 0" class = "clickable"></a-gltf-model>
-
-
-
+        <a-gltf-model id="id_table_toy" src="#table_toy" scale="0.1 0.1 0.1" position="0.25 0.55 5.8" rotation="0 75 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_tricyle" src="#tricycle" scale="25 25 25" position="3.481 0.01 2.090" rotation="0 180 0" class = "clickable"></a-gltf-model>
 
 
 
@@ -531,10 +548,17 @@
        
         <a-gltf-model id="id_bedside_table_2" src="#bedside_table_2" scale="1 1 1" position="1.66 0.01 0.234" rotation="0 90 0" class = "clickable"></a-gltf-model>
         <a-gltf-model id="id_bedside_table_3" src="#bedside_table_2" scale="1 1 1" position="4.454 0.01 0.234" rotation="0 90 0" class = "clickable"></a-gltf-model>
-        <a-gltf-model id="id_main_wardrobe" src="#main_wardrobe" scale="0.4 0.3 0.4" position="6.930 0.01 4.378" rotation="0 270 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_main_wardrobe" src="#main_wardrobe" scale="0.4 0.3 0.4" position="6.930 0.01 4.678" rotation="0 270 0" class = "clickable"></a-gltf-model>
          <a-gltf-model id="id_main_lamp_2" src="#bed_lamp" scale="1 1 1" position="4.456 0.734 0.261" rotation="0 0 0" class = "clickable"></a-gltf-model>
         <a-gltf-model id="id_main_lamp_3" src="#bed_lamp" scale="1 1 1" position="1.659 0.701 0.190" rotation="0 0 0" class = "clickable" ></a-gltf-model>
-     
+        <a-gltf-model id="id_vanity" src="#vanity" scale="1 1 1" position="6.7 1 2" rotation="0 270 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_standing_mirror" src="#standing_mirror" scale="0.2 0.2 0.2" position="0.6 1 0.6" rotation="0 20 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_vanity_chair" src="#vanity_chair" scale="0.4 0.6 0.4" position="6 0.01 2" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_bike1" src="#bike1" scale="1 1 1" position="3 0.01 2.8" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_main_drawers" src="#main_drawers" scale="0.01 0.01 0.01" position="0.4 0.1 4.5" rotation="0 180 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_carpet" src="#carpet" scale="0.007 0.007 0.007" position="3.5 0.1 5" rotation="0 90 0" class = "clickable"></a-gltf-model>
+
+        
 
 
 
@@ -599,19 +623,28 @@
                         "id_dog": "blue",
                         "id_play_doh_1": "yellow",
                         "id_play_doh_2": "yellow",
-                        "id_play_doh_3": "yellow"
+                        "id_play_doh_3": "yellow", 
+                        "id_f1": "blue"
                         
                     }
     
                     object_ids = ["id_lounge_chair_1", "id_lounge_chair_2", "id_lounge_chair_3", "id_lounge_chair_4",
-                        "id_sofa", "id_tv", "id_fork", "id_glass", "id_knife", "id_plate",
-                        "id_bed_1", "id_bedside_table_1", "id_bike1", "id_wardrobe_1", "id_stool_1", "id_football", "id_dinosaur", "id_pig", "id_dog", 
+                        "id_sofa", "id_tv",  "id_glass",  "id_plate", "id_glass_2",  "id_plate_2", "id_f1", "id_cactus", 
+
+                        "id_bed_1", "id_bedside_table_1", "id_tricycle", "id_wardrobe_1", "id_stool_1", "id_football", "id_dinosaur", "id_pig", "id_dog", 
                         "id_kid_phone", "id_play_doh_1", "id_play_doh_2", "id_play_doh_3", "id_toy_books_1", "id_toy_books_2", "id_toy_books_3", 
+                        "id_table_notepad", "id_table_toy",
+
                         "id_office1", "id_office2", "id_storagebed2", "id_storagebed22", "id_keyboard", "id_pokeball", "id_computer1", "id_headset1",
                         "id_mouse1", "id_screen", "id_guitar", "id_camera", "id_computer2", "id_tablet", "id_mouse2",
-                        "id_bed_3", "id_main_wardrobe", "id_main_lamp_2", "id_main_lamp_3","id_dishrack", "id_cereals",
-                        "id_kitchen_cupboard", "id_fridge", "id_teakettle", "id_kitchen_utensils",
+
+                        "id_bed_3", "id_main_wardrobe", "id_main_lamp_2", "id_main_lamp_3", "id_bike1", "id_vanity", "id_standing_mirror", 
+                        "id_vanity_chair", "id_main_drawers", 
+                        
+                        "id_dishrack", "id_cereals", "id_kitchen_cupboard", "id_fridge", "id_teakettle", "id_kitchen_utensils",
+
                         "id_showercabin", "id_toilet_1", "id_toilet_paper_1",
+
                         "id_bathtub", "id_toilet_2", "id_toilet_paper", "id_towel_2"
                     ];
     

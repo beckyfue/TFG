@@ -1,0 +1,11 @@
+Model Information:
+* title:	Chest Of Drawers
+* source:	https://sketchfab.com/3d-models/chest-of-drawers-8cea7380193b4650900a8f263c4f5e3c
+* author:	LightSwitch (https://sketchfab.com/edwardlewis450)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Chest Of Drawers" (https://sketchfab.com/3d-models/chest-of-drawers-8cea7380193b4650900a8f263c4f5e3c) by LightSwitch (https://sketchfab.com/edwardlewis450) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
