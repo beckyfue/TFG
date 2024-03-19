@@ -296,6 +296,7 @@ def vrgame(request):
     }
     print("VR GAME URL")
     return render(request, 'polls/vrgame2.html')
+
     
 @login_required(login_url='polls:custom_login')
 def vrgame2(request):
@@ -356,14 +357,35 @@ def vrgame2(request):
 
 
 
+import json
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
+from django.contrib.auth import get_user_model
+from .models import GameSession
 
-def game_statistics(request):
-    import datetime
-    patient = get_object_or_404(get_user_model(), username=request.user.username)
-   
-    #game_sessions = GameSession.objects.filter(patient=patient)
-    date = datetime.datetime.now()
-    g = GameSession(patient=patient, elapsed_time=25.5, play_date=date)
-    g.save()
-    print("Se reciben datos", request.POST, date)
-    return JsonResponse({"data": "Ok"})
+def game_statistics(request, patient_id):
+    
+    patient = get_object_or_404(get_user_model(), pk=patient_id)
+
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
+        elapsed_time = data.get('elapsed_time')
+        if elapsed_time is not None:
+            
+            g = GameSession(patient=patient, elapsed_time=elapsed_time)
+            g.save()
+            return JsonResponse({"message": "Game session saved."})
+        else:
+            return JsonResponse({"error": "Elapsed time not provided."}, status=400)
+
+    elif request.method == 'GET':
+        game_sessions = GameSession.objects.filter(patient=patient)
+        sessions_data = [{
+            'play_date': session.play_date,
+            'elapsed_time': session.elapsed_time
+        } for session in game_sessions]
+        return render(request, "polls/statistics.html", {"game_sessions": sessions_data, "patient": patient})
+
+    else:
+        return JsonResponse({"error": "Invalid request method."}, status=405)

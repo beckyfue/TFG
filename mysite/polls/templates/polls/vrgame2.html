@@ -712,19 +712,6 @@
                     
     
                     function showInitialMessage() {
-                        const data = {
-                            "time": 1
-                        }
-                        const options = {
-                            method: "POST",
-                            headers: {
-                                "X-CSRFToken": getCookie("csrftoken"),
-                                "credentials": "same-origin",
-                                "Content-Type": "application/json"
-                            },
-                            body: JSON.stringify(data)
-                        }
-                        fetch("/patient/statistics/", options).then(data => {console.log("OK")})
                         var cursor = document.querySelector("#front-cursor");
                         var cursorPosition = new THREE.Vector3();
                         var cursorRotation = new THREE.Quaternion();
@@ -906,6 +893,11 @@
     
                     // Function to show congratulatory message and buttons
                     function showCongratulatoryMessage(elapsedTime) {
+                        
+
+
+
+
                         var cursor = document.querySelector("#front-cursor");
                         var cursorPosition = new THREE.Vector3();
                         var cursorRotation = new THREE.Quaternion();
@@ -951,6 +943,28 @@
                             color: "#ffffff",
                             width: 1.5, // Adjust the width attribute to make the text bigger
                         });
+
+                        const data = {
+                        "elapsed_time": elapsedTime
+                    };
+
+                    const options = {
+                        method: "POST",
+                        headers: {
+                            "X-CSRFToken": getCookie("csrftoken"),
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    };
+
+                    fetch("/patient/statistics/", options)
+                    .then(response => response.json())
+                    .then(data => console.log("Game session saved:", data))
+                    .catch(error => console.error("Error saving game session:", error));
+
+
+                       
+                        
                         
                         scene.appendChild(endGameButton)
                     }
