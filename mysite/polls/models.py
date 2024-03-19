@@ -45,6 +45,17 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+    
+
+
+class GameSession(models.Model):
+    patient = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    play_date = models.DateTimeField(auto_now_add=True)
+    elapsed_time = models.FloatField()  
+
+    def __str__(self):
+        return f"Game Session for {self.patient.username} on {self.play_date}"
+
 
 
 

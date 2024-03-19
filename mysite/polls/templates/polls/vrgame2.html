@@ -605,6 +605,20 @@
             <script>
                 window.onload = function () {
     
+                    function getCookie(name) {
+                        var cookieValue = null;
+                        if (document.cookie && document.cookie !== '') {
+                            var cookies = document.cookie.split(';');
+                            for (var i = 0; i < cookies.length; i++) {
+                                var cookie = jQuery.trim(cookies[i]);
+                                // Does this cookie string begin with the name we want?if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                    break;
+                                
+                            }
+                        }
+                        return cookieValue;
+                    }
                     function selectRandomElements(arr, num) {
                         // Shuffle the array
                         arr = arr.sort(() => Math.random() - 0.5);
@@ -694,8 +708,23 @@
                             });
                         });
                     }
+
+                    
     
                     function showInitialMessage() {
+                        const data = {
+                            "time": 1
+                        }
+                        const options = {
+                            method: "POST",
+                            headers: {
+                                "X-CSRFToken": getCookie("csrftoken"),
+                                "credentials": "same-origin",
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(data)
+                        }
+                        fetch("/patient/statistics/", options).then(data => {console.log("OK")})
                         var cursor = document.querySelector("#front-cursor");
                         var cursorPosition = new THREE.Vector3();
                         var cursorRotation = new THREE.Quaternion();
@@ -922,7 +951,8 @@
                             color: "#ffffff",
                             width: 1.5, // Adjust the width attribute to make the text bigger
                         });
-                        scene.appendChild(endGameButton);
+                        
+                        scene.appendChild(endGameButton)
                     }
     
                     // Function to create a button entity

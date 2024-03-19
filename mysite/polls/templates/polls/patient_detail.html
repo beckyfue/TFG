@@ -23,6 +23,10 @@
             <a href="{% url 'polls:delete_patient' patient_id=patient.id %}" class="delete-button">Delete Patient</a>
         </div>
 
+        <div class="game-stats-button-container">
+            <a href="{% url 'polls:game_statistics' patient_id=patient.id %}" class="btn btn-primary">View Game Statistics</a>
+        </div>
+
 
 
 

@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse, HttpResponseRedirect
-from .models import Question, Choice, CustomUser
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from .models import Question, Choice, CustomUser, GameSession
 from django.template import loader
 from django.http import Http404
 from django.urls import reverse
@@ -21,6 +21,8 @@ from datetime import datetime
 from datetime import timedelta
 import random
 from django_plotly_dash import DjangoDash
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth import get_user_model
 
 
 
@@ -240,6 +242,7 @@ def delete_patient(request, patient_id):
     return render(request, 'polls/delete_patient.html', {'patient': patient})
 
 
+
 @login_required(login_url='polls:custom_login')
 def vrgame(request):
 
@@ -350,3 +353,17 @@ def vrgame2(request):
     }
     print("VR GAME URL")
     return render(request, 'polls/vrgame.html')
+
+
+
+
+def game_statistics(request):
+    import datetime
+    patient = get_object_or_404(get_user_model(), username=request.user.username)
+   
+    #game_sessions = GameSession.objects.filter(patient=patient)
+    date = datetime.datetime.now()
+    g = GameSession(patient=patient, elapsed_time=25.5, play_date=date)
+    g.save()
+    print("Se reciben datos", request.POST, date)
+    return JsonResponse({"data": "Ok"})
