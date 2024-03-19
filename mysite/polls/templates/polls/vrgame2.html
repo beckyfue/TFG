@@ -662,7 +662,7 @@
                         "id_bathtub", "id_toilet_2", "id_toilet_paper", "id_towel_2"
                     ];
     
-                    var selectedObjects = selectRandomElements(object_ids, 10);
+                    var selectedObjects = selectRandomElements(object_ids, 1);
                     var available_colors = ["red", "green", "yellow", "blue"]
                     var color = selectRandomElements(available_colors, 1)[0]
     
@@ -945,28 +945,29 @@
                         });
 
                         const data = {
-                        "elapsed_time": elapsedTime
-                    };
+							"elapsed_time": elapsedTime
+						};
+						console.log("------ COOOKIE ----------");
+						console.log(getCookie("csrftoken"));
+						const options = {
+							method: "POST",
+							headers: {
+								"X-CSRFToken": getCookie("csrftoken"),
+								"Content-Type": "application/json"
+							},
+							body: JSON.stringify(data)
+						};
 
-                    const options = {
-                        method: "POST",
-                        headers: {
-                            "X-CSRFToken": getCookie("csrftoken"),
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(data)
-                    };
-
-                    fetch("/patient/statistics/", options)
-                    .then(response => response.json())
-                    .then(data => console.log("Game session saved:", data))
-                    .catch(error => console.error("Error saving game session:", error));
+						fetch("/patient/statistics/", options)
+							.then(response => console.log("Hola"))
+							.then(data => console.log("Game session saved:", data))
+							.catch(error => console.error("Error saving game session:", error));
 
 
-                       
-                        
-                        
-                        scene.appendChild(endGameButton)
+						   
+							
+							
+						scene.appendChild(endGameButton)
                     }
     
                     // Function to create a button entity
