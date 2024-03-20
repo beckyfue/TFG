@@ -363,10 +363,10 @@ from django.http import JsonResponse
 from django.contrib.auth import get_user_model
 from .models import GameSession
 
-def game_statistics(request, username):
+def game_statistics(request, patient_id=None):
     if request.method == 'POST':
         # Handle POST request to save new game session
-        patient = get_object_or_404(get_user_model(), username=username)
+        patient = get_object_or_404(get_user_model(), username=request.user.username)
         data = json.loads(request.body)
         elapsed_time = data.get('elapsed_time')
         
@@ -377,7 +377,7 @@ def game_statistics(request, username):
         return JsonResponse({"message": "Game session saved."})
     else:
         # Handle GET request to fetch existing game sessions
-        patient = get_object_or_404(get_user_model(), username=username)
+        patient = get_object_or_404(get_user_model(), id=patient_id)
         game_sessions = GameSession.objects.filter(patient=patient).order_by('-play_date')
         
         context = {
