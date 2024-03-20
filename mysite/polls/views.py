@@ -384,14 +384,14 @@ def game_statistics(request, patient_id=None):
             'patient': patient,
             'game_sessions': game_sessions
         }
-        print(list(game_sessions.values()))
+        
         df = pd.DataFrame(list(game_sessions.values()))
         app = DjangoDash('PatientStats')
         # Create layout for Dash app
         app.layout = html.Div([
             dcc.Graph(
                 id='line-graph',
-                figure=px.line(df, x='play_date', y='elapsed_time', title='Count over Time'),
+                figure=px.line(df, x='play_date', y='elapsed_time', title='Elapsed time for each round played'),
                 
             )
         ])
