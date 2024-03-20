@@ -1,25 +1,33 @@
 <!-- polls/statistics.html -->
-{% extends 'polls/doctordash.html' %}
 
+{% extends 'polls/doctordash.html' %}
+{% load plotly_dash %}
 {% block content %}
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 {% load static %}
 <link rel="stylesheet" href="{% static 'polls/games_statistics.css' %}">
 <!-- Content block for the game statistics page -->
+<h1>Statistics for {{ patient.username }}</h1>
 <div class="game-stats-content container">
-    <h1>Game Statistics for {{ patient.username }}</h1>
+   
     <div class="game-stats-section">
+	 
         {% if game_sessions %}
             {% for session in game_sessions %}
                 <div class="game-stats">
                     <h2>Date: {{ session.play_date }}</h2>
-                    <p>Elapsed Time: {{ session.elapsed_time }} seconds</p>
+                     <p>Elapsed Time: {{ session.elapsed_time }} seconds</p>
                 </div>
             {% endfor %}
+			
+			
         {% else %}
             <p>No game sessions found for this patient.</p>
         {% endif %}
     </div>
+	<div id="patient-stats-graph">
+	{% plotly_app name="PatientStats" %}
+	</div>
 </div>
 {% endblock %}
 

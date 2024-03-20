@@ -379,10 +379,21 @@ def game_statistics(request, patient_id=None):
         # Handle GET request to fetch existing game sessions
         patient = get_object_or_404(get_user_model(), id=patient_id)
         game_sessions = GameSession.objects.filter(patient=patient).order_by('-play_date')
-        
+
         context = {
             'patient': patient,
             'game_sessions': game_sessions
         }
+        print(list(game_sessions.values()))
+        df = pd.DataFrame(list(game_sessions.values()))
+        app = DjangoDash('PatientStats')
+        # Create layout for Dash app
+        app.layout = html.Div([
+            dcc.Graph(
+                id='line-graph',
+                figure=px.line(df, x='play_date', y='elapsed_time', title='Count over Time'),
+                
+            )
+        ])
         
         return render(request, 'polls/statistics.html', context)
