@@ -363,13 +363,26 @@ from django.http import JsonResponse
 from django.contrib.auth import get_user_model
 from .models import GameSession
 
-def game_statistics(request):
-    
-    patient = get_object_or_404(get_user_model(), username=request.user.username)
-    data = json.loads(request.body)
-    print(data)
-    elapsed_time = data.get('elapsed_time')
+def game_statistics(request, username):
+    if request.method == 'POST':
+        # Handle POST request to save new game session
+        patient = get_object_or_404(get_user_model(), username=username)
+        data = json.loads(request.body)
+        elapsed_time = data.get('elapsed_time')
         
-    g = GameSession(patient=patient, elapsed_time=elapsed_time)
-    g.save()
-    return JsonResponse({"message": "Game session saved."})
+        # Create and save new GameSession
+        g = GameSession(patient=patient, elapsed_time=elapsed_time)
+        g.save()
+        
+        return JsonResponse({"message": "Game session saved."})
+    else:
+        # Handle GET request to fetch existing game sessions
+        patient = get_object_or_404(get_user_model(), username=username)
+        game_sessions = GameSession.objects.filter(patient=patient).order_by('-play_date')
+        
+        context = {
+            'patient': patient,
+            'game_sessions': game_sessions
+        }
+        
+        return render(request, 'polls/statistics.html', context)
