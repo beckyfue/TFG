@@ -357,11 +357,16 @@ def vrgame2(request):
 
 
 
-import json
-from django.shortcuts import get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from django.contrib.auth import get_user_model
 from .models import GameSession
+from django_plotly_dash import DjangoDash
+import pandas as pd
+import plotly.express as px
+import dash_html_components as html
+import dash_core_components as dcc
+
 
 def game_statistics(request, patient_id=None):
     if request.method == 'POST':
@@ -385,15 +390,20 @@ def game_statistics(request, patient_id=None):
             'game_sessions': game_sessions
         }
         
-        df = pd.DataFrame(list(game_sessions.values()))
-        app = DjangoDash('PatientStats')
-        # Create layout for Dash app
-        app.layout = html.Div([
-            dcc.Graph(
-                id='line-graph',
-                figure=px.line(df, x='play_date', y='elapsed_time', title='Elapsed time for each round played'),
-                
-            )
-        ])
-        
+        if game_sessions.exists():  # Check if there are any game sessions
+            df = pd.DataFrame(list(game_sessions.values()))
+            app = DjangoDash('PatientStats')
+            # Create layout for Dash app
+            app.layout = html.Div([
+                dcc.Graph(
+                    id='line-graph',
+                    figure=px.line(df, x='play_date', y='elapsed_time', title='Elapsed time for each round played'),
+                )
+            ])
+        else:
+            app = DjangoDash('PatientStats')
+            app.layout = html.Div([
+                html.H4("")
+            ])
+
         return render(request, 'polls/statistics.html', context)
