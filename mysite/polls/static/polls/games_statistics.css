@@ -1,4 +1,3 @@
-
 body, html {
     height: 100%;
     background: #DE6262;
@@ -16,18 +15,18 @@ body, html {
     flex-direction: row;
     align-items: flex-start;
     padding: 20px;
-	display: flex;
+    display: flex;
     flex-direction: row;
 }
 
 .game-stats {
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 10px; /* Adjusted padding */
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 800px;
+    max-width: 30px; /* Adjusted max-width */
     transition: transform 0.3s ease-in-out;
     margin-left: auto;
     margin-right: auto;
@@ -45,7 +44,7 @@ body, html {
 }
 
 .game-stats-section {
-	float:left;
+    float: left;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,7 +63,14 @@ body, html {
     text-align: center;
 }
 
-#patient-stats-graph div{
+/* Style for "No game sessions found" message */
+.game-stats-section .no-sessions {
+    font-size: 20px; /* Increased font size */
+    color: #FF0000; /* Red color */
+    text-align: center;
+}
+
+#patient-stats-graph div {
     height: 500px !important;
-	width: 500px !important;
+    width: 500px !important;
 }
