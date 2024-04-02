@@ -133,15 +133,12 @@
       <a-entity  id="rig" cursor-teleport="cameraRig: #rig; cameraHead: #camera; collisionEntities: #ground,.collision;ignoreEntities: .clickable;">
         <a-entity id="camera" camera-listener camera-movement camera position="-0.5 1.6 0" geometry="primitive: sphere; radius: 11" >
           <!-- Move the raycaster inside the camera entity as a child entity -->
-          <a-cursor  id="front-cursor" line="end: 0 0 -1.45" raycaster="interval:100;showLine:false; enabled:true;far:5;objects: .clickable" position="0 0 -1" raycaster-wall></a-cursor>
-          <a-cursor  id="front-cursor2" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .door-hole" position="0 0 -1" raycaster-wall></a-cursor>
-          <!--<a-cursor id="left-cursor" rotation="0 90 0" raycaster="interval: 100; showLine: true; enabled: true;objects: .clickable;far:2" position="-1 0 0"></a-cursor>
-          <a-cursor id="right-cursor" rotation="0 -90 0" raycaster="interval: 100; showLine: true; enabled: true;objects: .clickable;far:2" position="1 0 0"></a-cursor>
-          <a-cursor id="back-cursor" raycaster="interval: 100; showLine: true; enabled: true;objects: .clickable;far:2" position="0 0 1" rotation="0 180 0"></a-cursor>-->
-					
-	   </a-entity>
-	   <a-entity oculus-touch-controls="hand: left" blink-controls="cameraRig: #rig; teleportOrigin:#camera;collisionEntities: #ground,.collision;"></a-entity>  
-	   <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .clickable; far: 5"></a-entity>	
+          <a-cursor  id="front-cursor" line="end: 0 0 -1.45" raycaster="interval:100;showLine:false; enabled:true;far:5;objects: .clickable" position="0 0 -1"></a-cursor>
+          <!--<a-cursor  id="front-cursor2" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .door-hole" position="0 0 -1"></a-cursor>-->
+		</a-entity>
+		<a-entity oculus-touch-controls="hand: left" blink-controls="cameraRig: #rig; teleportOrigin:#camera;collisionEntities: #ground,.collision;"></a-entity>  
+	    <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .clickable; far: 5"></a-entity>	
+	  
       </a-entity>
 
 
@@ -153,7 +150,7 @@
         <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
         <a-box  width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
         <a-box  id="salon-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 90 0" width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
-        <a-box  visible="false" class="door-hole" id="invisible-salon-d" raycaster-collide   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-salon-d"    width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
      
       </a-entity>
 
@@ -162,7 +159,7 @@
         <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
         <a-box width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
         <a-box id="outside-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 90 0" width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
-        <a-box  visible="false" class="door-hole" id="invisible-outside-d" raycaster-collide   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-outside-d"    width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
      
       </a-entity>
 
@@ -172,7 +169,7 @@
         <a-box   class="collidable" width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
         <a-box  class="collidable" width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
           <a-box id="door-kit" raycaster-collide class="door clickable" door-test="rotation: 0 90 0" width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
-          <a-box visible="false" class="door-hole" id="invisible-door-kit" raycaster-collide  width="1.1" height="2.3" depth="0.1" color="yellow" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+          <a-box visible="false" class="door-hole" id="invisible-door-kit"  width="1.1" height="2.3" depth="0.1" color="yellow" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
       </a-entity>
 
       <a-entity id="door-bedroom1" position=" -1.5 1 -9.5" rotation="0 90 0">
@@ -180,7 +177,7 @@
         <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
         <a-box width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
         <a-box id="bed1-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 90 0"width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
-        <a-box  visible="false" class="door-hole" id="invisible-bed1-d" raycaster-collide   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-bed1-d"   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
      
       </a-entity>
 
@@ -189,7 +186,7 @@
         <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
         <a-box width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
         <a-box id="bed2-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 90 0"width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
-        <a-box  visible="false" class="door-hole" id="invisible-bed2-d" raycaster-collide   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-bed2-d"    width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
      
       </a-entity>
 
@@ -198,7 +195,7 @@
         <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
         <a-box width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
         <a-box id="bath1-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 -90 0"width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
-        <a-box  visible="false" class="door-hole" id="invisible-bath1-d" raycaster-collide   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-bath1-d"    width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
            
       </a-entity>
 
@@ -207,7 +204,7 @@
         <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
         <a-box width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
         <a-box id="bed3-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 -90 0"width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
-        <a-box  visible="false" class="door-hole" id="invisible-bed3-d" raycaster-collide   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-bed3-d"   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
      
       </a-entity>
 
@@ -216,7 +213,7 @@
         <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
         <a-box width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
         <a-box id="bath2-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 -90 0"width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
-        <a-box  visible="false" class="door-hole" id="invisible-bath2-d" raycaster-collide   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-bath2-d"   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
      
       </a-entity>
       
