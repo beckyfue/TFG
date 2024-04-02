@@ -121,7 +121,7 @@
         <a-asset-item id="cereals" src="{% static 'vrgame/3d/cereals/scene.gltf' %}"></a-asset-item>
 		
 	  </a-assets>
-      <a-entity environment="preset: default; ground:flat"></a-entity>
+      <a-entity id="ground" environment="preset: default; ground:flat"></a-entity>
 
 
       <!--<a-entity wasd-controls kinema-body="radius: 0.8" movement-controls="fly: false" position="0 0 5" look-controls>
@@ -130,7 +130,7 @@
       </a-entity>-->
 
 
-      <a-entity  id="rig" cursor-teleport="cameraRig: #rig; cameraHead: #camera; ignoreEntities: .clickable;>
+      <a-entity  id="rig" cursor-teleport="cameraRig: #rig; cameraHead: #camera; collisionEntities: #ground,.collision;ignoreEntities: .clickable;">
         <a-entity id="camera" camera-listener camera-movement camera position="-0.5 1.6 0" geometry="primitive: sphere; radius: 11" >
           <!-- Move the raycaster inside the camera entity as a child entity -->
           <a-cursor  id="front-cursor" line="end: 0 0 -1.45" raycaster="interval:100;showLine:false; enabled:true;far:5;objects: .clickable" position="0 0 -1" raycaster-wall></a-cursor>
@@ -140,7 +140,7 @@
           <a-cursor id="back-cursor" raycaster="interval: 100; showLine: true; enabled: true;objects: .clickable;far:2" position="0 0 1" rotation="0 180 0"></a-cursor>-->
 					
 	   </a-entity>
-	   <a-entity oculus-touch-controls="hand: left" blink-controls="cameraRig: #rig; teleportOrigin:#camera"></a-entity>  
+	   <a-entity oculus-touch-controls="hand: left" blink-controls="cameraRig: #rig; teleportOrigin:#camera;collisionEntities: #ground,.collision;"></a-entity>  
 	   <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .clickable; far: 5"></a-entity>	
       </a-entity>
 
@@ -257,19 +257,19 @@
 
     <!--pasillo 1-->  
     <rw-room position="-1.5 0.01 -10.5" width="2.5" length="8" height="3">
-        <rw-wall material="color:#FFF">
+        <rw-wall class="collision" material="color:#FFF">
             <rw-doorhole id="pasillo-habitacion2"></rw-doorhole>
             <rw-doorlink from="#pasillo-habitacion2" to="#habitacion2" width="1.25" height="2.15" position="0.75 0 0"></rw-doorlink>
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             <rw-doorhole id="pasillo-salon"></rw-doorhole>    
             <rw-doorhole id="pasillo1-pasillo2"></rw-doorhole> 
             <rw-doorlink from="#pasillo1-pasillo2" to="#pasillo2-pasillo1" width="2.4999" height="3" position="0 0 0"></rw-doorlink>
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall class="collision" material="color:#FFF">
             <rw-doorhole id="pasillo1"></rw-doorhole>
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall class="collision" material="color:#FFF">
             <rw-doorhole id="pasillo-entrada"></rw-doorhole>
             <rw-doorhole id="pasillo-habitacion1"></rw-doorhole>
             <rw-doorlink from="#pasillo-habitacion1" to="#habitacion1" width="1.25" height="2.15" position="7 0 8"></rw-doorlink>
@@ -290,27 +290,27 @@
 
     <!--entrada-->
     <rw-room position="-5.5 0.01 -4.5" width="4" length="2" height="3">
-        <rw-wall material="color:#FFF">
+        <rw-wall class="collision" material="color:#FFF">
             
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall class="collision" material="color:#FFF">
             <rw-doorhole id="entrada" width="2"></rw-doorhole>
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall class="collision" material="color:#FFF">
      
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall class="collision" material="color:#FFF">
             <rw-doorhole id="frontInner"></rw-doorhole>
         </rw-wall>
         
-        <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
+        <rw-floor class="collision" material="src:#wood-floor;repeat:2 2"></rw-floor>
         <rw-ceiling material="color:#FFF"></rw-ceiling>
     
     </rw-room>
 
     <rw-room position="-5.5 0 0" outside="true"  material="color:#877">
         
-        <rw-wall  position="0 0 -16" height="3.4">
+        <rw-wall  class="collision" position="0 0 -16" height="3.4">
             <rw-doorhole id="frontOuter"></rw-doorhole>
           <rw-doorlink from="#frontInner" to="#frontOuter" width="1.25" material="color:#778" position="12.5 0 0">
             <rw-floor></rw-floor>
@@ -319,13 +319,13 @@
           </rw-doorlink>
         </rw-wall>
         
-        <rw-wall position=" 17 0 -16" height="3.4">
+        <rw-wall class="collision" position=" 17 0 -16" height="3.4">
             
         </rw-wall>
-        <rw-wall position=" 17 0  4" height="3.4">
+        <rw-wall class="collision"  position=" 17 0  4" height="3.4">
             
         </rw-wall>
-        <rw-wall position="0 0  4" height="3.4">
+        <rw-wall class="collision" position="0 0  4" height="3.4">
           
         </rw-wall>
         
@@ -334,15 +334,15 @@
    
     <!--salon-->
     <rw-room position="1 0.01 -4.5" width="10" length="8" height="3">
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
            
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             <rw-doorhole id="salon"></rw-doorhole>
         </rw-wall>
 
@@ -382,17 +382,17 @@
     </rw-room>
     <!-- bedroom 1-->
     <rw-room position="-5.5 0.01 -16" width="4" length="9" height="3">
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             <rw-doorhole id="habitacion1" width="2"></rw-doorhole>
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
 
            
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
 
         </rw-wall>
         
@@ -427,16 +427,16 @@
 
     <!-- bedroom 2-->
     <rw-room position="-1.5 0.01 -16" width="5.5" length="5.5" height="3">
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
         
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             <rw-doorhole id="habitacion2"></rw-doorhole> 
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
         </rw-wall>
         
 
@@ -478,16 +478,16 @@
 
     <!-- bathroom 1-->
     <rw-room position="1 0.01 -8" width="4" length="3.5" height="3">
-        <rw-wall material="src:#bathroom-wall;repeat:2 2">
+        <rw-wall   class="collision" material="src:#bathroom-wall;repeat:2 2">
             <rw-doorhole id="bano1" width="1"></rw-doorhole> 
         </rw-wall>
-        <rw-wall material="src:#bathroom-wall;repeat:2 2">
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
         
         </rw-wall>
-        <rw-wall material="src:#bathroom-wall;repeat:2 2">
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
             
         </rw-wall>
-        <rw-wall material="src:#bathroom-wall;repeat:2 2">
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
 
         </rw-wall>
         
@@ -508,16 +508,16 @@
 
     <!-- pasillo2-->
     <rw-room position="1 0.01 -10.5" width="3" length="2.5" height="3">
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             <rw-doorhole id="pasillo2-habitacion3"></rw-doorhole>
             <rw-doorlink from="#pasillo2-habitacion3" to="#habitacion3" width="1.25" height="2.15" position="1.25 0 0"></rw-doorlink>
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             <rw-doorhole id="pasillo2-bano1"></rw-doorhole>
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             <rw-doorhole id="pasillo2-pasillo1"></rw-doorhole>
         </rw-wall>
         
@@ -529,17 +529,17 @@
 
     <!-- bedroom 3-->
     <rw-room position="4.00 0.01 -16" width="7" length="8" height="3">
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             <rw-doorhole id="habitacion3-bano2"></rw-doorhole> 
             <rw-doorlink from="#habitacion3-bano2" to="#bano2" width="1.25" height="2.15" position="2 0 0"></rw-doorlink>
         </rw-wall>
-        <rw-wall material="color:#FFF">
+        <rw-wall  class="collision" material="color:#FFF">
             <rw-doorhole id="habitacion3"></rw-doorhole>
 
         </rw-wall>
@@ -568,16 +568,16 @@
     </rw-room>
     <!-- bathroom 2-->
     <rw-room position="6 0.01 -8" width="5" length="3.5" height="3">
-        <rw-wall material="src:#bathroom-wall;repeat:2 2">
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
             <rw-doorhole width="1" id="bano2"></rw-doorhole>
         </rw-wall>
-        <rw-wall material="src:#bathroom-wall;repeat:2 2">
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
         
         </rw-wall>
-        <rw-wall material="src:#bathroom-wall;repeat:2 2">
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
             
         </rw-wall>
-        <rw-wall material="src:#bathroom-wall;repeat:2 2">
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
 
         </rw-wall>
         
