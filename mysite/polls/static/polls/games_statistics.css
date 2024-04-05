@@ -21,12 +21,12 @@ body, html {
 
 .game-stats {
     margin-bottom: 20px;
-    padding: 10px; /* Adjusted padding */
+    padding: 10px;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 30px; /* Adjusted max-width */
+    width: 100%; /* Full width of container */
+    max-width: 500px; /* Adjust this for making it bigger */
     transition: transform 0.3s ease-in-out;
     margin-left: auto;
     margin-right: auto;
