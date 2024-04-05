@@ -658,7 +658,7 @@
                         "id_bathtub", "id_toilet_2", "id_toilet_paper", "id_towel_2"
                     ];
     
-                    var selectedObjects = selectRandomElements(object_ids, 10);
+                    var selectedObjects = selectRandomElements(object_ids, 1);
                     var available_colors = ["red", "green", "yellow", "blue"]
                     var color = selectRandomElements(available_colors, 1)[0]
     
@@ -958,7 +958,7 @@
 							body: JSON.stringify(data)
 						};
 
-						fetch("/patient/statistics/", options)
+						fetch("http://127.0.0.1:8000/patient/statistics/", options)
 							.then(response => console.log("Hola"))
 							.then(data => console.log("Game session saved:", data))
 							.catch(error => console.error("Error saving game session:", error));
