@@ -130,7 +130,7 @@
       </a-entity>-->
 
 
-      <a-entity  id="rig" cursor-teleport="cameraRig: #rig; cameraHead: #camera; collisionEntities: #ground,.collision;ignoreEntities: .clickable;">
+      <a-entity  id="rig">
         <a-entity id="camera" camera-listener camera-movement camera position="-0.5 1.6 0" geometry="primitive: sphere; radius: 11" >
           <!-- Move the raycaster inside the camera entity as a child entity -->
           <a-cursor  id="front-cursor" line="end: 0 0 -1.45" raycaster="interval:100;showLine:false; enabled:true;far:5;objects: .clickable" position="0 0 -1"></a-cursor>
