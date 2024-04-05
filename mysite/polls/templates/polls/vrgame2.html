@@ -600,6 +600,7 @@
     
         <footer>
             <script>
+				var number_objects = {{number_objects}}
                 window.onload = function () {
     
                     function getCookie(name) {
@@ -657,8 +658,8 @@
 
                         "id_bathtub", "id_toilet_2", "id_toilet_paper", "id_towel_2"
                     ];
-    
-                    var selectedObjects = selectRandomElements(object_ids, 1);
+					
+                    var selectedObjects = selectRandomElements(object_ids, number_objects);
                     var available_colors = ["red", "green", "yellow", "blue"]
                     var color = selectRandomElements(available_colors, 1)[0]
     
@@ -945,7 +946,8 @@
                         
 
                         const data = {
-							"elapsed_time": elapsedTime
+							"elapsed_time": elapsedTime,
+							"number_objects": number_objects
 						};
 						console.log("------ COOOKIE ----------");
 						console.log(getCookie("csrftoken"));

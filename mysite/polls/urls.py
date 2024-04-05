@@ -19,7 +19,6 @@ urlpatterns = [
     path('patients/', views.patients, name='patients'),
     path('games/', views.games, name='games'),
     path('games/vrgame', views.vrgame, name='vrgame'),
-    path('games/vrgame2', views.vrgame2, name='vrgame2'),
     path('patient_homepage/', views.patient_homepage, name='patient_homepage'),
     path('patient/<int:patient_id>', views.delete_patient, name='delete_patient'),
     path('patient_detail/<int:patient_id>/', views.patient_detail, name='patient_detail'),

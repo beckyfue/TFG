@@ -42,6 +42,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(blank=True, default="")
     age = models.IntegerField(blank=True, null=True, default=None)
     pathology_details = models.TextField(blank=True, default="")
+    number_objects = models.IntegerField(default=5)
 
     def __str__(self):
         return self.username
@@ -52,6 +53,7 @@ class GameSession(models.Model):
     patient = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     play_date = models.DateTimeField(auto_now_add=True)
     elapsed_time = models.FloatField()  
+    number_objects = models.IntegerField(default=5)
 
     def __str__(self):
         return f"Game Session for {self.patient.username} on {self.play_date}"
