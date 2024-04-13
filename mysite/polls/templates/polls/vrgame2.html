@@ -962,7 +962,7 @@
 							body: JSON.stringify(data)
 						};
  
-						fetch("http://" + server + ":" + port + "/patient/statistics/", options)
+						fetch(server + ":" + port + "/patient/statistics/", options)
 							.then(response => console.log("Hola"))
 							.then(data => console.log("Game session saved:", data))
 							.catch(error => console.error("Error saving game session:", error));
