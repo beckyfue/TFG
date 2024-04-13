@@ -23,6 +23,7 @@ import random
 from django_plotly_dash import DjangoDash
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import get_user_model
+from django.conf import settings
 
 
 
@@ -243,7 +244,7 @@ def delete_patient(request, patient_id):
 @login_required(login_url='polls:custom_login')
 def vrgame(request):
     patient = get_object_or_404(get_user_model(), username=request.user.username)
-    return render(request, 'polls/vrgame2.html', context={"number_objects": patient.number_objects})
+    return render(request, 'polls/vrgame2.html', context={"port": settings.PORT, "server": settings.SERVER, "number_objects": patient.number_objects})
 
     
 

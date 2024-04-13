@@ -600,7 +600,9 @@
     
         <footer>
             <script>
-				var number_objects = {{number_objects}}
+				var number_objects = 1 /**{{number_objects}}**/
+				var server = "{{server}}";
+				var port = {{port}}
                 window.onload = function () {
     
                     function getCookie(name) {
@@ -959,8 +961,8 @@
 							},
 							body: JSON.stringify(data)
 						};
-
-						fetch("http://127.0.0.1:8000/patient/statistics/", options)
+ 
+						fetch("http://" + server + ":" + port + "/patient/statistics/", options)
 							.then(response => console.log("Hola"))
 							.then(data => console.log("Game session saved:", data))
 							.catch(error => console.error("Error saving game session:", error));

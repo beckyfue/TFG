@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+SERVER = "127.0.0.1"
+PORT = 8000
 
 AUTH_USER_MODEL = 'polls.CustomUser'
 
