@@ -1,0 +1,983 @@
+<!-- games.html -->
+
+{% extends 'polls/patientdash.html' %}
+
+{% block content %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/games.css' %}">
+    <!-- Content block for the games page -->
+    <div class="games-content container">
+ <a-scene embedded timedelta="1000" renderer="colorManagement: true;" stats>
+
+      <a-assets>
+                
+        <audio id="correct" src="{% static 'vrgame/sounds/correct.wav' %}" preload="auto"></audio>
+		<audio id="intro" src="{% static 'vrgame/sounds/intro.mp3' %}" preload="auto"></audio>
+		
+        <img crossorigin="anonymous" id="wood-floor" src="{% static 'vrgame/imgs/floor.jpg' %}">
+        <img crossorigin="anonymous" id="kitchen-floor" src="{% static 'vrgame/imgs/kitchen_floor.webp' %}">
+        <img crossorigin="anonymous" id="kitchen-wall" src="{% static 'vrgame/imgs/kitchen_wall.webp' %}">
+        <img crossorigin="anonymous" id="bathroom-floor" src="{% static 'vrgame/imgs/bathroom_floor.webp' %}">
+        <img crossorigin="anonymous" id="bathroom-wall" src="{% static 'vrgame/imgs/bathroom_wall.webp' %}">
+
+
+       
+		<a-asset-item id="table" src="{% static 'vrgame/3d/table1.glb' %}"></a-asset-item>
+		<a-asset-item id="remote" src="{% static 'vrgame/3d/remote.glb' %}"></a-asset-item>
+		<a-asset-item id="lounge_chair" src="{% static 'vrgame/3d/lounge_chair.glb' %}"></a-asset-item> 
+		<a-asset-item id="lounge_sofa" src="{% static 'vrgame/3d/lounge_sofa.glb' %}"></a-asset-item> 
+		<a-asset-item id="lounge_commode" src="{% static 'vrgame/3d/commode.gltf' %}"></a-asset-item> 
+        <a-asset-item id="lounge_tv" src="{% static 'vrgame/3d/tv.gltf' %}"></a-asset-item> 
+		<a-asset-item id="lounge_coffee_table" src="{% static 'vrgame/3d/coffee_table.gltf' %}"></a-asset-item> 
+		<a-asset-item id="lounge_picture_flowers" src="{% static 'vrgame/3d/picture_flowers.gltf' %}"></a-asset-item> 
+		<a-asset-item id="lounge_cactus" src="{% static 'vrgame/3d/cactus.gltf' %}"></a-asset-item> 
+		<a-asset-item id="fork" src="{% static 'vrgame/3d/fork.gltf' %}"></a-asset-item> 
+		<a-asset-item id="glass" src="{% static 'vrgame/3d/glass.gltf' %}"></a-asset-item> 
+		<a-asset-item id="knife" src="{% static 'vrgame/3d/knife.gltf' %}"></a-asset-item> 
+		<a-asset-item id="plate" src="{% static 'vrgame/3d/plate.gltf' %}"></a-asset-item> 
+		<a-asset-item id="picture2" src="{% static 'vrgame/3d/picture2.gltf' %}"></a-asset-item> 
+        <a-asset-item id="cactus" src="{% static 'vrgame/3d/cactus/scene.gltf' %}"></a-asset-item>
+        <a-asset-item id="f1" src="{% static 'vrgame/3d/f1/scene.glb' %}"></a-asset-item>
+        
+
+
+
+		
+		<!-- bedroom1 assets --> 
+		<a-asset-item id="wardrobe1" src="{% static 'vrgame/3d/wardrobe1.gltf' %}"></a-asset-item>
+		<a-asset-item id="library1" src="{% static 'vrgame/3d/library1.gltf' %}"></a-asset-item> 	
+		<a-asset-item id="armchair1" src="{% static 'vrgame/3d/armchair1.gltf' %}"></a-asset-item>
+		<a-asset-item id="bed1" src="{% static 'vrgame/3d/bed1.glb' %}"></a-asset-item>	
+		<a-asset-item id="bedside1" src="{% static 'vrgame/3d/bedside1.gltf' %}"></a-asset-item>
+        <a-asset-item id="football" src="{% static 'vrgame/3d/football/scene.gltf' %}"></a-asset-item>
+        <a-asset-item id="dinosaur" src="{% static 'vrgame/3d/dinosaur/scene.glb' %}"></a-asset-item>
+        <a-asset-item id="pig" src="{% static 'vrgame/3d/stuffed_pig/scene.glb' %}"></a-asset-item>
+        <a-asset-item id="dog" src="{% static 'vrgame/3d/stuffed_dog/scene.glb' %}"></a-asset-item>
+        <a-asset-item id="kid_phone" src="{% static 'vrgame/3d/kid_phone/scene.glb' %}"></a-asset-item>
+        <a-asset-item id="play_doh" src="{% static 'vrgame/3d/play_doh/scene.gltf' %}"></a-asset-item>
+        <a-asset-item id="toy_books" src="{% static 'vrgame/3d/toy_books/scene.glb' %}"></a-asset-item>
+        <a-asset-item id="kid_table" src="{% static 'vrgame/3d/kid_table/scene.glb' %}"></a-asset-item>
+        <a-asset-item id="table_notepad" src="{% static 'vrgame/3d/table_notepad/scene.glb' %}"></a-asset-item>
+        <a-asset-item id="table_toy" src="{% static 'vrgame/3d/table_toy/scene.glb' %}"></a-asset-item>
+        <!--<a-asset-item id="tricycle" src="{% static 'vrgame/3d/tricycle/scene.gltf' %}"></a-asset-item>-->
+       
+
+        
+		<!-- bedroom2 assets -->
+		
+		<a-asset-item id="desk" src="{% static 'vrgame/3d/tablebedroom.gltf' %}"></a-asset-item>
+		<a-asset-item id="storagebed2" src="{% static 'vrgame/3d/storagebed2.glb' %}"></a-asset-item>
+		<a-asset-item id="camera1" src="{% static 'vrgame/3d/camera.gltf' %}"></a-asset-item>
+		<a-asset-item id="keyboard" src="{% static 'vrgame/3d/keyboard.gltf' %}"></a-asset-item>
+		<a-asset-item id="computer1" src="{% static 'vrgame/3d/computer1.glb' %}"></a-asset-item>
+		<a-asset-item id="computer2" src="{% static 'vrgame/3d/computer2.glb' %}"></a-asset-item>
+		<a-asset-item id="headset" src="{% static 'vrgame/3d/headset.gltf' %}"></a-asset-item>
+		<a-asset-item id="tablet" src="{% static 'vrgame/3d/tablet.gltf' %}"></a-asset-item>
+		<a-asset-item id="mouse" src="{% static 'vrgame/3d/mouse.gltf' %}"></a-asset-item>
+		<a-asset-item id="screen" src="{% static 'vrgame/3d/screen.gltf' %}"></a-asset-item>
+		<a-asset-item id="guitar" src="{% static 'vrgame/3d/guitar.gltf' %}"></a-asset-item>
+		<a-asset-item id="officechair" src="{% static 'vrgame/3d/officechair.glb' %}"></a-asset-item>
+		<a-asset-item id="library2" src="{% static 'vrgame/3d/library2.gltf' %}"></a-asset-item>
+		<a-asset-item id="pokeball" src="{% static 'vrgame/3d/pokeball.glb' %}"></a-asset-item>
+		
+		
+		<!-- bedroom3 assets -->
+		<a-asset-item id="bed_3" src="{% static 'vrgame/3d/bed3.glb' %}"></a-asset-item>
+		<a-asset-item id="bedside_table_2" src="{% static 'vrgame/3d/bedside_table_2.glb' %}"></a-asset-item>
+        <a-asset-item id="main_wardrobe" src="{% static 'vrgame/3d/ward1.glb' %}"></a-asset-item>
+		<a-asset-item id="bed_lamp" src="{% static 'vrgame/3d/bedlamp3.glb' %}"></a-asset-item>
+        <a-asset-item id="vanity" src="{% static 'vrgame/3d/vanity/scene.glb' %}"></a-asset-item>
+        <a-asset-item id="standing_mirror" src="{% static 'vrgame/3d/standing_mirror/scene.gltf' %}"></a-asset-item>
+        <a-asset-item id="vanity_chair" src="{% static 'vrgame/3d/vanity_chair/scene.gltf' %}"></a-asset-item>
+        <a-asset-item id="bike1" src="{% static 'vrgame/3d/bike1.glb' %}"></a-asset-item>
+        <a-asset-item id="main_drawers" src="{% static 'vrgame/3d/main_drawers/scene.gltf' %}"></a-asset-item>
+        <a-asset-item id="carpet" src="{% static 'vrgame/3d/carpet/scene.gltf' %}"></a-asset-item>
+
+
+	  
+		<!-- bathroom2 assets -->
+		<a-asset-item id="bathtub" src="{% static 'vrgame/imgs/bathtub.gltf' %}"></a-asset-item>
+		<a-asset-item id="toilet" src="{% static 'vrgame/3d/toilet.gltf' %}"></a-asset-item>
+		<a-asset-item id="toiletpaper" src="{% static 'vrgame/3d/toiletpaper/scene.gltf' %}"></a-asset-item>
+		<a-asset-item id="rollholder" src="{% static 'vrgame/3d/rollholder/scene.glb' %}"></a-asset-item>
+		
+		<a-asset-item id="sink2" src="{% static 'vrgame/3d/sink2.glb' %}"></a-asset-item>
+		<a-asset-item id="towel2" src="{% static 'vrgame/3d/towel2.gltf' %}"></a-asset-item>
+		<a-asset-item id="faucet" src="{% static 'vrgame/3d/faucet.gltf' %}"></a-asset-item>
+	  
+		<!-- bathroom1 assets -->
+		<a-asset-item id="showercabin" src="{% static 'vrgame/3d/showercabin/scene.glb' %}"></a-asset-item>
+		<a-asset-item id="sink1" src="{% static 'vrgame/3d/sink1.glb' %}"></a-asset-item>
+		<a-asset-item id="longfaucet" src="{% static 'vrgame/3d/longfaucet.gltf' %}"></a-asset-item>
+		
+		<!-- Kitchen assets -->
+		<a-asset-item id="kitchencabinet" src="{% static 'vrgame/3d/kitchencabinet.glb' %}"></a-asset-item>
+		<a-asset-item id="kitchencupboard" src="{% static 'vrgame/3d/cupboard.glb' %}"></a-asset-item>
+		<a-asset-item id="kitchenfaucet" src="{% static 'vrgame/3d/kitchenfaucet.gltf' %}"></a-asset-item>
+		<a-asset-item id="fridge" src="{% static 'vrgame/3d/fridge.glb' %}"></a-asset-item>
+		<a-asset-item id="teakettle" src="{% static 'vrgame/3d/teakettle.glb' %}"></a-asset-item>
+        <a-asset-item id="kitchen_utensils" src="{% static 'vrgame/3d/utensils/scene.gltf' %}"></a-asset-item>
+        <a-asset-item id="dishrack" src="{% static 'vrgame/3d/dishrack/scene.glb' %}"></a-asset-item>
+        <a-asset-item id="cereals" src="{% static 'vrgame/3d/cereals/scene.gltf' %}"></a-asset-item>
+		
+	  </a-assets>
+      <a-entity id="ground" environment="preset: default; ground:flat"></a-entity>
+
+
+      <!--<a-entity wasd-controls kinema-body="radius: 0.8" movement-controls="fly: false" position="0 0 5" look-controls>
+        <a-entity id="camera" camera position="0 1.6 0" ></a-entity>
+          <a-cursor fuse="false" rayOrigin="mouse"></a-entity>
+      </a-entity>-->
+
+
+      <a-entity  id="rig">
+        <a-entity id="camera" camera-listener camera-movement camera position="-0.5 1.6 0" geometry="primitive: sphere; radius: 11" >
+          <!-- Move the raycaster inside the camera entity as a child entity -->
+          <a-cursor  id="front-cursor" line="end: 0 0 -1.45" raycaster="interval:100;showLine:false; enabled:true;far:5;objects: .clickable" position="0 0 -1"></a-cursor>
+          <!--<a-cursor  id="front-cursor2" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .door-hole" position="0 0 -1"></a-cursor>-->
+		</a-entity>
+		<a-entity oculus-touch-controls="hand: left" blink-controls="cameraRig: #rig; teleportOrigin:#camera;collisionEntities: #ground,.collision;"></a-entity>  
+	    <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .clickable; far: 5"></a-entity>	
+	  
+      </a-entity>
+
+
+
+    
+      
+      <a-entity id="door-salon"  position=" 1 1 -3.5" rotation="0 -90 0">
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="0.6 0 0"></a-box>
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
+        <a-box  width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
+        <a-box  id="salon-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 90 0" width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-salon-d"    width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+     
+      </a-entity>
+
+      <a-entity id="door-outside" position="-5.5 1 -3.5" rotation="0 -90 0">
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="0.6 0 0"></a-box>
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
+        <a-box width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
+        <a-box id="outside-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 90 0" width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-outside-d"    width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+     
+      </a-entity>
+
+
+      <a-entity class="collidable" id="door-kitchen" position=" 0.25 1 -2.5" rotation="0 180 0">
+        <a-box class="collidable"  width="0.1" height="2.4" depth="0.1" color="white" position="0.6 0 0"></a-box>
+        <a-box   class="collidable" width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
+        <a-box  class="collidable" width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
+          <a-box id="door-kit" raycaster-collide class="door clickable" door-test="rotation: 0 90 0" width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+          <a-box visible="false" class="door-hole" id="invisible-door-kit"  width="1.1" height="2.3" depth="0.1" color="yellow" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+      </a-entity>
+
+      <a-entity id="door-bedroom1" position=" -1.5 1 -9.5" rotation="0 90 0">
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="0.6 0 0"></a-box>
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
+        <a-box width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
+        <a-box id="bed1-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 90 0"width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-bed1-d"   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+     
+      </a-entity>
+
+      <a-entity id="door-bedroom2" position=" -0.75 1 -10.5" rotation="0 0 0">
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="0.6 0 0"></a-box>
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
+        <a-box width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
+        <a-box id="bed2-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 90 0"width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-bed2-d"    width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+     
+      </a-entity>
+
+      <a-entity id="door-bathroom1" position=" 2 1 -8" rotation="0 0 0">
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="0.6 0 0"></a-box>
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
+        <a-box width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
+        <a-box id="bath1-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 -90 0"width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-bath1-d"    width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+           
+      </a-entity>
+
+      <a-entity id="door-bedroom3" position=" 4 1 -9.25" rotation="0 90 0">
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="0.6 0 0"></a-box>
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
+        <a-box width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
+        <a-box id="bed3-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 -90 0"width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-bed3-d"   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+     
+      </a-entity>
+
+      <a-entity id="door-bathroom2" position=" 9 1 -8" rotation="0 0 0">
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="0.6 0 0"></a-box>
+        <a-box width="0.1" height="2.4" depth="0.1" color="white" position="-0.6 0 0"></a-box>
+        <a-box width="1.3" height="0.1" depth="0.1" color="white" position="0 1.2 0"></a-box>
+        <a-box id="bath2-d" raycaster-collide class="clickable" door-test="rotation: 0 90 0" door-opener-test="rotation: 0 -90 0"width="1.1" height="2.3" depth="0.1" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+        <a-box  visible="false" class="door-hole" id="invisible-bath2-d"   width="1.1" height="2.3" depth="0.0001" color="brown" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0"></a-box>
+     
+      </a-entity>
+      
+
+
+<!-- cocina-->
+    <rw-room position="-2.5 0.01 -2.5" width="3.5" length="6" height="3">
+        
+        <rw-wall  id="k3" raycaster-wall class="collision" material="src:#kitchen-wall;repeat:2 2">
+          <rw-doorhole id="cocina"></rw-doorhole>
+        </rw-wall>
+        <rw-wall id="k4" raycaster-wall class="collision" material="src:#kitchen-wall;repeat:2 2"></rw-wall>
+        <rw-wall id="k1" raycaster-wall class="collision" material="src:#kitchen-wall;repeat:2 2">
+        </rw-wall>
+        <rw-wall id="k2"  raycaster-wall class="collision" material="src:#kitchen-wall;repeat:2 2"></rw-wall>
+        
+
+		<a-gltf-model id="id_kitchen_counter" src="#kitchencabinet" scale="2 1.5 1.25" position="0.005 0.010 3.878" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_kitchen_cupboard" src="#kitchencupboard" scale="1 0.500 0.500" position="0.200 2.392 3.680" rotation="0 90 0" class = "clickable"></a-gltf-model>
+         <a-gltf-model id="id_kitchenfaucet" src="#faucet" scale="1 1.500 1" position="0.225 1.140 2.862" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_fridge" src="#fridge" scale="2.5 1.5 1.250" position="0.379 0.01 1.041" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_teakettle" src="#teakettle" scale="0.1 0.1 0.1" position="0.460 1.111 4.044" rotation="0 0 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_kitchen_utensils" src="#kitchen_utensils" scale="1 1 1" position="0.260 1.111 2.044" rotation="0 0 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_dishrack" src="#dishrack" scale="1 1 1" position="0.407 1.395 4.722" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_cereals" src="#cereals" scale="0.2 0.2 0.2" position="0.375 1.143 5.77" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        
+
+      
+
+
+        <rw-floor material="src:#kitchen-floor;repeat:2 2"></rw-floor>
+        <rw-ceiling material="color:#FFF"></rw-ceiling>
+
+    </rw-room>
+
+      <rw-doorlink from="#cocina" to="#pasillo1" width="1.25" height="2.15" position="0.25 0 0">
+      </rw-doorlink>
+
+    <!--pasillo 1-->  
+    <rw-room position="-1.5 0.01 -10.5" width="2.5" length="8" height="3">
+        <rw-wall class="collision" material="color:#FFF">
+            <rw-doorhole id="pasillo-habitacion2"></rw-doorhole>
+            <rw-doorlink from="#pasillo-habitacion2" to="#habitacion2" width="1.25" height="2.15" position="0.75 0 0"></rw-doorlink>
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+            <rw-doorhole id="pasillo-salon"></rw-doorhole>    
+            <rw-doorhole id="pasillo1-pasillo2"></rw-doorhole> 
+            <rw-doorlink from="#pasillo1-pasillo2" to="#pasillo2-pasillo1" width="2.4999" height="3" position="0 0 0"></rw-doorlink>
+        </rw-wall>
+        <rw-wall class="collision" material="color:#FFF">
+            <rw-doorhole id="pasillo1"></rw-doorhole>
+        </rw-wall>
+        <rw-wall class="collision" material="color:#FFF">
+            <rw-doorhole id="pasillo-entrada"></rw-doorhole>
+            <rw-doorhole id="pasillo-habitacion1"></rw-doorhole>
+            <rw-doorlink from="#pasillo-habitacion1" to="#habitacion1" width="1.25" height="2.15" position="7 0 8"></rw-doorlink>
+          
+        </rw-wall>
+        
+        
+        
+
+
+        <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
+        <rw-ceiling material="color:#FFF"></rw-ceiling>
+        
+    </rw-room>
+    <rw-doorlink from="#pasillo-salon" to="#salon" width="1.25" height="2.15" position="0 0 -3.5"></rw-doorlink>
+    <rw-doorlink from="#pasillo-entrada" to="#entrada" width="1.999" height="3">
+    </rw-doorlink>
+
+    <!--entrada-->
+    <rw-room position="-5.5 0.01 -4.5" width="4" length="2" height="3">
+        <rw-wall class="collision" material="color:#FFF">
+            
+        </rw-wall>
+        <rw-wall class="collision" material="color:#FFF">
+            <rw-doorhole id="entrada" width="2"></rw-doorhole>
+        </rw-wall>
+        <rw-wall class="collision" material="color:#FFF">
+     
+        </rw-wall>
+        <rw-wall class="collision" material="color:#FFF">
+            <rw-doorhole id="frontInner"></rw-doorhole>
+        </rw-wall>
+        
+        <rw-floor class="collision" material="src:#wood-floor;repeat:2 2"></rw-floor>
+        <rw-ceiling material="color:#FFF"></rw-ceiling>
+    
+    </rw-room>
+
+    <rw-room position="-5.5 0 0" outside="true"  material="color:#877">
+        
+        <rw-wall  class="collision" position="0 0 -16" height="3.4">
+            <rw-doorhole id="frontOuter"></rw-doorhole>
+          <rw-doorlink from="#frontInner" to="#frontOuter" width="1.25" material="color:#778" position="12.5 0 0">
+            <rw-floor></rw-floor>
+            <rw-ceiling></rw-ceiling>
+            <rw-sides></rw-sides>
+          </rw-doorlink>
+        </rw-wall>
+        
+        <rw-wall class="collision" position=" 17 0 -16" height="3.4">
+            
+        </rw-wall>
+        <rw-wall class="collision"  position=" 17 0  4" height="3.4">
+            
+        </rw-wall>
+        <rw-wall class="collision" position="0 0  4" height="3.4">
+          
+        </rw-wall>
+        
+      </rw-room>
+
+   
+    <!--salon-->
+    <rw-room position="1 0.01 -4.5" width="10" length="8" height="3">
+        <rw-wall  class="collision" material="color:#FFF">
+            
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+           
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+            <rw-doorhole id="salon"></rw-doorhole>
+        </rw-wall>
+
+
+
+		<a-gltf-model id="id_table" src="#table" scale="2 1.150 1.5" position="3.854 0.1 6.010" rotation="0 0 0" visible="true" class = "clickable"></a-gltf-model>
+		<a-gltf-model id="id_lounge_chair_1" src="#lounge_chair" scale="1.2 1.5 1.2" position="3.088 0.01 7.104" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_lounge_chair_2" src="#lounge_chair" scale="1.2 1.5 1.2" position="4.5.82 0.01 7.104" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_lounge_chair_3" src="#lounge_chair" scale="1.2 1.5 1.2" position="3.172 0.01 5.1" rotation="0 270 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_lounge_chair_4" src="#lounge_chair" scale="1.2 1.5 1.2" position="4.504 0.01 5.095" rotation="0 270 0" class = "clickable"></a-gltf-model>
+		<a-gltf-model id="id_sofa" src="#lounge_sofa" scale="1.25 1.25 1.25" position="6.005 0.01 2.225" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_commode" src="#lounge_commode" scale="1.5 1.25 1.25" position="9.647 0.01 2.076" rotation="0 270 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_tv" src="#lounge_tv" scale="1.25 1.25 1.25" position="9.609 1.089 2.109" rotation="0 270 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_coffee_table" src="#lounge_coffee_table" scale="1.5 1.25 3" position="7.228 0.01 2.209" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_picture_flowers" src="#lounge_picture_flowers" scale="3 2 2" position="7.343 2.072 0.013" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+        <!--<a-gltf-model id="id_lounge_cactus" src="#lounge_cactus" scale="3 2 2" position="3.908 0.979 6.031" rotation="0 0 0" class = "clickable" ></a-gltf-model>-->
+        <a-gltf-model id="id_fork" src="#fork" scale="1.5 1.5 1.5" position="3.419 0.998 5.699" rotation="0 90 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_glass" src="#glass" scale="2 2 2" position="3.275 1.012 5.916" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_knife" src="#knife" scale="1.5 1.5 1.5" position= "2.812 1.004 5.677" rotation="0 90 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_plate" src="#plate" scale="3 2 2" position="3.134 1.004 5.696" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_picture2" src="#picture2" scale="1 3 5" position="9.964 2.135 4.993" rotation="0 180 0" class = "clickable" ></a-gltf-model>
+
+        <a-gltf-model id="id_fork_2" src="#fork" scale="1.5 1.5 1.5" position="4.812 1.004 5.677" rotation="0 90 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_glass_2" src="#glass" scale="2 2 2" position="4.875 1.012 5.916" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_knife_2" src="#knife" scale="1.5 1.5 1.5" position="4.319 0.998 5.699" rotation="0 90 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_plate_2" src="#plate" scale="3 2 2" position="4.534 1.004 5.696" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+
+        <a-gltf-model id="id_cactus" src="#cactus" scale="0.002 0.002 0.002" position="3.834 1.004 6.396" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_f1" src="#f1" scale="0.07 0.07 0.07" position="7.228 0.476 2.309" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+		<a-gltf-model id="id_remote" src="#remote" scale="0.07 0.07 0.07" position="7.228 0.476 2.962" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+
+
+       
+
+        <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
+        <rw-ceiling material="color:#FFF"></rw-ceiling>
+    
+    </rw-room>
+    <!-- bedroom 1-->
+    <rw-room position="-5.5 0.01 -16" width="4" length="9" height="3">
+        <rw-wall  class="collision" material="color:#FFF">
+            
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+            <rw-doorhole id="habitacion1" width="2"></rw-doorhole>
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+
+           
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+
+        </rw-wall>
+        
+		<a-gltf-model id="id_bed_1" src="#bed1" scale="0.9 1 1" position="0.639 0.01 1" rotation="0 0 0" class = "clickable"></a-gltf-model>
+		<a-gltf-model id="id_bedside_table_1" src="#bedside1" scale="1 1 1" position="1.604 0.01 0.255" rotation="0 0 0" class = "clickable"></a-gltf-model>
+		<a-gltf-model id="id_wardrobe_1" src="#wardrobe1" scale="1 1.2 1" position="2.4 0.01 8.626" rotation="0 180 0" class = "clickable"></a-gltf-model>
+		<a-gltf-model id="id_library_1" src="#library1" scale="1.5 1.25 1" position="0.02 0.01 3.7" rotation="0 90 0" class = "clickable"></a-gltf-model>
+		<a-gltf-model id="id_stool_1" src="#armchair1" scale="1 1 1" position="0.688 0.01 8.423" rotation="0 0 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_football" src="#football" scale="1 1 1" position="0.15 1.4 3.5" rotation="0 0 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_dinosaur" src="#dinosaur" scale="0.01 0.01 0.01" position="0.2 1.27 3.9" rotation="0 0 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_pig" src="#pig" scale="0.02 0.02 0.02" position="0.2 1.3 3" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_dog" src="#dog" scale="1.5 1.5 1.5" position="0.2 1.3 4.5" rotation="0 0 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_kid_phone" src="#kid_phone" scale="1.1 1.1 1.1" position="1.604 0.65 0.255" rotation="0 0 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_play_doh_1" src="#play_doh" scale="0.09 0.09 0.09" position="0.35 0.7 3.65" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_play_doh_2" src="#play_doh" scale="0.09 0.09 0.09" position="0.35 1 3" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_play_doh_3" src="#play_doh" scale="0.09 0.09 0.09" position="0.35 1 4.5" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_toy_books_1" src="#toy_books" scale="1.5 1.5 1.5" position="0.35 1.1 3.8" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_toy_books_2" src="#toy_books" scale="1.5 1.5 1.5" position="0.35 0.75 3" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_toy_books_3" src="#toy_books" scale="1.5 1.5 1.5" position="0.35 0.75 4.5" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_kid_table" src="#kid_table" scale="1.5 2.5 1.5" position="0.5 0.01 6" rotation="0 0 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_table_notepad" src="#table_notepad" scale="0.04 0.04 0.04" position="0.6 0.6 6.2" rotation="0 0 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_table_toy" src="#table_toy" scale="0.1 0.1 0.1" position="0.25 0.55 5.8" rotation="0 75 0" class = "clickable"></a-gltf-model>
+        <!--<a-gltf-model id="id_tricyle" src="#tricycle" scale="25 25 25" position="3.481 0.01 2.090" rotation="0 180 0" class = "clickable"></a-gltf-model>-->
+
+
+
+        <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
+        <rw-ceiling material="color:#FFF"></rw-ceiling>
+    
+    </rw-room>
+
+
+    <!-- bedroom 2-->
+    <rw-room position="-1.5 0.01 -16" width="5.5" length="5.5" height="3">
+        <rw-wall  class="collision" material="color:#FFF">
+            
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+        
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+            <rw-doorhole id="habitacion2"></rw-doorhole> 
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+        </rw-wall>
+        
+
+		<a-gltf-model id="id_desk" src="#desk" scale="1.2 1 1" position="0.486 0.01 1.925" rotation="0 90 0" class = "clickable"></a-gltf-model>
+		<a-gltf-model id="id_office1" src="#officechair" scale="1 1 1" position="1.254 0.01 1.868" rotation="0 270 0" class = "clickable"></a-gltf-model>
+       <a-gltf-model id="id_library2" src="#library2" scale="1.2 1 1" position="2.756 0.01 0.01" rotation="0 0 0" class = "clickable"></a-gltf-model>
+		
+		<a-gltf-model id="id_desk2" src="#desk" scale="1.2 1 1" position="5 0.01 1.925" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_office2" src="#officechair" scale="1 1 1" position="4.135 0.01 1.961" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        
+		<a-gltf-model id="id_storagebed2" src="#storagebed2" scale="1.2 1.5 1" position="5.376 0.01 0.408" rotation="0 270 0" class = "clickable"></a-gltf-model>
+         <a-gltf-model id="id_storagebed22" src="#storagebed2" scale="1.2 1.5 1" position="0.1 0.01 0.369" rotation="0 90 0" class = "clickable"></a-gltf-model>
+         <a-gltf-model id="id_keyboard" src="#keyboard" scale="1 1 1" position="4.703 0.791 1.953" rotation="0 270 0" class = "clickable"></a-gltf-model>
+         <a-gltf-model id="id_pokeball" src="#pokeball" scale="0.1 0.1 0.1" position="5.135 0.791 1.022" rotation="0 180 0" class = "clickable"></a-gltf-model>
+         
+		 <a-gltf-model id="id_computer1" src="#computer1" scale="1 1 1" position="5.109 0.822 2.681" rotation="0 270 0" class = "clickable"></a-gltf-model>
+         <a-gltf-model id="id_headset1" src="#headset" scale="1 1 1" position="4.840 0.822 2.684" rotation="90 270 0" class = "clickable"></a-gltf-model>
+         <a-gltf-model id="id_mouse1" src="#mouse" scale="1 1 1" position="4.704 0.790 2.218" rotation="0 270 0" class = "clickable"></a-gltf-model>
+         <a-gltf-model id="id_screen" src="#screen" scale="1 1 1" position="5.127 0.822 1.954" rotation="0 270 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_guitar" src="#guitar" scale="1.2 1.5 1" position="5.372 0.01 3.446" rotation="0 270 0" class = "clickable"></a-gltf-model>
+       
+		 <a-gltf-model id="id_camera" src="#camera1" scale="1 1 1" position="0.424 0.791 1.092" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_computer2" src="#computer2" scale="1.5 1.5 1.5" position="0.679 0.791 1.861" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_tablet" src="#tablet" scale="1 1 1" position="0.424 0.791 2.487" rotation="0 90 0" class = "clickable"></a-gltf-model>
+         <a-gltf-model id="id_mouse2" src="#mouse" scale="1.5 1.5 1.5" position="0.679 0.791 1.495" rotation="0 90 0" class = "clickable"></a-gltf-model>
+       
+        
+        
+        
+
+
+
+
+        <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
+        <rw-ceiling material="color:#FFF"></rw-ceiling>
+    
+    </rw-room>
+
+
+    <!-- bathroom 1-->
+    <rw-room position="1 0.01 -8" width="4" length="3.5" height="3">
+        <rw-wall   class="collision" material="src:#bathroom-wall;repeat:2 2">
+            <rw-doorhole id="bano1" width="1"></rw-doorhole> 
+        </rw-wall>
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
+        
+        </rw-wall>
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
+            
+        </rw-wall>
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
+
+        </rw-wall>
+        
+	<a-gltf-model id="id_showercabin" src="#showercabin" scale="1.5 1.25 1.5" position="3.220 0.618 1.981" rotation="0 270 0" class = "clickable"></a-gltf-model>
+    <a-gltf-model id="id_toilet_1" src="#toilet" scale="1.5 1.5 1.5" position="3.546 0.01 0.900" rotation="0 270 0" class = "clickable"></a-gltf-model>
+	<a-gltf-model id="id_toilet_paper_1" src="#toiletpaper" scale="1.5 1.5 1.25" position="3.723 0.937 0.130" rotation="90 90 0" class = "clickable"></a-gltf-model>
+	<a-gltf-model id="id_roll_holder_1" src="#rollholder" scale="1.5 1.5 1.5" position="3.689 1.016 0.075" rotation="0 0 0" class = "clickable"></a-gltf-model>
+	<a-gltf-model id="id_sink_1" src="#sink1" scale="1.25 1.25 1.25" position="0.025 0.110 1.981" rotation="0 90 0" class = "clickable"></a-gltf-model>
+    <a-gltf-model id="id_longfaucet" src="#longfaucet" scale="1.25 1.75 1.25" position="0.089 1.252 1.981" rotation="0 90 0" class = "clickable"></a-gltf-model>
+      
+			    
+
+
+        <rw-floor material="src:#bathroom-floor;repeat:2 2"></rw-floor>
+        <rw-ceiling material="color:#AAA"></rw-ceiling>
+    
+    </rw-room>
+
+    <!-- pasillo2-->
+    <rw-room position="1 0.01 -10.5" width="3" length="2.5" height="3">
+        <rw-wall  class="collision" material="color:#FFF">
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+            <rw-doorhole id="pasillo2-habitacion3"></rw-doorhole>
+            <rw-doorlink from="#pasillo2-habitacion3" to="#habitacion3" width="1.25" height="2.15" position="1.25 0 0"></rw-doorlink>
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+            <rw-doorhole id="pasillo2-bano1"></rw-doorhole>
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+            <rw-doorhole id="pasillo2-pasillo1"></rw-doorhole>
+        </rw-wall>
+        
+        <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
+        <rw-ceiling material="color:#FFF"></rw-ceiling>
+    
+    </rw-room>
+    <rw-doorlink from="#pasillo2-bano1" width="1.25" height="2.15" to="#bano1" position="2 0 0"></rw-doorlink>
+
+    <!-- bedroom 3-->
+    <rw-room position="4.00 0.01 -16" width="7" length="8" height="3">
+        <rw-wall  class="collision" material="color:#FFF">
+            
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+            
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+            <rw-doorhole id="habitacion3-bano2"></rw-doorhole> 
+            <rw-doorlink from="#habitacion3-bano2" to="#bano2" width="1.25" height="2.15" position="2 0 0"></rw-doorlink>
+        </rw-wall>
+        <rw-wall  class="collision" material="color:#FFF">
+            <rw-doorhole id="habitacion3"></rw-doorhole>
+
+        </rw-wall>
+        
+		<a-gltf-model id="id_bed_3" src="#bed_3" scale="1 1 1" position="2.962 0.01 1.319" rotation="0 270 0" class = "clickable"></a-gltf-model>
+       
+        <a-gltf-model id="id_bedside_table_2" src="#bedside_table_2" scale="1 1 1" position="1.66 0.01 0.234" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_bedside_table_3" src="#bedside_table_2" scale="1 1 1" position="4.454 0.01 0.234" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_main_wardrobe" src="#main_wardrobe" scale="0.4 0.3 0.4" position="6.930 0.01 4.678" rotation="0 270 0" class = "clickable"></a-gltf-model>
+         <a-gltf-model id="id_main_lamp_2" src="#bed_lamp" scale="1 1 1" position="4.456 0.734 0.261" rotation="0 0 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_main_lamp_3" src="#bed_lamp" scale="1 1 1" position="1.659 0.701 0.190" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_vanity" src="#vanity" scale="1 1 1" position="6.7 1 2" rotation="0 270 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_standing_mirror" src="#standing_mirror" scale="0.2 0.2 0.2" position="0.6 1 0.6" rotation="0 20 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_vanity_chair" src="#vanity_chair" scale="0.4 0.6 0.4" position="6 0.01 2" rotation="0 0 0" class = "clickable" ></a-gltf-model>
+        <a-gltf-model id="id_bike1" src="#bike1" scale="1 1 1" position="3 0.01 2.8" rotation="0 90 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_main_drawers" src="#main_drawers" scale="0.01 0.01 0.01" position="0.4 0.1 4.5" rotation="0 180 0" class = "clickable"></a-gltf-model>
+        <a-gltf-model id="id_carpet" src="#carpet" scale="0.007 0.007 0.007" position="3.5 0.1 5" rotation="0 90 0" class = "clickable"></a-gltf-model>
+
+        
+
+
+
+        <rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
+        <rw-ceiling material="color:#FFF"></rw-ceiling>
+    
+    </rw-room>
+    <!-- bathroom 2-->
+    <rw-room position="6 0.01 -8" width="5" length="3.5" height="3">
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
+            <rw-doorhole width="1" id="bano2"></rw-doorhole>
+        </rw-wall>
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
+        
+        </rw-wall>
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
+            
+        </rw-wall>
+        <rw-wall  class="collision" material="src:#bathroom-wall;repeat:2 2">
+
+        </rw-wall>
+        
+		 <a-gltf-model id="id_bathtub" src="#bathtub" scale="1.3 1.4 2.26" position="3.9 0.01 0" rotation="0 180 0" class = "clickable" ></a-gltf-model>
+         <a-gltf-model id="id_toilet_2" src="#toilet" scale="1.5 1.5 1.5" position="1.072 0.01 0.446" rotation="0 0 0" class = "clickable"></a-gltf-model>
+		 <a-gltf-model id="id_toilet_paper" src="#toiletpaper" scale="1.5 1.5 1.25" position="0.464 0.851 0.142" rotation="90 90 0" class = "clickable"></a-gltf-model>
+		 <a-gltf-model id="id_roll_holder" src="#rollholder" scale="1.5 1.5 1.5" position="0.45 0.931 0.085" rotation="0 0 0" class = "clickable"></a-gltf-model>
+		 
+		 <a-gltf-model id="id_sink_2" src="#sink2" scale="1 1.5 1" position="1.5 0.01 3.481" rotation="0 180 0" class = "clickable"></a-gltf-model>
+		 <a-gltf-model id="id_towel_2" src="#towel2" scale="1.5 1.5 1.5" position="1.475 0.575 3.158" rotation="0 180 0" class = "clickable"></a-gltf-model>
+	     <a-gltf-model id="id_faucet_21" src="#faucet" scale="1.5 1.5 1.5" position="1.954	1.048 3.447" rotation="0 180 0" class = "clickable"></a-gltf-model>
+		 <a-gltf-model id="id_faucet_22" src="#faucet" scale="1.5 1.5 1.5" position="1.043 1.048 3.447" rotation="0 180 0" class = "clickable"></a-gltf-model>
+		
+        
+        <rw-floor material="src:#bathroom-floor;repeat:2 2"></rw-floor>
+        <rw-ceiling material="color:#FFF"></rw-ceiling>
+
+    </rw-room>
+    </a-scene>
+        <!-- Add more games as needed -->
+
+        
+    
+        <footer>
+            <script>
+				var number_objects = 1 
+				var server = "{{server}}";
+				var port = {{port}}
+                window.onload = function () {
+					
+					document.querySelector('a-scene').addEventListener('enter-vr', function () {
+					   console.log("ENTER VR");
+					   var cursor = document.querySelector("#front-cursor")
+					   cursor.setAttribute('visible', false);
+					});
+					
+					
+					document.querySelector('a-scene').addEventListener('exit-vr', function () {
+					   console.log("EXIT VR");
+					   var cursor = document.querySelector("#front-cursor")
+					   cursor.setAttribute('visible', true);
+					});
+
+                    function getCookie(name) {
+                        var cookieValue = null;
+                        if (document.cookie && document.cookie !== '') {
+                            var cookies = document.cookie.split(';');
+                            for (var i = 0; i < cookies.length; i++) {
+                                var cookie = jQuery.trim(cookies[i]);
+                                // Does this cookie string begin with the name we want?if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                    break;
+                                
+                            }
+                        }
+                        return cookieValue;
+                    }
+                    function selectRandomElements(arr, num) {
+                        // Shuffle the array
+                        arr = arr.sort(() => Math.random() - 0.5);
+                        // Slice the array to get the desired number of elements
+                        return arr.slice(0, num);
+                    }
+    
+                    precolored_objects = {
+                        "id_teakettle": "yellow",
+                        "id_camera": "yellow",
+                        "id_pokeball": "red",
+                        "id_headset1": "red",
+                        "id_bathtub": "blue",
+                        "id_kitchen_utensils": "blue",
+                        "id_cereals": "yellow",
+                        "id_dog": "blue",
+                        "id_play_doh_1": "yellow",
+                        "id_play_doh_2": "yellow",
+                        "id_play_doh_3": "yellow", 
+                        "id_f1": "blue"
+                        
+                    }
+    
+                    object_ids = ["id_remote"];
+					
+                    var selectedObjects = selectRandomElements(object_ids, 1);
+    
+                    var change_objects = [];
+                    var new_color;
+    
+                  
+    
+                    console.log("OBJETOS2 -------");
+                    console.log(selectedObjects);
+    
+    
+                    function showInitialMessage() {
+                        var cursor = document.querySelector("#front-cursor");
+                        var cursorPosition = new THREE.Vector3();
+                        var cursorRotation = new THREE.Quaternion();
+                        cursor.object3D.getWorldPosition(cursorPosition);
+                        cursor.object3D.getWorldQuaternion(cursorRotation);
+    
+                        console.log("Cursor Position:", cursorPosition);
+                        console.log("Cursor Rotation:", cursorRotation);
+    
+                        var scene = document.querySelector("a-scene");
+    
+                        // Create initial message entity
+                        var initialMessage = document.createElement("a-entity");
+                        initialMessage.setAttribute("id", "initial-message");
+                        initialMessage.setAttribute("text", {
+                            value: "Find the remote control.",
+                            align: "center",
+                            wrapCount: 20,
+                            color: "black",
+                        });
+                        initialMessage.object3D.position.copy(cursorPosition);
+                        initialMessage.object3D.rotation.setFromQuaternion(cursorRotation);
+    
+                        // Adjust position to be relative to the cursor
+                        var offset = new THREE.Vector3(-0.5, 2, -1.6); // Adjust the offset as needed
+                        initialMessage.object3D.position.add(offset);
+    
+                        // Set a style attribute to make sure it's visible
+                        initialMessage.setAttribute("style", "position: absolute; z-index: 999");
+    
+                        scene.appendChild(initialMessage);
+    
+    
+                        // Create "Start" button entity
+                        var startButton = createButton(
+                            "Start",
+                            handleStartClick,
+                            initialMessage.object3D.position.clone().add(new THREE.Vector3(0, -0.4, 0)),
+                            cursorRotation
+                        );
+                        startButton.setAttribute("id", "start-button");
+                        startButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
+                        startButton.setAttribute("material", "color: #2ecc71");
+                        startButton.setAttribute("text", {
+                            value: "Start",
+                            align: "center",
+                            color: "#ffffff",
+                            width: 1.5,
+                        });
+                        scene.appendChild(startButton);
+    
+                    }
+    
+    
+                    var startTime;
+                    var endTime;
+    
+                    // Function to handle "Start" button click
+                    function handleStartClick(initialMessage, startButton) {
+                        var intro_sound = document.querySelector("#intro");
+                        intro_sound.volume = 0.15
+                        intro_sound.play();
+                        var initialMessage = document.querySelector("#initial-message");
+                        var startButton = document.querySelector("#start-button");
+                        if (initialMessage) {
+                            initialMessage.parentNode.removeChild(initialMessage);
+                        }
+    
+                        if (startButton) {
+                            startButton.parentNode.removeChild(startButton);
+                        }
+                        enableMovementControls();
+                        startTime = Date.now();
+                    }
+    
+                    // Call the function to show the initial message and "Start" button
+                    showInitialMessage();
+    
+                    var clickedObjects = new Set(); // Set to keep track of clicked objects
+                       
+                    function enableMovementControls() {
+                        var cameraEntity = document.querySelector("#camera");
+                        cameraEntity.setAttribute("wasd-controls", "acceleration:20");
+                        cameraEntity.setAttribute("look-controls", "");
+    
+                    }
+    
+                    var counterMessageEntity = null;
+    
+                    // Function to show the counter message
+                    function showCounterMessage(count) {
+                        var cursor = document.querySelector("#front-cursor");
+                        var cursorPosition = new THREE.Vector3();
+                        var cursorRotation = new THREE.Quaternion();
+                        cursor.object3D.getWorldPosition(cursorPosition);
+                        cursor.object3D.getWorldQuaternion(cursorRotation);
+    
+                        var scene = document.querySelector("a-scene");
+    
+                        // Remove previous counter message if exists
+                        if (counterMessageEntity) {
+                            scene.removeChild(counterMessageEntity);
+                        }
+    
+                        // Create counter message entity
+                        counterMessageEntity = document.createElement("a-entity");
+                        counterMessageEntity.setAttribute("text", {
+                            value: count + " objects found",
+                            align: "center",
+                            wrapCount: 20,
+                            color: "white",
+                        });
+                        counterMessageEntity.object3D.position.copy(cursorPosition);
+                        counterMessageEntity.object3D.rotation.setFromQuaternion(cursorRotation);
+                        scene.appendChild(counterMessageEntity);
+    
+                        // Set a timeout to remove the counter message after 3 seconds
+                        setTimeout(function () {
+                            if (counterMessageEntity) {
+                                scene.removeChild(counterMessageEntity);
+                                counterMessageEntity = null; // Reset the counter message entity variable
+                            }
+                        }, 3000);
+                    }
+    
+    
+                    function resetCameraPosition() {
+                        var cameraEntity = document.querySelector("#camera");
+                        cameraEntity.setAttribute("position", "-0.5 1.6 0");
+                        cameraEntity.setAttribute("rotation", "0 0 0");
+    
+                        // Reset look-controls rotation
+                        var lookControls = cameraEntity.components["look-controls"];
+                        if (lookControls) {
+                            lookControls.pitchObject.rotation.set(0, 0, 0);
+                            lookControls.yawObject.rotation.set(0, 0, 0);
+                        }
+                    }
+    
+    
+    
+                    // Function to handle object click
+                    function handleObjectClick(objectId) {
+                        if (!clickedObjects.has(objectId)) {
+                            clickedObjects.add(objectId);
+    
+    
+                            if (clickedObjects.size < selectedObjects.length) {
+                                // Show counter message only if not all objects are found
+                                showCounterMessage(clickedObjects.size);
+                            }
+    
+                            if (clickedObjects.size === selectedObjects.length) {
+                                disableMovementControls();
+                                resetCameraPosition();
+                                endTime = Date.now(); // Set the end time
+                                var elapsedTime = (endTime - startTime) / 1000; // Calculate elapsed time in seconds
+                                showCongratulatoryMessage(elapsedTime); // Pass elapsed time to showCongratulatoryMessage function
+                            }
+    
+                            console.log("Clicked object:", objectId);
+                        }
+                    }
+    
+                    // Function to handle "Play Again" button click
+                    function handlePlayAgainClick() {
+                        location.reload();
+                    }
+    
+                    // Function to handle "End Game" button click
+                    function handleEndGameClick() {
+                        window.location.href = "{% url 'polls:patient_homepage' %}";
+                    }
+    
+    
+                    // Function to show congratulatory message and buttons
+                    function showCongratulatoryMessage(elapsedTime) {
+                        
+                        var intro_sound = document.querySelector("#intro");
+                        intro_sound.pause();
+                        intro_sound.currentTime = 0;
+
+
+
+                        var cursor = document.querySelector("#front-cursor");
+                        var cursorPosition = new THREE.Vector3();
+                        var cursorRotation = new THREE.Quaternion();
+                        cursor.object3D.getWorldPosition(cursorPosition);
+                        cursor.object3D.getWorldQuaternion(cursorRotation);
+    
+                        console.log("Cursor Position:", cursorPosition);
+                        console.log("Cursor Rotation:", cursorRotation);
+    
+                        var scene = document.querySelector("a-scene");
+    
+                        // Create congratulatory message entity
+                        var congratulatoryMessage = document.createElement("a-entity");
+                        congratulatoryMessage.setAttribute("text", {
+                            value: "Congratulations! You found the remtoe control in " + elapsedTime + " seconds.",
+                            align: "center",
+                            wrapCount: 20,
+                            color: "white",
+                        });
+                        congratulatoryMessage.object3D.position.copy(cursorPosition);
+                        congratulatoryMessage.object3D.rotation.setFromQuaternion(cursorRotation);
+                        scene.appendChild(congratulatoryMessage);
+    
+                        // Create "Play Again" button entity
+                        var playAgainButton = createButton("Play Again", handlePlayAgainClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.25, 0)), cursorRotation);
+                        playAgainButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
+                        playAgainButton.setAttribute("material", "color: #2ecc71"); // Change color to green
+                        playAgainButton.setAttribute("text", {
+                            value: "Play Again",
+                            align: "center",
+                            color: "#ffffff",
+                            width: 1.5, // Adjust the width attribute to make the text bigger
+                        });
+                        scene.appendChild(playAgainButton);
+    
+                        // Create "End Game" button entity
+                        var endGameButton = createButton("End Game", handleEndGameClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.50, 0)), cursorRotation);
+                        endGameButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
+                        endGameButton.setAttribute("material", "color: #e74c3c");
+                        endGameButton.setAttribute("text", {
+                            value: "End Game",
+                            align: "center",
+                            color: "#ffffff",
+                            width: 1.5, // Adjust the width attribute to make the text bigger
+                        });
+
+                        
+
+                        const data = {
+						    "game": "remote-control",
+							"elapsed_time": elapsedTime,
+						};
+						console.log("------ COOOKIE ----------");
+						console.log(getCookie("csrftoken"));
+						const options = {
+							method: "POST",
+							headers: {
+								"X-CSRFToken": getCookie("csrftoken"),
+								"Content-Type": "application/json"
+							},
+							body: JSON.stringify(data)
+						};
+ 
+						fetch(server + ":" + port + "/patient/statistics/", options)
+							.then(response => console.log("Hola"))
+							.then(data => console.log("Game session saved:", data))
+							.catch(error => console.error("Error saving game session:", error));
+                        
+                        
+
+
+						   
+							
+							
+						scene.appendChild(endGameButton)
+                       
+                    }
+
+                    
+    
+                    // Function to create a button entity
+                    function createButton(text, clickHandler, position, rotation) {
+                        var button = document.createElement("a-entity");
+                        button.setAttribute("text", {
+                            value: text,
+                            align: "center",
+                            color: "#ffffff",
+                        });
+                        button.object3D.position.copy(position);
+                        button.object3D.rotation.setFromQuaternion(rotation);
+    
+                        button.setAttribute("class", "clickable");
+                        button.addEventListener("click", clickHandler);
+                        button.setAttribute("cursor-listener", "");
+    
+                        return button;
+                    }
+    
+                    // Function to disable movement controls
+                    function disableMovementControls() {
+                        var cameraEntity = document.querySelector("#camera");
+                        cameraEntity.removeAttribute("wasd-controls");
+                    }
+    
+                    // Attach click event listener to each selected object
+                    for (var i = 0; i < selectedObjects.length; i++) {
+                        var objectId = selectedObjects[i];
+                        var objectEntity = document.getElementById(objectId);
+                        objectEntity.addEventListener("click", handleObjectClick.bind(null, objectId));
+                    }
+
+                    var clickedObjects = new Set(); // Set to keep track of clicked objects
+                   
+                    //changeColorForObjects(change_objects, new_color, false);
+                    //changeColor("id_table", "red");
+                    showInitialMessage();
+                };
+            </script>
+        </footer>
+
+        
+      
+  </div>
+{% endblock %}
+        
+

@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from .models import Question, Choice, CustomUser, GameSession
+from .models import Question, Choice, CustomUser, GameSession_FindObjects, GameSession_RemoteControl
 from django.template import loader
 from django.http import Http404
 from django.urls import reverse
@@ -246,19 +246,24 @@ def vrgame(request):
     patient = get_object_or_404(get_user_model(), username=request.user.username)
     return render(request, 'polls/vrgame2.html', context={"port": settings.PORT, "server": settings.SERVER, "number_objects": patient.number_objects})
 
-    
+
+def vrgame2(request):
+    patient = get_object_or_404(get_user_model(), username=request.user.username)
+    return render(request, 'polls/vrgame3.html', context={"port": settings.PORT, "server": settings.SERVER, "number_objects": patient.number_objects})
+
+        
 
 
 
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from django.contrib.auth import get_user_model
-from .models import GameSession
 from django_plotly_dash import DjangoDash
 import pandas as pd
 import plotly.express as px
 import dash_html_components as html
 import dash_core_components as dcc
+from dash.dependencies import Input, Output
 
 
 def game_statistics(request, patient_id=None):
@@ -267,39 +272,75 @@ def game_statistics(request, patient_id=None):
         patient = get_object_or_404(get_user_model(), username=request.user.username)
         data = json.loads(request.body)
         print(data)
+        game = data.get("game")
         elapsed_time = data.get('elapsed_time')
-        number_objects = data.get('number_objects')
-        
-        # Create and save new GameSession
-        g = GameSession(patient=patient, elapsed_time=elapsed_time, number_objects=number_objects)
-        g.save()
+        if game == "find-objects":
+            
+            number_objects = data.get('number_objects')
+            # Create and save new GameSession
+            g = GameSession_FindObjects(patient=patient, elapsed_time=elapsed_time, number_objects=number_objects)
+            g.save()
+        else:
+            g = GameSession_RemoteControl(patient=patient, elapsed_time=elapsed_time)
+            g.save()
+
         
         return JsonResponse({"message": "Game session saved."})
     else:
         # Handle GET request to fetch existing game sessions
         patient = get_object_or_404(get_user_model(), id=patient_id)
-        game_sessions = GameSession.objects.filter(patient=patient).order_by('-play_date')
-
+        game_sessions_findobjects = GameSession_FindObjects.objects.filter(patient=patient).order_by('-play_date')
+        game_sessions_remotecontrol = GameSession_RemoteControl.objects.filter(patient=patient).order_by('-play_date')
         context = {
             'patient': patient,
-            'game_sessions': game_sessions
+            'game_sessions': game_sessions_findobjects
         }
-        
-        if game_sessions.exists():  # Check if there are any game sessions
-            df = pd.DataFrame(list(game_sessions.values()))
-            app = DjangoDash('PatientStats')
+        app = DjangoDash('PatientStats')
+        dropdown = dcc.Dropdown(
+            id='dropdown-games',
+            options=[
+                {'label': 'Find objects', 'value': 'find-objects'},
+                {'label': 'Remote control', 'value': 'remote-control'},
+            ],
+            value='find-objects'  
+        )
+        if game_sessions_findobjects.exists():  # Check if there are any game sessions
+            df = pd.DataFrame(list(game_sessions_findobjects.values()))
             # Create layout for Dash app
             fig = px.line(df, x='play_date', y='elapsed_time', color="number_objects",  title='Elapsed time for each round played')
             fig.update_traces(mode="markers+lines")
             app.layout = html.Div([
+                dropdown,
                 dcc.Graph(
                     id='line-graph',
                     figure= fig
                     
                 )
             ])
+            
+            @app.callback(
+                Output('line-graph', 'figure'),
+                [Input('dropdown-games', 'value')]
+            )
+            def update_graph(selected_value):
+                print(selected_value)
+                values = {"find-objects": GameSession_FindObjects,
+                          "remote-control": GameSession_RemoteControl}
+                
+                game_data = values[selected_value].objects.filter(patient=patient).order_by('-play_date')
+                df = pd.DataFrame(list(game_data.values()))
+                if len(df.index) > 0:
+                    if selected_value == "find-objects":
+                        fig = px.line(df, x='play_date', y='elapsed_time', color="number_objects",  title='Elapsed time for each round played')
+                    elif selected_value == "remote-control":
+                        fig = px.line(df, x='play_date', y='elapsed_time', title='Elapsed time for each round played')
+                    fig.update_traces(mode="markers+lines")
+                else:
+                    df = pd.DataFrame({"play_date": [], "elapsed_time": []})
+                    fig = px.line(df, x="play_date", y="elapsed_time", title='No data available')
+
+                return fig
         else:
-            app = DjangoDash('PatientStats')
             app.layout = html.Div([
                 html.H4("")
             ])

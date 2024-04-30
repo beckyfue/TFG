@@ -71,6 +71,6 @@ body, html {
 }
 
 #patient-stats-graph div {
-    height: 500px !important;
+    height: 600px !important;
     width: 500px !important;
 }
