@@ -10,10 +10,15 @@ body, html {
     margin-top: 30px;
 }
 
+.patient-container {
+    max-height: 400px; /* Set a maximum height for the container */
+    overflow-y: auto; /* Enable vertical scroll bar when content exceeds container height */
+}
+
 .welcome {
     color: white;
     font-size: 46px;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduced margin-bottom */
 }
 
 .patient-list {
@@ -63,4 +68,3 @@ body, html {
     margin-top: 20px;
     /* Add any additional styling you want for the message */
 }
-
