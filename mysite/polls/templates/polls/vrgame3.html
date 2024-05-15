@@ -613,6 +613,8 @@
 					   in_vr = true;
 					   var cursor = document.querySelector("#front-cursor")
 					   cursor.setAttribute('visible', false);
+					   //cursor.removeAttribute('raycaster');
+					   cursor.setAttribute('raycaster', 'enabled', false);
 					});
 					
 					
@@ -620,6 +622,8 @@
 					   console.log("EXIT VR");
 					   in_vr = false;
 					   var cursor = document.querySelector("#front-cursor")
+					  
+						cursor.setAttribute('raycaster', 'enabled', true);
 					   cursor.setAttribute('visible', true);
 					});
 
