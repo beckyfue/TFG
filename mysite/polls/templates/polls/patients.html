@@ -11,14 +11,16 @@
                     <h1 class="welcome text-center">No patients are assigned to you.</h1>
                 {% else %}
                     <h1 class="welcome text-center">Assigned Patients</h1>
-                    <ul class="patient-list">
-                        {% for patient in patients %}
-                            <li class="patient-item">
-                                <a href="{% url 'polls:patient_detail' patient.id %}">{{ patient.username }}</a>
-                                <span class="date-added">Added on: {{ patient.date_joined|date:"F d, Y" }}</span>
-                            </li>
-                        {% endfor %}
-                    </ul>
+                    <div class="patient-container">
+                        <ul class="patient-list">
+                            {% for patient in patients %}
+                                <li class="patient-item">
+                                    <a href="{% url 'polls:patient_detail' patient.id %}">{{ patient.username }}</a>
+                                    <span class="date-added">Added on: {{ patient.date_joined|date:"F d, Y" }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 {% endif %}
             </div>
             <div class="col-md-6 image-column">
@@ -28,5 +30,3 @@
         </div>
     </div>
 {% endblock %}
-
-

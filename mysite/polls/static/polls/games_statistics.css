@@ -46,6 +46,8 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-height: 500px; /* Set a maximum height for the scrollable section */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
 }
 
 .game-stats-section h2 {
