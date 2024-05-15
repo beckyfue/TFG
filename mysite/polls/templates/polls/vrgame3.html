@@ -605,10 +605,12 @@
 				var number_objects = 1 
 				var server = "{{server}}";
 				var port = {{port}}
+				var in_vr = false;
                 window.onload = function () {
 					
 					document.querySelector('a-scene').addEventListener('enter-vr', function () {
 					   console.log("ENTER VR");
+					   in_vr = true;
 					   var cursor = document.querySelector("#front-cursor")
 					   cursor.setAttribute('visible', false);
 					});
@@ -616,6 +618,7 @@
 					
 					document.querySelector('a-scene').addEventListener('exit-vr', function () {
 					   console.log("EXIT VR");
+					   in_vr = false;
 					   var cursor = document.querySelector("#front-cursor")
 					   cursor.setAttribute('visible', true);
 					});
