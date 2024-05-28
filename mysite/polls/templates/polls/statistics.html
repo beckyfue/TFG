@@ -10,7 +10,7 @@
 <h1>Statistics for {{ patient.username }}</h1>
 <div class="game-stats-content container">
    
-    <div class="game-stats-section">
+    <!--<div class="game-stats-section">
 	 
         {% if game_sessions %}
             {% for session in game_sessions %}
@@ -24,7 +24,7 @@
         {% else %}
             <p>No game sessions found for this patient.</p>
         {% endif %}
-    </div>
+    </div>-->
 	<div id="patient-stats-graph">
 	{% plotly_app name="PatientStats" %}
 	</div>

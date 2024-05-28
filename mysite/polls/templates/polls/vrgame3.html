@@ -602,10 +602,11 @@
     
         <footer>
             <script>
-				var number_objects = 1 
+				var difficulty = {{difficulty}} 
 				var server = "{{server}}";
 				var port = {{port}}
 				var in_vr = false;
+				console.log(difficulty, typeof difficulty);
                 window.onload = function () {
 				
 					const scene = document.querySelector('#scene-id');
@@ -674,8 +675,19 @@
                         "id_f1": "blue"
                         
                     }
-    
+					
+					locations = {
+						1: [{"x": 7.228, "y": 0.476, "z": 2.962}, {"x": 5.418, "y": 1.008, "z": 5.535}, {"x": 4.659, "y": 0.760, "z": 6.902}],
+						2: [{"x": 4.659, "y": 0.760, "z": 6.902}, {"x": 3.510, "y": 1.118, "z": -7.050}],
+						3: [{"x": 2.305, "y": 0.881, "z": -9.152}, {"x": 6.930, "y": 0.10, "z": 4.678}]
+					}
+						
                     object_ids = ["id_remote"];
+					
+					var selectLocalization = selectRandomElements(locations[difficulty], 1)[0]
+					var remote_control = document.querySelector("#id_remote")
+					console.log(selectLocalization);
+					remote_control.setAttribute("position", selectLocalization["x"].toString() + " " + selectLocalization["y"].toString() + " " + selectLocalization["z"].toString());
 					
                     var selectedObjects = selectRandomElements(object_ids, 1);
     
@@ -887,7 +899,7 @@
                         // Create congratulatory message entity
                         var congratulatoryMessage = document.createElement("a-entity");
                         congratulatoryMessage.setAttribute("text", {
-                            value: "Congratulations! You found the remtoe control in " + elapsedTime + " seconds.",
+                            value: "Congratulations! You found the remote control in " + elapsedTime + " seconds.",
                             align: "center",
                             wrapCount: 20,
                             color: "white",
@@ -924,6 +936,7 @@
                         const data = {
 						    "game": "remote-control",
 							"elapsed_time": elapsedTime,
+							"difficulty": difficulty
 						};
 						console.log("------ COOOKIE ----------");
 						console.log(getCookie("csrftoken"));
@@ -998,4 +1011,3 @@
   </div>
 {% endblock %}
         
-

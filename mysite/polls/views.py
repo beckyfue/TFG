@@ -265,7 +265,7 @@ def vrgame(request):
 
 def vrgame2(request):
     patient = get_object_or_404(get_user_model(), username=request.user.username)
-    return render(request, 'polls/vrgame3.html', context={"port": settings.PORT, "server": settings.SERVER, "number_objects": patient.number_objects})
+    return render(request, 'polls/vrgame3.html', context={"port": settings.PORT, "server": settings.SERVER, "difficulty": patient.remote_difficulty})
 
         
 
@@ -297,7 +297,7 @@ def game_statistics(request, patient_id=None):
             g = GameSession_FindObjects(patient=patient, elapsed_time=elapsed_time, number_objects=number_objects)
             g.save()
         else:
-            g = GameSession_RemoteControl(patient=patient, elapsed_time=elapsed_time)
+            g = GameSession_RemoteControl(patient=patient, elapsed_time=elapsed_time, remote_difficulty=data.get("difficulty"))
             g.save()
 
         
@@ -311,7 +311,10 @@ def game_statistics(request, patient_id=None):
             'patient': patient,
             'game_sessions': game_sessions_findobjects
         }
-        app = DjangoDash('PatientStats')
+        app = DjangoDash('PatientStats', add_bootstrap_links=True)
+        app.css.append_css({ "external_url" : "/static/polls/games_statistics.css" })
+        print("--------hello-----")
+        print(app.css)
         dropdown = dcc.Dropdown(
             id='dropdown-games',
             options=[
@@ -320,42 +323,122 @@ def game_statistics(request, patient_id=None):
             ],
             value='find-objects'  
         )
-        if game_sessions_findobjects.exists():  # Check if there are any game sessions
-            df = pd.DataFrame(list(game_sessions_findobjects.values()))
+        if game_sessions_findobjects.exists() or game_sessions_remotecontrol.exists():
+            # Check if there are any game sessions
+            if game_sessions_findobjects.exists():
+                df = pd.DataFrame(list(game_sessions_findobjects.values()))
+                fig = px.line(df, x='play_date', y='elapsed_time', color="number_objects",  title='Elapsed time for each round played')
+         
+            else:
+                df = pd.DataFrame(list(game_sessions_remotecontrol.values()))
+                fig = px.line(df, x='play_date', y='elapsed_time', color="remote_difficulty",  title='Elapsed time for each round played')
+            
+            
+            #Creating the list of games:
+            children = []
+            if game_sessions_findobjects.exists():
+                for g in game_sessions_findobjects.values():
+                    element = html.Div(
+                    [html.H2("Date: " + str(g["play_date"]), style={ "font-size": "24px",
+                                                                    "margin-bottom": "10px",
+                                                                    "color": "#333",
+                                                                    "text-align": "center"}),
+                    html.P("Elapsed Time: " + str(g["elapsed_time"]) + " seconds",  style={"font-size": "16px",
+                                                                                            "color": "#333",
+                                                                                            "text-align": "center"})], 
+                    id="game-stats", style={"margin-bottom": "20px",
+                                            "padding": "10px",
+                                            "border-radius": "5px",
+                                            "background-color": "#fff",
+                                            "box-shadow": "0 4px 8px rgba(0, 0, 0, 0.1)",
+                                            "width": "100%", 
+                                            "max-width": "500px", 
+                                            "transition": "transform 0.3s ease-in-out",
+                                            "margin-left": "auto",
+                                            "margin-right": "auto"})
+                    children.append(element)
+
+                
+            
+            else:
+                children = html.P("No game sessions found for this patient")
+                
+            
+            
             # Create layout for Dash app
-            fig = px.line(df, x='play_date', y='elapsed_time', color="number_objects",  title='Elapsed time for each round played')
             fig.update_traces(mode="markers+lines")
             app.layout = html.Div([
-                dropdown,
-                dcc.Graph(
-                    id='line-graph',
-                    figure= fig
-                    
-                )
+            
+                html.Div(children, style={
+                    'display': 'inline-block',
+                    'width': '45%',
+                    'height': "488px",
+                    'overflowY': 'auto',
+                    'verticalAlign': "top",
+                    'margin': '5px'
+                }, id="game-stats-section"),
+                html.Div([
+                        dropdown,
+                        dcc.Graph(
+                            id='line-graph',
+                            figure= fig
+                            
+                        )], style={
+                            'display': 'inline-block',
+                            'width': '45%',
+                            'verticalAlign': "top",
+                            'margin': '5px'
+                })
+                
+                
             ])
             
             @app.callback(
-                Output('line-graph', 'figure'),
+                [Output('line-graph', 'figure'), Output('game-stats-section', "children")],
                 [Input('dropdown-games', 'value')]
             )
             def update_graph(selected_value):
                 print(selected_value)
                 values = {"find-objects": GameSession_FindObjects,
                           "remote-control": GameSession_RemoteControl}
-                
+                children = []
                 game_data = values[selected_value].objects.filter(patient=patient).order_by('-play_date')
                 df = pd.DataFrame(list(game_data.values()))
                 if len(df.index) > 0:
+                    print("Entra aqui *****")
                     if selected_value == "find-objects":
                         fig = px.line(df, x='play_date', y='elapsed_time', color="number_objects",  title='Elapsed time for each round played')
                     elif selected_value == "remote-control":
-                        fig = px.line(df, x='play_date', y='elapsed_time', title='Elapsed time for each round played')
+                        fig = px.line(df, x='play_date', y='elapsed_time', color="remote_difficulty", title='Elapsed time for each round played')
                     fig.update_traces(mode="markers+lines")
+                    
+                    for i,g in df.iterrows():
+                        element = html.Div(
+                            [html.H2("Date: " + str(g["play_date"]), style={ "font-size": "24px",
+                                    "margin-bottom": "10px",
+                                    "color": "#333",
+                                    "text-align": "center"}),
+                             html.P("Elapsed Time: " + str(g["elapsed_time"]) + " seconds",  style={"font-size": "16px",
+                                        "color": "#333",
+                                        "text-align": "center"})], id="game-stats", style={"margin-bottom": "20px",
+                                        "padding": "10px",
+                                        "border-radius": "5px",
+                                        "background-color": "#fff",
+                                        "box-shadow": "0 4px 8px rgba(0, 0, 0, 0.1)",
+                                        "width": "100%", 
+                                        "max-width": "500px", 
+                                        "transition": "transform 0.3s ease-in-out",
+                                        "margin-left": "auto",
+                                        "margin-right": "auto"})
+                        children.append(element)
                 else:
                     df = pd.DataFrame({"play_date": [], "elapsed_time": []})
                     fig = px.line(df, x="play_date", y="elapsed_time", title='No data available')
-
-                return fig
+                    
+                    children = html.P("No game sessions found for this patient")
+                print("ESTA EJECUTANDO ESTO --------")
+                print(children)
+                return [fig, children]
         else:
             app.layout = html.Div([
                 html.H4("")

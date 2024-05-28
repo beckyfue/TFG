@@ -31,12 +31,14 @@ class PatientCreationForm(UserCreationForm):
 class PatientEditForm(forms.ModelForm):
     class Meta:
         model = CustomUser
-        fields = ['name', 'surname', 'email', 'age', 'pathology_details', 'number_objects']
+        fields = ['name', 'surname', 'email', 'age', 'pathology_details', 'number_objects', 'remote_difficulty']
 
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['age'].widget.attrs['min'] = 0
         self.fields['number_objects'].widget.attrs['min'] = 1
+        self.fields['remote_difficulty'].widget.attrs['min'] = 1
+        self.fields['remote_difficulty'].widget.attrs['max'] = 3
         self.fields['email'].validators.append(EmailValidator(message='Please enter a valid email address.'))
 
