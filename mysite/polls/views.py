@@ -171,6 +171,22 @@ def homepage(request):
                 ])
        
         df['date'] = pd.to_datetime(df['date_joined__date'])
+        results = []
+        for i, row in df.iterrows():
+            d = row.to_dict()
+            
+            if i != 0:
+                list_inbetween_days = list(pd.date_range(start=last_day, end=d["date"], freq="D", inclusive="neither"))
+                for day in list_inbetween_days:
+                    d_aux = {"date_joined__date": day, "patient_count": last_count, "date": day}
+                    results.append(d_aux)
+                d["patient_count"] += last_count
+
+            last_count = d["patient_count"]
+            last_day = d["date"]
+            results.append(d)
+
+        df = pd.DataFrame(results)
         print(df.head())
         app = DjangoDash('SimpleExample')
         # Create layout for Dash app
