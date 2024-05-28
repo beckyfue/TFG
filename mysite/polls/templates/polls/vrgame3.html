@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="{% static 'polls/games.css' %}">
     <!-- Content block for the games page -->
     <div class="games-content container">
- <a-scene embedded timedelta="1000" renderer="colorManagement: true;" stats>
+ <a-scene id="scene-id" embedded timedelta="1000" renderer="colorManagement: true;" stats>
 
       <a-assets>
                 
@@ -605,20 +605,38 @@
 				var number_objects = 1 
 				var server = "{{server}}";
 				var port = {{port}}
+				var in_vr = false;
                 window.onload = function () {
+				
+					const scene = document.querySelector('#scene-id');
+					
 					
 					document.querySelector('a-scene').addEventListener('enter-vr', function () {
 					   console.log("ENTER VR");
+					   in_vr = true;
 					   var cursor = document.querySelector("#front-cursor")
 					   cursor.setAttribute('visible', false);
+					   cursor.setAttribute('raycaster', 'enabled', false);
 					});
 					
 					
 					document.querySelector('a-scene').addEventListener('exit-vr', function () {
 					   console.log("EXIT VR");
+					   in_vr = false;
 					   var cursor = document.querySelector("#front-cursor")
+					   cursor.setAttribute('raycaster', 'enabled', true);
 					   cursor.setAttribute('visible', true);
 					});
+					
+					if (scene.is('vr-mode')) {
+					  console.log('Already in VR mode');
+					  const enterVREvent = new Event('enter-vr');
+					  scene.dispatchEvent(enterVREvent);
+					} else {
+					  console.log('Not in VR mode');
+					  const exitVREvent = new Event('exit-vr');
+					  scene.dispatchEvent(exitVREvent);
+					}
 
                     function getCookie(name) {
                         var cookieValue = null;

@@ -11,6 +11,8 @@ var door_dict = {
   "bath2-d": true
 };
 
+
+
 var colours = {
   "id_blue_pillow": "blue",
   "id_green_pillow": "green",
@@ -98,7 +100,11 @@ AFRAME.registerComponent("door-test", {
         doorObject3D.getWorldPosition(doorPosition);
         cameraObject3D.getWorldPosition(cameraPosition);
         const distance = cameraPosition.distanceTo(doorPosition);
-        var cursor = document.querySelector("#front-cursor").components.raycaster
+		if (in_vr) {
+			var cursor = document.querySelector("#front-cursor").components.raycaster
+		} else {
+			var cursor = document.querySelector("#rightHand").components.raycaster
+		}
         var intersection = cursor.getIntersection(this.el);
         //console.log(intersection);
         console.log(distance, this.data.proximityDistance);
