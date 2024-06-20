@@ -7,14 +7,14 @@ body, html {
 }
 
 .container {
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .games-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
+    padding: 10px;
 }
 
 .text-section {
@@ -29,8 +29,8 @@ body, html {
 
 .game {
     background-color: #fff;
-    margin-bottom: 20px;
-    padding: 20px;
+    margin-bottom: 10px;
+    padding: 0px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
