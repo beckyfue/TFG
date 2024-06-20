@@ -34,6 +34,13 @@ body, html {
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
+    width: 100%; /* Make sure the game box takes full width of the container */
+    max-width: 300px; /* Optional: Set a max-width if desired */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px; /* Set a minimum height */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 
 .game:hover {

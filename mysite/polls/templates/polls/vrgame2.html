@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="{% static 'polls/games.css' %}">
     <!-- Content block for the games page -->
     <div class="games-content container">
- <a-scene id="scene-id" embedded timedelta="1000" renderer="colorManagement: true;" stats>
+ <a-scene id="scene-id" embedded timedelta="1000" renderer="colorManagement: true;">
 
       <a-assets>
                 
@@ -600,7 +600,7 @@
     
         <footer>
             <script>
-				var number_objects = 1 /**{{number_objects}}**/
+				var number_objects = {{number_objects}}
 				var server = "{{server}}";
 				var port = {{port}}
                 window.onload = function () {
@@ -977,7 +977,8 @@
 
                         const data = {
 							"elapsed_time": elapsedTime,
-							"number_objects": number_objects
+							"number_objects": number_objects, 
+                            "game": "find-objects"
 						};
 						console.log("------ COOOKIE ----------");
 						console.log(getCookie("csrftoken"));

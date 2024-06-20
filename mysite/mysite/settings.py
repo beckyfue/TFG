@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_extensions",
     "polls",
+    "bootstrap4"
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
