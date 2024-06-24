@@ -1,0 +1,894 @@
+<!-- games.html -->
+
+{% extends 'polls/patientdash.html' %}
+
+{% block content %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet"/>
+{% load static %}
+<link href="{% static 'polls/games.css' %}" rel="stylesheet"/>
+<!-- Content block for the games page -->
+<div class="games-content container">
+<a-scene embedded="" id="scene-id" renderer="colorManagement: true;" timedelta="1000">
+<a-assets>
+<audio id="correct" preload="auto" src="{% static 'vrgame/sounds/correct.wav' %}"></audio>
+<audio id="intro" preload="auto" src="{% static 'vrgame/sounds/intro.mp3' %}"></audio>
+<img crossorigin="anonymous" id="wood-floor" src="{% static 'vrgame/imgs/floor.jpg' %}"/>
+<img crossorigin="anonymous" id="kitchen-floor" src="{% static 'vrgame/imgs/kitchen_floor.webp' %}"/>
+<img crossorigin="anonymous" id="kitchen-wall" src="{% static 'vrgame/imgs/kitchen_wall.webp' %}"/>
+<img crossorigin="anonymous" id="bathroom-floor" src="{% static 'vrgame/imgs/bathroom_floor.webp' %}"/>
+<img crossorigin="anonymous" id="bathroom-wall" src="{% static 'vrgame/imgs/bathroom_wall.webp' %}"/>
+<a-asset-item id="table" src="{% static 'vrgame/3d/table1.glb' %}"></a-asset-item>
+<a-asset-item id="lounge_chair" src="{% static 'vrgame/3d/lounge_chair.glb' %}"></a-asset-item>
+<a-asset-item id="lounge_sofa" src="{% static 'vrgame/3d/lounge_sofa.glb' %}"></a-asset-item>
+<a-asset-item id="lounge_commode" src="{% static 'vrgame/3d/commode.gltf' %}"></a-asset-item>
+<a-asset-item id="lounge_tv" src="{% static 'vrgame/3d/tv.gltf' %}"></a-asset-item>
+<a-asset-item id="lounge_coffee_table" src="{% static 'vrgame/3d/coffee_table.gltf' %}"></a-asset-item>
+<a-asset-item id="lounge_picture_flowers" src="{% static 'vrgame/3d/picture_flowers.gltf' %}"></a-asset-item>
+<a-asset-item id="lounge_cactus" src="{% static 'vrgame/3d/cactus.gltf' %}"></a-asset-item>
+<a-asset-item id="fork" src="{% static 'vrgame/3d/fork.gltf' %}"></a-asset-item>
+<a-asset-item id="glass" src="{% static 'vrgame/3d/glass.gltf' %}"></a-asset-item>
+<a-asset-item id="knife" src="{% static 'vrgame/3d/knife.gltf' %}"></a-asset-item>
+<a-asset-item id="plate" src="{% static 'vrgame/3d/plate.gltf' %}"></a-asset-item>
+<a-asset-item id="picture2" src="{% static 'vrgame/3d/picture2.gltf' %}"></a-asset-item>
+<a-asset-item id="cactus" src="{% static 'vrgame/3d/cactus/scene.gltf' %}"></a-asset-item>
+<a-asset-item id="f1" src="{% static 'vrgame/3d/f1/scene.glb' %}"></a-asset-item>
+<!-- bedroom1 assets -->
+<a-asset-item id="wardrobe1" src="{% static 'vrgame/3d/wardrobe1.gltf' %}"></a-asset-item>
+<a-asset-item id="library1" src="{% static 'vrgame/3d/library1.gltf' %}"></a-asset-item>
+<a-asset-item id="armchair1" src="{% static 'vrgame/3d/armchair1.gltf' %}"></a-asset-item>
+<a-asset-item id="bed1" src="{% static 'vrgame/3d/bed1.glb' %}"></a-asset-item>
+<a-asset-item id="bedside1" src="{% static 'vrgame/3d/bedside1.gltf' %}"></a-asset-item>
+<a-asset-item id="football" src="{% static 'vrgame/3d/football/scene.gltf' %}"></a-asset-item>
+<a-asset-item id="dinosaur" src="{% static 'vrgame/3d/dinosaur/scene.glb' %}"></a-asset-item>
+<a-asset-item id="pig" src="{% static 'vrgame/3d/stuffed_pig/scene.glb' %}"></a-asset-item>
+<a-asset-item id="dog" src="{% static 'vrgame/3d/stuffed_dog/scene.glb' %}"></a-asset-item>
+<a-asset-item id="kid_phone" src="{% static 'vrgame/3d/kid_phone/scene.glb' %}"></a-asset-item>
+<a-asset-item id="play_doh" src="{% static 'vrgame/3d/play_doh/scene.gltf' %}"></a-asset-item>
+<a-asset-item id="toy_books" src="{% static 'vrgame/3d/toy_books/scene.glb' %}"></a-asset-item>
+<a-asset-item id="kid_table" src="{% static 'vrgame/3d/kid_table/scene.glb' %}"></a-asset-item>
+<a-asset-item id="table_notepad" src="{% static 'vrgame/3d/table_notepad/scene.glb' %}"></a-asset-item>
+<a-asset-item id="table_toy" src="{% static 'vrgame/3d/table_toy/scene.glb' %}"></a-asset-item>
+<!--<a-asset-item id="tricycle" src="{% static 'vrgame/3d/tricycle/scene.gltf' %}"></a-asset-item>-->
+<!-- bedroom2 assets -->
+<a-asset-item id="desk" src="{% static 'vrgame/3d/tablebedroom.gltf' %}"></a-asset-item>
+<a-asset-item id="storagebed2" src="{% static 'vrgame/3d/storagebed2.glb' %}"></a-asset-item>
+<a-asset-item id="camera1" src="{% static 'vrgame/3d/camera.gltf' %}"></a-asset-item>
+<a-asset-item id="keyboard" src="{% static 'vrgame/3d/keyboard.gltf' %}"></a-asset-item>
+<a-asset-item id="computer1" src="{% static 'vrgame/3d/computer1.glb' %}"></a-asset-item>
+<a-asset-item id="computer2" src="{% static 'vrgame/3d/computer2.glb' %}"></a-asset-item>
+<a-asset-item id="headset" src="{% static 'vrgame/3d/headset.gltf' %}"></a-asset-item>
+<a-asset-item id="tablet" src="{% static 'vrgame/3d/tablet.gltf' %}"></a-asset-item>
+<a-asset-item id="mouse" src="{% static 'vrgame/3d/mouse.gltf' %}"></a-asset-item>
+<a-asset-item id="screen" src="{% static 'vrgame/3d/screen.gltf' %}"></a-asset-item>
+<a-asset-item id="guitar" src="{% static 'vrgame/3d/guitar.gltf' %}"></a-asset-item>
+<a-asset-item id="officechair" src="{% static 'vrgame/3d/officechair.glb' %}"></a-asset-item>
+<a-asset-item id="library2" src="{% static 'vrgame/3d/library2.gltf' %}"></a-asset-item>
+<a-asset-item id="pokeball" src="{% static 'vrgame/3d/pokeball.glb' %}"></a-asset-item>
+<!-- bedroom3 assets -->
+<a-asset-item id="bed_3" src="{% static 'vrgame/3d/bed3.glb' %}"></a-asset-item>
+<a-asset-item id="bedside_table_2" src="{% static 'vrgame/3d/bedside_table_2.glb' %}"></a-asset-item>
+<a-asset-item id="main_wardrobe" src="{% static 'vrgame/3d/ward1.glb' %}"></a-asset-item>
+<a-asset-item id="bed_lamp" src="{% static 'vrgame/3d/bedlamp3.glb' %}"></a-asset-item>
+<a-asset-item id="vanity" src="{% static 'vrgame/3d/vanity/scene.glb' %}"></a-asset-item>
+<a-asset-item id="standing_mirror" src="{% static 'vrgame/3d/standing_mirror/scene.gltf' %}"></a-asset-item>
+<a-asset-item id="vanity_chair" src="{% static 'vrgame/3d/vanity_chair/scene.gltf' %}"></a-asset-item>
+<a-asset-item id="bike1" src="{% static 'vrgame/3d/bike1.glb' %}"></a-asset-item>
+<a-asset-item id="main_drawers" src="{% static 'vrgame/3d/main_drawers/scene.gltf' %}"></a-asset-item>
+<a-asset-item id="carpet" src="{% static 'vrgame/3d/carpet/scene.gltf' %}"></a-asset-item>
+<!-- bathroom2 assets -->
+<a-asset-item id="bathtub" src="{% static 'vrgame/imgs/bathtub.gltf' %}"></a-asset-item>
+<a-asset-item id="toilet" src="{% static 'vrgame/3d/toilet.gltf' %}"></a-asset-item>
+<a-asset-item id="toiletpaper" src="{% static 'vrgame/3d/toiletpaper/scene.gltf' %}"></a-asset-item>
+<a-asset-item id="rollholder" src="{% static 'vrgame/3d/rollholder/scene.glb' %}"></a-asset-item>
+<a-asset-item id="sink2" src="{% static 'vrgame/3d/sink2.glb' %}"></a-asset-item>
+<a-asset-item id="towel2" src="{% static 'vrgame/3d/towel2.gltf' %}"></a-asset-item>
+<a-asset-item id="faucet" src="{% static 'vrgame/3d/faucet.gltf' %}"></a-asset-item>
+<!-- bathroom1 assets -->
+<a-asset-item id="showercabin" src="{% static 'vrgame/3d/showercabin/scene.glb' %}"></a-asset-item>
+<a-asset-item id="sink1" src="{% static 'vrgame/3d/sink1.glb' %}"></a-asset-item>
+<a-asset-item id="longfaucet" src="{% static 'vrgame/3d/longfaucet.gltf' %}"></a-asset-item>
+<!-- Kitchen assets -->
+<a-asset-item id="kitchencabinet" src="{% static 'vrgame/3d/kitchencabinet.glb' %}"></a-asset-item>
+<a-asset-item id="kitchencupboard" src="{% static 'vrgame/3d/cupboard.glb' %}"></a-asset-item>
+<a-asset-item id="kitchenfaucet" src="{% static 'vrgame/3d/kitchenfaucet.gltf' %}"></a-asset-item>
+<a-asset-item id="fridge" src="{% static 'vrgame/3d/fridge.glb' %}"></a-asset-item>
+<a-asset-item id="teakettle" src="{% static 'vrgame/3d/teakettle.glb' %}"></a-asset-item>
+<a-asset-item id="kitchen_utensils" src="{% static 'vrgame/3d/utensils/scene.gltf' %}"></a-asset-item>
+<a-asset-item id="dishrack" src="{% static 'vrgame/3d/dishrack/scene.glb' %}"></a-asset-item>
+<a-asset-item id="cereals" src="{% static 'vrgame/3d/cereals/scene.gltf' %}"></a-asset-item>
+</a-assets>
+<a-entity environment="preset: default; ground:flat" id="ground"></a-entity>
+<!--<a-entity wasd-controls kinema-body="radius: 0.8" movement-controls="fly: false" position="0 0 5" look-controls>
+        <a-entity id="camera" camera position="0 1.6 0" ></a-entity>
+          <a-cursor fuse="false" rayOrigin="mouse"></a-entity>
+      </a-entity>-->
+<a-entity id="rig">
+<a-entity camera="" camera-listener="" camera-movement="" geometry="primitive: sphere; radius: 11" id="camera" position="-0.5 1.6 0">
+<!-- Move the raycaster inside the camera entity as a child entity -->
+<a-cursor id="front-cursor" line="end: 0 0 -1.45" position="0 0 -1" raycaster="interval:100;showLine:false; enabled:true;far:5;objects: .clickable"></a-cursor>
+<!--<a-cursor  id="front-cursor2" line="end: 0 0 -1.45" raycaster="interval:100;showLine:true; enabled:true;far:5;objects: .door-hole" position="0 0 -1"></a-cursor>-->
+</a-entity>
+<a-entity blink-controls="cameraRig: #rig; teleportOrigin:#camera;collisionEntities: #ground,.collision;" oculus-touch-controls="hand: left"></a-entity>
+<a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .clickable; far: 5"></a-entity>
+</a-entity>
+<a-entity id="door-salon" position="0.5 1 -3.5" rotation="0 -90 0">
+<a-box color="white" depth="0.1" height="2.4" position="0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="2.4" position="-0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="0.1" position="0 1.2 0" width="1.3"></a-box>
+<a-box class="clickable" color="brown" depth="0.1" door-opener-test="rotation: 0 90 0" door-test="rotation: 0 90 0" height="2.3" id="salon-d" pivot="-0.55 0 0" position="0 0 0" raycaster-collide="" rotation="0 0 0" width="1.1"></a-box>
+<a-box class="door-hole" color="brown" depth="0.0001" height="2.3" id="invisible-salon-d" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0" visible="false" width="1.1"></a-box>
+</a-entity>
+<a-entity id="door-outside" position="-5.5 1 -3.5" rotation="0 -90 0">
+<a-box color="white" depth="0.1" height="2.4" position="0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="2.4" position="-0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="0.1" position="0 1.2 0" width="1.3"></a-box>
+<a-box class="clickable" color="brown" depth="0.1" door-opener-test="rotation: 0 90 0" door-test="rotation: 0 90 0" height="2.3" id="outside-d" pivot="-0.55 0 0" position="0 0 0" raycaster-collide="" rotation="0 0 0" width="1.1"></a-box>
+<a-box class="door-hole" color="brown" depth="0.0001" height="2.3" id="invisible-outside-d" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0" visible="false" width="1.1"></a-box>
+</a-entity>
+<a-entity class="collidable" id="door-kitchen" position="-0.15 1 -2.5" rotation="0 180 0">
+<a-box class="collidable" color="white" depth="0.1" height="2.4" position="0.6 0 0" width="0.1"></a-box>
+<a-box class="collidable" color="white" depth="0.1" height="2.4" position="-0.6 0 0" width="0.1"></a-box>
+<a-box class="collidable" color="white" depth="0.1" height="0.1" position="0 1.2 0" width="1.3"></a-box>
+<a-box class="door clickable" color="brown" depth="0.1" door-test="rotation: 0 90 0" height="2.3" id="door-kit" pivot="-0.55 0 0" position="0 0 0" raycaster-collide="" rotation="0 0 0" width="1.1"></a-box>
+<a-box class="door-hole" color="yellow" depth="0.1" height="2.3" id="invisible-door-kit" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0" visible="false" width="1.1"></a-box>
+</a-entity>
+<a-entity id="door-bedroom1" position=" -1.5 1 -9.5" rotation="0 90 0">
+<a-box color="white" depth="0.1" height="2.4" position="0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="2.4" position="-0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="0.1" position="0 1.2 0" width="1.3"></a-box>
+<a-box class="clickable" color="brown" depth="0.1" door-opener-test="rotation: 0 90 0" door-test="rotation: 0 90 0" height="2.3" id="bed1-d" pivot="-0.55 0 0" position="0 0 0" raycaster-collide="" rotation="0 0 0" width="1.1"></a-box>
+<a-box class="door-hole" color="brown" depth="0.0001" height="2.3" id="invisible-bed1-d" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0" visible="false" width="1.1"></a-box>
+</a-entity>
+<a-entity id="door-bedroom2" position=" -0.75 1 -10.5" rotation="0 0 0">
+<a-box color="white" depth="0.1" height="2.4" position="0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="2.4" position="-0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="0.1" position="0 1.2 0" width="1.3"></a-box>
+<a-box class="clickable" color="brown" depth="0.1" door-opener-test="rotation: 0 90 0" door-test="rotation: 0 90 0" height="2.3" id="bed2-d" pivot="-0.55 0 0" position="0 0 0" raycaster-collide="" rotation="0 0 0" width="1.1"></a-box>
+<a-box class="door-hole" color="brown" depth="0.0001" height="2.3" id="invisible-bed2-d" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0" visible="false" width="1.1"></a-box>
+</a-entity>
+<a-entity id="door-bathroom1" position=" 2 1 -8.5" rotation="0 0 0">
+<a-box color="white" depth="0.1" height="2.4" position="0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="2.4" position="-0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="0.1" position="0 1.2 0" width="1.3"></a-box>
+<a-box class="clickable" color="brown" depth="0.1" door-opener-test="rotation: 0 -90 0" door-test="rotation: 0 90 0" height="2.3" id="bath1-d" pivot="-0.55 0 0" position="0 0 0" raycaster-collide="" rotation="0 0 0" width="1.1"></a-box>
+<a-box class="door-hole" color="brown" depth="0.0001" height="2.3" id="invisible-bath1-d" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0" visible="false" width="1.1"></a-box>
+</a-entity>
+<a-entity id="door-bedroom3" position="3.5 1 -9.55" rotation="0 90 0">
+<a-box color="white" depth="0.1" height="2.4" position="0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="2.4" position="-0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="0.1" position="0 1.2 0" width="1.3"></a-box>
+<a-box class="clickable" color="brown" depth="0.1" door-opener-test="rotation: 0 -90 0" door-test="rotation: 0 90 0" height="2.3" id="bed3-d" pivot="-0.55 0 0" position="0 0 0" raycaster-collide="" rotation="0 0 0" width="1.1"></a-box>
+<a-box class="door-hole" color="brown" depth="0.0001" height="2.3" id="invisible-bed3-d" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0" visible="false" width="1.1"></a-box>
+</a-entity>
+<a-entity id="door-bathroom2" position=" 6 1 -8.5" rotation="0 0 0">
+<a-box color="white" depth="0.1" height="2.4" position="0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="2.4" position="-0.6 0 0" width="0.1"></a-box>
+<a-box color="white" depth="0.1" height="0.1" position="0 1.2 0" width="1.3"></a-box>
+<a-box class="clickable" color="brown" depth="0.1" door-opener-test="rotation: 0 -90 0" door-test="rotation: 0 90 0" height="2.3" id="bath2-d" pivot="-0.55 0 0" position="0 0 0" raycaster-collide="" rotation="0 0 0" width="1.1"></a-box>
+<a-box class="door-hole" color="brown" depth="0.0001" height="2.3" id="invisible-bath2-d" pivot="-0.55 0 0" position="0 0 0" rotation="0 0 0" visible="false" width="1.1"></a-box>
+</a-entity>
+<!-- cocina-->
+<rw-room height="2.5" length="5" position="-2.5 0.01 -2.5" width="3">
+<rw-wall class="collision" id="k3" material="src:#kitchen-wall;repeat:2 2" raycaster-wall="">
+<rw-doorhole id="cocina"></rw-doorhole>
+</rw-wall>
+<rw-wall class="collision" id="k4" material="src:#kitchen-wall;repeat:2 2" raycaster-wall=""></rw-wall>
+<rw-wall class="collision" id="k1" material="src:#kitchen-wall;repeat:2 2" raycaster-wall="">
+</rw-wall>
+<rw-wall class="collision" id="k2" material="src:#kitchen-wall;repeat:2 2" raycaster-wall=""></rw-wall>
+<a-gltf-model class="clickable" id="id_kitchen_counter" position="0.005 0.010 3.294" rotation="0 90 0" scale="1.5 1.125 0.9375" src="#kitchencabinet"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_kitchen_cupboard" position="0.183 2.033 3.645" rotation="0 90 0" scale="0.75 0.375 0.375" src="#kitchencupboard"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_kitchenfaucet" position="0.151 0.856 2.528" rotation="0 90 0" scale="0.75 1.125 0.75" src="#faucet"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_fridge" position="0.379 0.01 1.041" rotation="0 90 0" scale="1.875 1.125 0.9375" src="#fridge"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_teakettle" position="0.310 0.852 3.639" rotation="0 0 0" scale="0.07500000000000001 0.07500000000000001 0.07500000000000001" src="#teakettle"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_kitchen_utensils" position="0.175 0.856 1.963" rotation="0 0 0" scale="0.75 0.75 0.75" src="#kitchen_utensils"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_dishrack" position="0.032 1.040 3.101" rotation="0 90 0" scale="0.75 0.75 0.75" src="#dishrack"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_cereals" position="0.166 0.850 4.614" rotation="0 90 0" scale="0.15000000000000002 0.15000000000000002 0.15000000000000002" src="#cereals"></a-gltf-model>
+<rw-floor material="src:#kitchen-floor;repeat:2 2"></rw-floor>
+<rw-ceiling material="color:#FFF"></rw-ceiling>
+</rw-room>
+<rw-doorlink from="#cocina" height="2.15" position="0.25 0 0" to="#pasillo1" width="1.25">
+</rw-doorlink>
+<!--pasillo 1-->
+<rw-room height="2.5" length="8" position="-1.5 0.01 -10.5" width="2">
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="pasillo-habitacion2"></rw-doorhole>
+<rw-doorlink from="#pasillo-habitacion2" height="2.15" position="0.75 0 0" to="#habitacion2" width="1.25"></rw-doorlink>
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="pasillo-salon"></rw-doorhole>
+<rw-doorhole id="pasillo1-pasillo2"></rw-doorhole>
+<rw-doorlink from="#pasillo1-pasillo2" height="2.5" position="0 0 0" to="#pasillo2-pasillo1" width="1.999"></rw-doorlink>
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="pasillo1"></rw-doorhole>
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="pasillo-entrada"></rw-doorhole>
+<rw-doorhole id="pasillo-habitacion1"></rw-doorhole>
+<rw-doorlink from="#pasillo-habitacion1" height="2.15" position="7 0 8" to="#habitacion1" width="1.25"></rw-doorlink>
+</rw-wall>
+<rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
+<rw-ceiling material="color:#FFF"></rw-ceiling>
+</rw-room>
+<rw-doorlink from="#pasillo-salon" height="2.15" position="0 0 -3.5" to="#salon" width="1.25"></rw-doorlink>
+<rw-doorlink from="#pasillo-entrada" height="3" to="#entrada" width="1.999">
+</rw-doorlink>
+<!--entrada-->
+<rw-room height="2.5" length="2" position="-5.5 0.01 -4.5" width="4">
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="entrada" width="2"></rw-doorhole>
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="frontInner"></rw-doorhole>
+</rw-wall>
+<rw-floor class="collision" material="src:#wood-floor;repeat:2 2"></rw-floor>
+<rw-ceiling material="color:#FFF"></rw-ceiling>
+</rw-room>
+<rw-room material="color:#877" outside="true" position="-5.5 0 0">
+<rw-wall class="collision" height="3.4" position="0 0 -16">
+<rw-doorhole id="frontOuter"></rw-doorhole>
+<rw-doorlink from="#frontInner" material="color:#778" position="12.5 0 0" to="#frontOuter" width="1.25">
+<rw-floor></rw-floor>
+<rw-ceiling></rw-ceiling>
+<rw-sides></rw-sides>
+</rw-doorlink>
+</rw-wall>
+<rw-wall class="collision" height="3.4" position=" 17 0 -16">
+</rw-wall>
+<rw-wall class="collision" height="3.4" position=" 17 0  4">
+</rw-wall>
+<rw-wall class="collision" height="3.4" position="0 0  4">
+</rw-wall>
+</rw-room>
+<!--salon-->
+<rw-room height="2.5" length="5" position="0.5 0.01 -4.5" width="6">
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="salon"></rw-doorhole>
+</rw-wall>
+<a-gltf-model class="clickable" id="id_table" position="2.305 -0.01 4.113" rotation="0 0 0" scale="1.5 0.8624999999999999 1.125" src="#table" visible="true"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_lounge_chair_1" position="1.704 -0.08 4.632" rotation="0 90 0" scale="0.8999999999999999 1.125 0.8999999999999999" src="#lounge_chair"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_lounge_chair_2" position="2.987 -0.08 4.632" rotation="0 90 0" scale="0.8999999999999999 1.125 0.8999999999999999" src="#lounge_chair"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_lounge_chair_3" position="2.968 -0.08 3.580" rotation="0 270 0" scale="0.8999999999999999 1.125 0.8999999999999999" src="#lounge_chair"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_lounge_chair_4" position="1.745 -0.08 3.555" rotation="0 270 0" scale="0.8999999999999999 1.125 0.8999999999999999" src="#lounge_chair"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_sofa" position="3.746 0.01 1.329" rotation="0 0 0" scale="0.9375 0.9375 0.9375" src="#lounge_sofa"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_commode" position="5.722 0.01 1.315" rotation="0 270 0" scale="1.125 0.9375 0.9375" src="#lounge_commode"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_tv" position="5.635 0.852 1.381" rotation="0 270 0" scale="0.9375 0.9375 0.9375" src="#lounge_tv"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_coffee_table" position="4.579 0.01 1.313" rotation="0 0 0" scale="1.125 0.9375 2.25" src="#lounge_coffee_table"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_picture_flowers" position="4.581 1.726 0.013" rotation="0 0 0" scale="2.25 1.5 1.5" src="#lounge_picture_flowers"></a-gltf-model>
+<!--<a-gltf-model id="id_lounge_cactus" src="#lounge_cactus" scale="3 2 2" position="3.908 0.979 6.031" rotation="0 0 0" class = "clickable" ></a-gltf-model>-->
+<a-gltf-model class="clickable" id="id_fork" position="1.969 0.667 3.828" rotation="0 90 0" scale="1.125 1.125 1.125" src="#fork"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_glass" position="1.908 0.667 4.086" rotation="0 0 0" scale="1.5 1.5 1.5" src="#glass"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_knife" position="1.516 0.667 3.835" rotation="0 90 0" scale="1.125 1.125 1.125" src="#knife"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_plate" position="1.733 0.667 3.842" rotation="0 0 0" scale="2.25 1.5 1.5" src="#plate"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_picture2" position="6 1.757 3.593" rotation="0 180 0" scale="0.75 2.25 3.75" src="#picture2"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_fork_2" position="3.258 0.667 3.828" rotation="0 90 0" scale="1.125 1.125 1.125" src="#fork"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_glass_2" position="3.264 0.667 4.086" rotation="0 0 0" scale="1.5 1.5 1.5" src="#glass"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_knife_2" position="2.826 0.667 3.835" rotation="0 90 0" scale="1.125 1.125 1.125" src="#knife"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_plate_2" position="3.037 0.667 3.842" rotation="0 0 0" scale="2.25 1.5 1.5" src="#plate"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_cactus" position="2.407 0.667 4.196" rotation="0 0 0" scale="0.0015 0.0015 0.0015" src="#cactus"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_f1" position="4.617 0.347 1.299" rotation="0 0 0" scale="0.052500000000000005 0.052500000000000005 0.052500000000000005" src="#f1"></a-gltf-model>
+<rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
+<rw-ceiling material="color:#FFF"></rw-ceiling>
+</rw-room>
+<!-- bedroom 1-->
+<rw-room height="2.5" length="6" position="-5.5 0.01 -14.5" width="4">
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="habitacion1" width="2"></rw-doorhole>
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<a-gltf-model class="clickable" id="id_bed_1" position="0.454 0.01 0.748" rotation="0 0 0" scale="0.675 0.75 0.75" src="#bed1"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_bedside_table_1" position="1.117 0.01 0.255" rotation="0 0 0" scale="0.75 0.75 0.75" src="#bedside1"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_wardrobe_1" position="2.2 0.01 5.741" rotation="0 180 0" scale="0.75 0.8999999999999999 0.75" src="#wardrobe1"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_library_1" position="0.02 0.01 3.7" rotation="0 90 0" scale="1.125 0.9375 0.75" src="#library1"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_stool_1" position="1.142 0.01 5.602" rotation="0 0 0" scale="0.75 0.75 0.75" src="#armchair1"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_football" position="0.2 1 3.5" rotation="0 0 0" scale="0.75 0.75 0.75" src="#football"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_dinosaur" position="0.2 0.965 3.854" rotation="0 0 0" scale="0.0075 0.0075 0.0075" src="#dinosaur"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_pig" position="0.2 0.965 3.086" rotation="0 90 0" scale="0.015 0.015 0.015" src="#pig"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_dog" position="0.2 0.965 4.228" rotation="0 0 0" scale="1.125 1.125 1.125" src="#dog"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_kid_phone" position="1.093 0.55 0.255" rotation="0 0 0" scale="0.8250000000000001 0.8250000000000001 0.8250000000000001" src="#kid_phone"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_play_doh_1" position="0.150 0.728 3.692" rotation="0 90 0" scale="0.0675 0.0675 0.0675" src="#play_doh"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_play_doh_2" position="0.150 0.728 3.147" rotation="0 90 0" scale="0.0675 0.0675 0.0675" src="#play_doh"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_play_doh_3" position="0.150 0.718 4.229" rotation="0 90 0" scale="0.0675 0.0675 0.0675" src="#play_doh"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_toy_books_1" position="0.167 0.572 3.895" rotation="0 90 0" scale="1.125 1.125 1.125" src="#toy_books"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_toy_books_2" position="0.150 0.101 3.363" rotation="0 90 0" scale="1.125 1.125 1.125" src="#toy_books"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_toy_books_3" position="0.201 0.351 4.300" rotation="0 90 0" scale="1.125 1.125 1.125" src="#toy_books"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_kid_table" position="0.4 0.01 5.711" rotation="0 0 0" scale="1.125 1.875 1.125" src="#kid_table"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_table_notepad" position="0.491 0.407 5.818" rotation="0 0 0" scale="0.03 0.03 0.03" src="#table_notepad"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_table_toy" position="0.226 0.407 5.688" rotation="0 75 0" scale="0.07500000000000001 0.07500000000000001 0.07500000000000001" src="#table_toy"></a-gltf-model>
+<!--<a-gltf-model id="id_tricyle" src="#tricycle" scale="25 25 25" position="3.481 0.01 2.090" rotation="0 180 0" class = "clickable"></a-gltf-model>-->
+<rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
+<rw-ceiling material="color:#FFF"></rw-ceiling>
+</rw-room>
+<!-- bedroom 2-->
+<rw-room height="2.5" length="4" position="-1.5 0.01 -14.5" width="4.5">
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="habitacion2"></rw-doorhole>
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<a-gltf-model class="clickable" id="id_desk" position="0.350 0.01 1.535" rotation="0 90 0" scale="0.8999999999999999 0.75 0.75" src="#desk"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_office1" position="0.761 0.01 1.560" rotation="0 270 0" scale="0.75 0.75 0.75" src="#officechair"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_library2" position="2.212 0.01 0.01" rotation="0 0 0" scale="0.8999999999999999 0.75 0.75" src="#library2"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_desk2" position="4.133 0.01 1.535" rotation="0 90 0" scale="0.8999999999999999 0.75 0.75" src="#desk"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_office2" position="3.774 0.01 1.560" rotation="0 90 0" scale="0.75 0.75 0.75" src="#officechair"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_storagebed2" position="4.503 0.01 0.376" rotation="0 270 0" scale="0.8999999999999999 1.125 0.75" src="#storagebed2"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_storagebed22" position="0.1 0.01 0.376" rotation="0 90 0" scale="0.8999999999999999 1.125 0.75" src="#storagebed2"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_keyboard" position="3.975 0.594 1.593" rotation="0 270 0" scale="0.75 0.75 0.75" src="#keyboard"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_pokeball" position="4.073 0.594 0.860" rotation="0 180 0" scale="0.07500000000000001 0.07500000000000001 0.07500000000000001" src="#pokeball"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_computer1" position="4.244 0.594 2.101" rotation="0 270 0" scale="0.75 0.75 0.75" src="#computer1"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_headset1" position="3.978 0.628 2.192" rotation="90 270 0" scale="0.75 0.75 0.75" src="#headset"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_mouse1" position="3.964 0.594 1.800" rotation="0 270 0" scale="0.75 0.75 0.75" src="#mouse"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_screen" position="4.448 0.594 1.580" rotation="0 270 0" scale="0.75 0.75 0.75" src="#screen"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_guitar" position="4.467 0.01 3.013" rotation="0 270 0" scale="0.8999999999999999 1.125 0.75" src="#guitar"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_camera" position="0.424 0.594 0.931" rotation="0 90 0" scale="0.75 0.75 0.75" src="#camera1"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_computer2" position="0.384 0.594 1.581" rotation="0 90 0" scale="1.125 1.125 1.125" src="#computer2"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_tablet" position="0.307 0.594 2.038" rotation="0 90 0" scale="0.75 0.75 0.75" src="#tablet"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_mouse2" position="0.442 0.594 1.315" rotation="0 90 0" scale="1.125 1.125 1.125" src="#mouse"></a-gltf-model>
+<rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
+<rw-ceiling material="color:#FFF"></rw-ceiling>
+</rw-room>
+<!-- bathroom 1-->
+<rw-room height="2.5" length="3.5" position="0.5 0.01 -8.5" width="3">
+<rw-wall class="collision" material="src:#bathroom-wall;repeat:2 2">
+<rw-doorhole id="bano1" width="1"></rw-doorhole>
+</rw-wall>
+<rw-wall class="collision" material="src:#bathroom-wall;repeat:2 2">
+</rw-wall>
+<rw-wall class="collision" material="src:#bathroom-wall;repeat:2 2">
+</rw-wall>
+<rw-wall class="collision" material="src:#bathroom-wall;repeat:2 2">
+</rw-wall>
+<a-gltf-model class="clickable" id="id_showercabin" position="2.427 0.5 2.371" rotation="0 270 0" scale="1.125 0.9375 1.125" src="#showercabin"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_toilet_1" position="2.689 0.01 0.613" rotation="0 270 0" scale="1.125 1.125 1.125" src="#toilet"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_toilet_paper_1" position="2.743 0.816 0.119" rotation="90 90 0" scale="1.125 1.125 0.9375" src="#toiletpaper"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_roll_holder_1" position="2.730 0.863 0.075" rotation="0 0 0" scale="1.125 1.125 1.125" src="#rollholder"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_sink_1" position="0.025 0.01 1.811" rotation="0 90 0" scale="0.9375 0.9375 0.9375" src="#sink1"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_longfaucet" position="0.089 0.842 1.803" rotation="0 90 0" scale="0.9375 1.3125 0.9375" src="#longfaucet"></a-gltf-model>
+<rw-floor material="src:#bathroom-floor;repeat:2 2"></rw-floor>
+<rw-ceiling material="color:#AAA"></rw-ceiling>
+</rw-room>
+<!-- pasillo2-->
+<rw-room height="2.5" length="2" position="0.5 0.01 -10.5" width="3">
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="pasillo2-habitacion3"></rw-doorhole>
+<rw-doorlink from="#pasillo2-habitacion3" height="2.15" position="0.95 0 0" to="#habitacion3" width="1.25"></rw-doorlink>
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="pasillo2-bano1"></rw-doorhole>
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="pasillo2-pasillo1"></rw-doorhole>
+</rw-wall>
+<rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
+<rw-ceiling material="color:#FFF"></rw-ceiling>
+</rw-room>
+<rw-doorlink from="#pasillo2-bano1" height="2.15" position="2 0 0" to="#bano1" width="1.25"></rw-doorlink>
+<!-- bedroom 3-->
+<rw-room height="2.5" length="5.5" position="3.50 0.01 -14" width="4.5">
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="habitacion3-bano2"></rw-doorhole>
+<rw-doorlink from="#habitacion3-bano2" height="2.15" position="2 0 0" to="#bano2" width="1.25"></rw-doorlink>
+</rw-wall>
+<rw-wall class="collision" material="color:#FFF">
+<rw-doorhole id="habitacion3"></rw-doorhole>
+</rw-wall>
+<a-gltf-model class="clickable" id="id_bed_3" position="2.610 0.01 0.981" rotation="0 270 0" scale="0.75 0.75 0.75" src="#bed_3"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_bedside_table_2" position="1.66 0.01 0.132" rotation="0 90 0" scale="0.75 0.75 0.75" src="#bedside_table_2"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_bedside_table_3" position="3.662 0.01 0.132" rotation="0 90 0" scale="0.75 0.75 0.75" src="#bedside_table_2"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_main_wardrobe" position="4.420 0.01 4.358" rotation="0 270 0" scale="0.30000000000000004 0.22499999999999998 0.30000000000000004" src="#main_wardrobe"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_main_lamp_2" position="3.661 0.520 0.112" rotation="0 0 0" scale="0.75 0.75 0.75" src="#bed_lamp"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_main_lamp_3" position="1.659 0.520 0.112" rotation="0 0 0" scale="0.75 0.75 0.75" src="#bed_lamp"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_vanity" position="4.225 0.739 2.887" rotation="0 270 0" scale="0.75 0.75 0.75" src="#vanity"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_standing_mirror" position="0.375 0.701 0.6" rotation="0 20 0" scale="0.15000000000000002 0.15000000000000002 0.15000000000000002" src="#standing_mirror"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_vanity_chair" position="3.684 0.031 2.908" rotation="0 0 0" scale="0.30000000000000004 0.44999999999999996 0.30000000000000004" src="#vanity_chair"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_bike1" position="0.425 0.01 2.865" rotation="0 0 0" scale="0.75 0.75 0.75" src="#bike1"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_main_drawers" position="0.175 0.1 1.499" rotation="0 180 0" scale="0.0075 0.0075 0.0075" src="#main_drawers"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_carpet" position="2.160 0.1 4.178" rotation="0 90 0" scale="0.00525 0.00525 0.00525" src="#carpet"></a-gltf-model>
+<rw-floor material="src:#wood-floor;repeat:2 2"></rw-floor>
+<rw-ceiling material="color:#FFF"></rw-ceiling>
+</rw-room>
+<!-- bathroom 2-->
+<rw-room height="2.5" length="3.5" position="4 0.01 -8.5" width="3">
+<rw-wall class="collision" material="src:#bathroom-wall;repeat:2 2">
+<rw-doorhole id="bano2" width="1"></rw-doorhole>
+</rw-wall>
+<rw-wall class="collision" material="src:#bathroom-wall;repeat:2 2">
+</rw-wall>
+<rw-wall class="collision" material="src:#bathroom-wall;repeat:2 2">
+</rw-wall>
+<rw-wall class="collision" material="src:#bathroom-wall;repeat:2 2">
+</rw-wall>
+<a-gltf-model class="clickable" id="id_bathtub" position="2.228 0.01 0.886" rotation="0 180 0" scale="0.9750000000000001 1.0499999999999998 1.6949999999999998" src="#bathtub"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_toilet_2" position="0.833 0.01 0.333" rotation="0 0 0" scale="1.125 1.125 1.125" src="#toilet"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_toilet_paper" position="0.464 0.875 0.142" rotation="90 90 0" scale="1.125 1.125 0.9375" src="#toiletpaper"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_roll_holder" position="0.45 0.931 0.085" rotation="0 0 0" scale="1.125 1.125 1.125" src="#rollholder"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_sink_2" position="0.772 0.01 3.481" rotation="0 180 0" scale="0.75 1.125 0.75" src="#sink2"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_towel_2" position="0.743 0.419 3.238" rotation="0 180 0" scale="1.125 1.125 1.125" src="#towel2"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_faucet_21" position="1.107	0.848 3.447" rotation="0 180 0" scale="1.125 1.125 1.125" src="#faucet"></a-gltf-model>
+<a-gltf-model class="clickable" id="id_faucet_22" position="0.434 0.848 3.447" rotation="0 180 0" scale="1.125 1.125 1.125" src="#faucet"></a-gltf-model>
+<rw-floor material="src:#bathroom-floor;repeat:2 2"></rw-floor>
+<rw-ceiling material="color:#FFF"></rw-ceiling>
+</rw-room>
+</a-scene>
+<!-- Add more games as needed -->
+<footer>
+<script>
+				var number_objects = {{number_objects}}
+				var server = "{{server}}";
+				var port = {{port}}
+                window.onload = function () {
+				    const scene = document.querySelector('#scene-id');
+					document.querySelector('a-scene').addEventListener('enter-vr', function () {
+					   console.log("ENTER VR");
+					   in_vr = true;
+					   var cursor = document.querySelector("#front-cursor")
+					   cursor.setAttribute('visible', false);
+					   cursor.setAttribute('raycaster', 'enabled', false);
+					});
+					
+					
+					document.querySelector('a-scene').addEventListener('exit-vr', function () {
+					   console.log("EXIT VR");
+					   in_vr = false;
+					   var cursor = document.querySelector("#front-cursor")
+					   cursor.setAttribute('raycaster', 'enabled', true);
+					   cursor.setAttribute('visible', true);
+					});
+					
+					if (scene.is('vr-mode')) {
+					  console.log('Already in VR mode');
+					  const enterVREvent = new Event('enter-vr');
+					  scene.dispatchEvent(enterVREvent);
+					} else {
+					  console.log('Not in VR mode');
+					  const exitVREvent = new Event('exit-vr');
+					  scene.dispatchEvent(exitVREvent);
+					}
+					
+					
+                    function getCookie(name) {
+                        var cookieValue = null;
+                        if (document.cookie && document.cookie !== '') {
+                            var cookies = document.cookie.split(';');
+                            for (var i = 0; i < cookies.length; i++) {
+                                var cookie = jQuery.trim(cookies[i]);
+                                // Does this cookie string begin with the name we want?if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                    break;
+                                
+                            }
+                        }
+                        return cookieValue;
+                    }
+                    function selectRandomElements(arr, num) {
+                        // Shuffle the array
+                        arr = arr.sort(() => Math.random() - 0.5);
+                        // Slice the array to get the desired number of elements
+                        return arr.slice(0, num);
+                    }
+    
+                    precolored_objects = {
+                        "id_teakettle": "yellow",
+                        "id_camera": "yellow",
+                        "id_pokeball": "red",
+                        "id_headset1": "red",
+                        "id_bathtub": "blue",
+                        "id_kitchen_utensils": "blue",
+                        "id_cereals": "yellow",
+                        "id_dog": "blue",
+                        "id_play_doh_1": "yellow",
+                        "id_play_doh_2": "yellow",
+                        "id_play_doh_3": "yellow", 
+                        "id_f1": "blue"
+                        
+                    }
+    
+                    object_ids = ["id_lounge_chair_1", "id_lounge_chair_2", "id_lounge_chair_3", "id_lounge_chair_4",
+                        "id_sofa", "id_tv",   "id_plate",   "id_plate_2", "id_f1", "id_cactus", 
+
+                        "id_bed_1",  "id_wardrobe_1", "id_stool_1", "id_football", "id_dinosaur", "id_pig", "id_dog", 
+                        "id_kid_phone", "id_play_doh_1", "id_play_doh_2", "id_play_doh_3", "id_table_notepad", "id_table_toy",
+
+                        "id_office1", "id_office2", "id_storagebed2", "id_storagebed22", "id_keyboard", "id_pokeball", "id_computer1", "id_headset1",
+                        "id_mouse1", "id_screen", "id_guitar", "id_camera", "id_computer2", "id_tablet", "id_mouse2",
+
+                        "id_bed_3", "id_main_wardrobe", "id_main_lamp_2", "id_main_lamp_3", "id_bike1", "id_vanity", 
+                        "id_vanity_chair", "id_main_drawers", 
+                        
+                        "id_dishrack", "id_cereals", "id_kitchen_cupboard", "id_fridge", "id_teakettle", "id_kitchen_utensils",
+
+                        "id_showercabin", 
+
+                        "id_bathtub", "id_toilet_2", "id_toilet_paper", "id_towel_2"
+                    ];
+					
+                    var selectedObjects = selectRandomElements(object_ids, number_objects);
+                    var available_colors = ["red", "green", "yellow", "blue"]
+                    var color = selectRandomElements(available_colors, 1)[0]
+    
+                    var change_objects = [];
+                    var new_color;
+    
+                    var copiedList = available_colors.slice();
+                    Object.entries(precolored_objects).forEach(([key, value]) => {
+                        console.log('Key: ' + key + ', Value: ' + value, color);
+                        if (!(selectedObjects.includes(key)) && (value === color)) {
+                            console.log("-AÑADE A CAMBIAR");
+                            change_objects.push(key);
+                            if (copiedList.includes(value)) {
+                                console.log("------BORRA 1---------");
+                                var index = copiedList.indexOf(value);
+                                copiedList.splice(index, 1)
+                                new_color = selectRandomElements(copiedList, 1)[0];
+                            }
+                        }
+                    });
+    
+                    console.log("OBJETOS2 -------");
+                    console.log(selectedObjects, color);
+    
+                    function changeColorForObjects(objects, color, disappear) {
+                        for (var i = 0; i < objects.length; i++) {
+                            if (disappear) {
+                                document.getElementById(objects[i]).setAttribute("object-disappear", "");
+                            }
+                            changeColor(objects[i], color);
+                        }
+                    }
+    
+                    function changeColor(object_id, color) {
+                        var modelEntity = document.querySelector("#" + object_id);
+                        modelEntity.addEventListener("model-loaded", function () {
+                            var model = modelEntity.getObject3D("mesh");
+                            model.traverse(function (node) {
+                                if (node.isMesh) {
+                                    node.material.color.set(color);
+                                    node.material.map = null;
+                                }
+                            });
+                        });
+                    }
+
+                    
+    
+                    function showInitialMessage() {
+                        var cursor = document.querySelector("#front-cursor");
+                        var cursorPosition = new THREE.Vector3();
+                        var cursorRotation = new THREE.Quaternion();
+                        cursor.object3D.getWorldPosition(cursorPosition);
+                        cursor.object3D.getWorldQuaternion(cursorRotation);
+    
+                        console.log("Cursor Position:", cursorPosition);
+                        console.log("Cursor Rotation:", cursorRotation);
+    
+                        var scene = document.querySelector("a-scene");
+    
+                        // Create initial message entity
+                        var initialMessage = document.createElement("a-entity");
+                        initialMessage.setAttribute("id", "initial-message");
+                        initialMessage.setAttribute("text", {
+                            value: "Find " + selectedObjects.length + " objects that are " + color + ".",
+                            align: "center",
+                            wrapCount: 20,
+                            color: "black",
+                        });
+                        initialMessage.object3D.position.copy(cursorPosition);
+                        initialMessage.object3D.rotation.setFromQuaternion(cursorRotation);
+    
+                        // Adjust position to be relative to the cursor
+                        var offset = new THREE.Vector3(-0.5, 2, -1.6); // Adjust the offset as needed
+                        initialMessage.object3D.position.add(offset);
+    
+                        // Set a style attribute to make sure it's visible
+                        initialMessage.setAttribute("style", "position: absolute; z-index: 999");
+    
+                        scene.appendChild(initialMessage);
+    
+    
+                        // Create "Start" button entity
+                        var startButton = createButton(
+                            "Start",
+                            handleStartClick,
+                            initialMessage.object3D.position.clone().add(new THREE.Vector3(0, -0.4, 0)),
+                            cursorRotation
+                        );
+                        startButton.setAttribute("id", "start-button");
+                        startButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
+                        startButton.setAttribute("material", "color: #2ecc71");
+                        startButton.setAttribute("text", {
+                            value: "Start",
+                            align: "center",
+                            color: "#ffffff",
+                            width: 1.5,
+                        });
+                        scene.appendChild(startButton);
+    
+                    }
+    
+    
+                    var startTime;
+                    var endTime;
+    
+                    // Function to handle "Start" button click
+                    function handleStartClick(initialMessage, startButton) {
+                        var intro_sound = document.querySelector("#intro");
+                        intro_sound.volume = 0.15
+                        intro_sound.play();
+                        var initialMessage = document.querySelector("#initial-message");
+                        var startButton = document.querySelector("#start-button");
+                        if (initialMessage) {
+                            initialMessage.parentNode.removeChild(initialMessage);
+                        }
+    
+                        if (startButton) {
+                            startButton.parentNode.removeChild(startButton);
+                        }
+                        enableMovementControls();
+                        startTime = Date.now();
+                    }
+    
+                    // Call the function to show the initial message and "Start" button
+                    showInitialMessage();
+    
+                    var clickedObjects = new Set(); // Set to keep track of clicked objects
+                    changeColorForObjects(selectedObjects, color, true);
+    
+                    // Change color of precolored objects that match the random color
+                    changeColorForObjects(change_objects, new_color, false);
+    
+                    function enableMovementControls() {
+                        var cameraEntity = document.querySelector("#camera");
+                        cameraEntity.setAttribute("wasd-controls", "acceleration:20");
+                        cameraEntity.setAttribute("look-controls", "");
+    
+                    }
+    
+                    var counterMessageEntity = null;
+    
+                    // Function to show the counter message
+                    function showCounterMessage(count) {
+                        var cursor = document.querySelector("#front-cursor");
+                        var cursorPosition = new THREE.Vector3();
+                        var cursorRotation = new THREE.Quaternion();
+                        cursor.object3D.getWorldPosition(cursorPosition);
+                        cursor.object3D.getWorldQuaternion(cursorRotation);
+    
+                        var scene = document.querySelector("a-scene");
+    
+                        // Remove previous counter message if exists
+                        if (counterMessageEntity) {
+                            scene.removeChild(counterMessageEntity);
+                        }
+    
+                        // Create counter message entity
+                        counterMessageEntity = document.createElement("a-entity");
+                        counterMessageEntity.setAttribute("text", {
+                            value: count + " objects found",
+                            align: "center",
+                            wrapCount: 20,
+                            color: "white",
+                        });
+                        counterMessageEntity.object3D.position.copy(cursorPosition);
+                        counterMessageEntity.object3D.rotation.setFromQuaternion(cursorRotation);
+                        scene.appendChild(counterMessageEntity);
+    
+                        // Set a timeout to remove the counter message after 3 seconds
+                        setTimeout(function () {
+                            if (counterMessageEntity) {
+                                scene.removeChild(counterMessageEntity);
+                                counterMessageEntity = null; // Reset the counter message entity variable
+                            }
+                        }, 3000);
+                    }
+    
+    
+                    function resetCameraPosition() {
+                        var cameraEntity = document.querySelector("#camera");
+                        cameraEntity.setAttribute("position", "-0.5 1.6 0");
+                        cameraEntity.setAttribute("rotation", "0 0 0");
+    
+                        // Reset look-controls rotation
+                        var lookControls = cameraEntity.components["look-controls"];
+                        if (lookControls) {
+                            lookControls.pitchObject.rotation.set(0, 0, 0);
+                            lookControls.yawObject.rotation.set(0, 0, 0);
+                        }
+                    }
+    
+    
+    
+                    // Function to handle object click
+                    function handleObjectClick(objectId) {
+                        if (!clickedObjects.has(objectId)) {
+                            clickedObjects.add(objectId);
+    
+    
+                            if (clickedObjects.size < selectedObjects.length) {
+                                // Show counter message only if not all objects are found
+                                showCounterMessage(clickedObjects.size);
+                            }
+    
+                            if (clickedObjects.size === selectedObjects.length) {
+                                disableMovementControls();
+                                resetCameraPosition();
+                                endTime = Date.now(); // Set the end time
+                                var elapsedTime = (endTime - startTime) / 1000; // Calculate elapsed time in seconds
+                                showCongratulatoryMessage(elapsedTime); // Pass elapsed time to showCongratulatoryMessage function
+                            }
+    
+                            console.log("Clicked object:", objectId);
+                        }
+                    }
+    
+                    // Function to handle "Play Again" button click
+                    function handlePlayAgainClick() {
+                        location.reload();
+                    }
+    
+                    // Function to handle "End Game" button click
+                    function handleEndGameClick() {
+                        window.location.href = "{% url 'polls:patient_homepage' %}";
+                    }
+    
+    
+                    // Function to show congratulatory message and buttons
+                    function showCongratulatoryMessage(elapsedTime) {
+                        
+                        var intro_sound = document.querySelector("#intro");
+                        intro_sound.pause();
+                        intro_sound.currentTime = 0;
+
+
+
+                        var cursor = document.querySelector("#front-cursor");
+                        var cursorPosition = new THREE.Vector3();
+                        var cursorRotation = new THREE.Quaternion();
+                        cursor.object3D.getWorldPosition(cursorPosition);
+                        cursor.object3D.getWorldQuaternion(cursorRotation);
+    
+                        console.log("Cursor Position:", cursorPosition);
+                        console.log("Cursor Rotation:", cursorRotation);
+    
+                        var scene = document.querySelector("a-scene");
+    
+                        // Create congratulatory message entity
+                        var congratulatoryMessage = document.createElement("a-entity");
+                        congratulatoryMessage.setAttribute("text", {
+                            value: "Congratulations! You found all objects in " + elapsedTime + " seconds.",
+                            align: "center",
+                            wrapCount: 20,
+                            color: "white",
+                        });
+                        congratulatoryMessage.object3D.position.copy(cursorPosition);
+                        congratulatoryMessage.object3D.rotation.setFromQuaternion(cursorRotation);
+                        scene.appendChild(congratulatoryMessage);
+    
+                        // Create "Play Again" button entity
+                        var playAgainButton = createButton("Play Again", handlePlayAgainClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.25, 0)), cursorRotation);
+                        playAgainButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
+                        playAgainButton.setAttribute("material", "color: #2ecc71"); // Change color to green
+                        playAgainButton.setAttribute("text", {
+                            value: "Play Again",
+                            align: "center",
+                            color: "#ffffff",
+                            width: 1.5, // Adjust the width attribute to make the text bigger
+                        });
+                        scene.appendChild(playAgainButton);
+    
+                        // Create "End Game" button entity
+                        var endGameButton = createButton("End Game", handleEndGameClick, cursorPosition.clone().add(new THREE.Vector3(0, -0.50, 0)), cursorRotation);
+                        endGameButton.setAttribute("geometry", "primitive: plane; width: 0.4; height: 0.2");
+                        endGameButton.setAttribute("material", "color: #e74c3c");
+                        endGameButton.setAttribute("text", {
+                            value: "End Game",
+                            align: "center",
+                            color: "#ffffff",
+                            width: 1.5, // Adjust the width attribute to make the text bigger
+                        });
+
+                        
+
+                        const data = {
+							"elapsed_time": elapsedTime,
+							"number_objects": number_objects, 
+                            "game": "find-objects"
+						};
+						console.log("------ COOOKIE ----------");
+						console.log(getCookie("csrftoken"));
+						const options = {
+							method: "POST",
+							headers: {
+								"X-CSRFToken": getCookie("csrftoken"),
+								"Content-Type": "application/json"
+							},
+							body: JSON.stringify(data)
+						};
+ 
+						fetch(server + ":" + port + "/patient/statistics/", options)
+							.then(response => console.log("Hola"))
+							.then(data => console.log("Game session saved:", data))
+							.catch(error => console.error("Error saving game session:", error));
+                        
+                        
+
+
+						   
+							
+							
+						scene.appendChild(endGameButton)
+                       
+                    }
+
+                    
+    
+                    // Function to create a button entity
+                    function createButton(text, clickHandler, position, rotation) {
+                        var button = document.createElement("a-entity");
+                        button.setAttribute("text", {
+                            value: text,
+                            align: "center",
+                            color: "#ffffff",
+                        });
+                        button.object3D.position.copy(position);
+                        button.object3D.rotation.setFromQuaternion(rotation);
+    
+                        button.setAttribute("class", "clickable");
+                        button.addEventListener("click", clickHandler);
+                        button.setAttribute("cursor-listener", "");
+    
+                        return button;
+                    }
+    
+                    // Function to disable movement controls
+                    function disableMovementControls() {
+                        var cameraEntity = document.querySelector("#camera");
+                        cameraEntity.removeAttribute("wasd-controls");
+                    }
+    
+                    // Attach click event listener to each selected object
+                    for (var i = 0; i < selectedObjects.length; i++) {
+                        var objectId = selectedObjects[i];
+                        var objectEntity = document.getElementById(objectId);
+                        objectEntity.addEventListener("click", handleObjectClick.bind(null, objectId));
+                    }
+                    console.log("CAMBIAR OBJETOS", change_objects, new_color);
+                    var clickedObjects = new Set(); // Set to keep track of clicked objects
+                    changeColorForObjects(selectedObjects, color, true);
+                    //changeColorForObjects(change_objects, new_color, false);
+                    //changeColor("id_table", "red");
+                    showInitialMessage();
+                };
+            </script>
+</footer>
+</div>
+  
+  {% include 'polls/game_controls.html' %}
+{% endblock %}
+        
+
